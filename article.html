@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started with seekdb — OceanData4AI Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/theme-init.js"></script>
+</head>
+<body data-page="blog">
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">O4</span>OceanData4AI
+      </a>
+      <nav class="nav-links">
+        <a href="about.html" data-page="about">About</a>
+        <a href="blog.html" data-page="blog">Blog</a>
+        <a href="events.html" data-page="events">Events</a>
+        <a href="join.html" data-page="join">Join</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="join.html" class="btn btn-primary btn-sm">Join Community</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="container article-layout">
+      <article>
+        <header class="article-header">
+          <span class="tag tag-teal">Tutorials</span>
+          <h1>Get Started with seekdb: Install, Deploy, and Run Your First Hybrid Search</h1>
+          <p class="article-byline">OceanBase User Group · Mar 6, 2026 · 8 min read</p>
+        </header>
+        <div class="prose">
+          <p>If you're building a RAG application, you've probably stitched together a vector database, a search engine, and an application database. seekdb aims to collapse that stack into one system — and this guide gets you from zero to a working hybrid search in about 15 minutes.</p>
+
+          <h2>What you'll need</h2>
+          <p>Docker (recommended for local dev), or a Linux/macOS host for native install. Basic familiarity with SQL helps but isn't required — we'll use the CLI for everything.</p>
+
+          <h2>Quick install</h2>
+          <pre>docker pull oceanbase/seekdb:latest
+docker run -d --name seekdb -p 2881:2881 oceanbase/seekdb:latest</pre>
+
+          <p>Once the container is healthy, connect with the default credentials from the docs and create your first table with a vector column.</p>
+
+          <h2>Your first hybrid query</h2>
+          <p>Hybrid search combines dense vector similarity with keyword matching — the pattern most production RAG systems eventually need. With seekdb, both run against the same table:</p>
+          <pre>SELECT id, title, score
+FROM hybrid_search(
+  'machine learning tutorials',
+  embedding := query_embedding('how to train a model'),
+  limit := 10
+);</pre>
+
+          <p>That's it — one query, one database. No syncing embeddings to a separate vector store.</p>
+
+          <h2>Next steps</h2>
+          <p>Explore AI functions, multi-modal search, and deployment options in the full documentation. Join our <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" style="color:var(--accent)" target="_blank" rel="noopener noreferrer">Discord</a> if you hit snags — we're happy to help.</p>
+        </div>
+      </article>
+
+      <aside>
+        <div class="sidebar-card">
+          <h4>Also on Medium</h4>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:14px">This article is cross-published. Read the canonical version on Medium.</p>
+          <a href="https://medium.com/@pub_opensource_global/get-started-with-seekdb-install-deploy-and-run-your-first-hybrid-search-c4c34110621c" class="btn btn-ghost btn-sm" target="_blank" rel="noopener" style="width:100%">Read on Medium ↗</a>
+        </div>
+        <div class="sidebar-card" style="margin-top:16px">
+          <h4>Discuss</h4>
+          <p style="font-size:0.88rem;color:var(--text-muted);margin-bottom:14px">Questions about this tutorial? Ask in #seekdb on Discord.</p>
+          <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-primary btn-sm" target="_blank" rel="noopener" style="width:100%">Join Discord ↗</a>
+        </div>
+        <div class="sidebar-card" style="margin-top:16px">
+          <h4>Related</h4>
+          <ul style="list-style:none;font-size:0.88rem">
+            <li style="margin-bottom:10px"><a href="article.html" style="color:var(--accent)">Stop Stitching Your RAG Stack</a></li>
+            <li style="margin-bottom:10px"><a href="article.html" style="color:var(--accent)">Hybrid Search Core Features</a></li>
+            <li><a href="blog.html" style="color:var(--accent)">All tutorials →</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border:none;padding-top:24px">
+        <span>© 2026 OceanData4AI Community</span>
+        <span><a href="blog.html" style="color:#8b95a8">← Back to Blog</a></span>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

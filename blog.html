@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — OceanData4AI Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/theme-init.js"></script>
+</head>
+<body data-page="blog">
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">O4</span>OceanData4AI
+      </a>
+      <nav class="nav-links">
+        <a href="about.html" data-page="about">About</a>
+        <a href="blog.html" data-page="blog">Blog</a>
+        <a href="events.html" data-page="events">Events</a>
+        <a href="join.html" data-page="join">Join</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
+        <a href="join.html" class="btn btn-primary btn-sm">Join Community</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Blog</h1>
+        <p>Tutorials, deep dives, and community stories on RAG, vectors, agents, and AI data infrastructure.</p>
+      </div>
+    </div>
+
+    <section style="padding-top:40px">
+      <div class="container">
+        <div class="blog-toolbar">
+          <div class="filter-tabs">
+            <button type="button" class="active" data-filter="all">All</button>
+            <button type="button" data-filter="news">News & Updates</button>
+            <button type="button" data-filter="tutorials">Tutorials</button>
+            <button type="button" data-filter="deep">Deep Dives</button>
+            <button type="button" data-filter="community">From the Community</button>
+          </div>
+          <a href="https://medium.com/@pub_opensource_global" class="link-arrow" target="_blank" rel="noopener">
+            Read on Medium
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+          </a>
+        </div>
+
+        <div class="articles-grid">
+          <a href="https://medium.com/@pub_opensource_global/get-started-with-seekdb-install-deploy-and-run-your-first-hybrid-search-c4c34110621c" class="article-card" data-category="tutorials" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-teal">Tutorials</span></div>
+              <h3>Get Started with seekdb: Install, Deploy, and Run Your First Hybrid Search</h3>
+              <p class="article-excerpt">From zero to your first vector + full-text query in under 15 minutes.</p>
+              <div class="article-footer"><span>OceanBase User Group</span><span>Mar 6, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/from-zero-to-seekdb/why-your-vector-database-benchmark-is-wrong-for-ai-agents-ecc5f7a55dd5" class="article-card" data-category="deep" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
+              <h3>Why Your Vector Database Benchmark Is Wrong for AI Agents</h3>
+              <p class="article-excerpt">Why agent workloads break traditional benchmark assumptions.</p>
+              <div class="article-footer"><span>Charles Wu</span><span>Jun 1, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/from-zero-to-seekdb/memory-md-every-turn-thats-noise-not-memory-af3cab38f0c1" class="article-card" data-category="deep" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
+              <h3>MEMORY.md Every Turn — That's Noise, Not Memory</h3>
+              <p class="article-excerpt">Design agent memory that scales without polluting every context window.</p>
+              <div class="article-footer"><span>Charles Wu</span><span>Mar 24, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/@pub_opensource_global/cli-over-mcp-why-ai-agents-need-a-different-kind-of-database-interface-98f3bfe3dd0f" class="article-card" data-category="tutorials" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-teal">Tutorials</span></div>
+              <h3>CLI Over MCP: Why AI Agents Need a Different Kind of Database Interface</h3>
+              <p class="article-excerpt">When structured tool calls beat raw SQL for agent-friendly APIs.</p>
+              <div class="article-footer"><span>OceanBase User Group</span><span>Mar 27, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/ob4ai/beyond-rag-why-knowledge-engineering-becomes-the-real-moat-in-the-agent-era-1f77e579ccaa" class="article-card" data-category="deep" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
+              <h3>Beyond RAG: Why Knowledge Engineering Becomes the Real Moat</h3>
+              <p class="article-excerpt">Curation, freshness, and trust in knowledge graphs beat naive retrieval.</p>
+              <div class="article-footer"><span>Charles Wu</span><span>May 7, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/from-zero-to-seekdb/stop-stitching-your-rag-stack-why-we-built-seekdb-a3b9725fd844" class="article-card" data-category="tutorials" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-teal">Tutorials</span></div>
+              <h3>Stop Stitching Your RAG Stack: Why We Built seekdb</h3>
+              <p class="article-excerpt">One database for vectors, full-text, and AI functions — less glue code.</p>
+              <div class="article-footer"><span>OceanBase User Group</span><span>Mar 3, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/from-zero-to-seekdb/building-rag-knowledge-bases-with-seekdb-three-paths-one-stack-a60445abd0a8" class="article-card" data-category="tutorials" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-teal">Tutorials</span></div>
+              <h3>Building RAG & Knowledge Bases with seekdb: Three Paths, One Stack</h3>
+              <p class="article-excerpt">Three architecture patterns for production RAG on a single data layer.</p>
+              <div class="article-footer"><span>OceanBase User Group</span><span>Mar 11, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/@pub_opensource_global" class="article-card" data-category="news" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-slate">News & Updates</span></div>
+              <h3>Welcome to OceanData4AI — Your Hub for AI Data Infrastructure</h3>
+              <p class="article-excerpt">Launching a vendor-neutral community for RAG, vectors, and agent memory.</p>
+              <div class="article-footer"><span>OceanData4AI Team</span><span>Jun 9, 2026</span></div>
+            </div>
+          </a>
+          <a href="https://medium.com/ob4ai/harness-engineering-in-practice-building-a-6-agent-system-that-runs-itself-bf2493075f3d" class="article-card" data-category="community" target="_blank" rel="noopener noreferrer">
+            <div class="article-body">
+              <div class="article-meta"><span class="tag tag-amber">From the Community</span></div>
+              <h3>Harness Engineering in Practice: Building a 6-Agent System</h3>
+              <p class="article-excerpt">Patterns for orchestrating multiple agents with shared memory and tools.</p>
+              <div class="article-footer"><span>Charles Wu</span><span>Apr 22, 2026</span></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+        <span class="logo-mark">O4</span>OceanData4AI
+      </a>
+          <p>A vendor-neutral community for AI data infrastructure builders.</p>
+          <p class="footer-note">Initiated with support from OceanBase</p>
+        </div>
+        <div class="footer-col"><h4>Community</h4><ul><li><a href="about.html">About</a></li><li><a href="join.html">Join</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Medium ↗</a></li><li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="conduct.html">Code of Conduct</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 OceanData4AI Community</span><span>Built for builders · Not a sales page</span></div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

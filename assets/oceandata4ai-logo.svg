@@ -1,0 +1,20 @@
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="o4g" x1="12" y1="10" x2="66" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#14B8A6"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <radialGradient id="o4glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(40 40) rotate(90) scale(36)">
+      <stop stop-color="#A5B4FC" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#A5B4FC" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="8" y="8" width="64" height="64" rx="18" fill="#0B1220"/>
+  <rect x="8" y="8" width="64" height="64" rx="18" fill="url(#o4glow)"/>
+  <rect x="10" y="10" width="60" height="60" rx="16" stroke="url(#o4g)" stroke-opacity="0.45" stroke-width="2"/>
+  <path d="M24 40C24 31.16 31.16 24 40 24C48.84 24 56 31.16 56 40C56 48.84 48.84 56 40 56C31.16 56 24 48.84 24 40Z" stroke="url(#o4g)" stroke-width="5"/>
+  <path d="M41 25V55" stroke="url(#o4g)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M47 46H59" stroke="url(#o4g)" stroke-width="5" stroke-linecap="round"/>
+  <path d="M53 40V52" stroke="url(#o4g)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="59" cy="40" r="2.5" fill="#34D399"/>
+</svg>

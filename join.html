@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join — OceanData4AI Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/theme-init.js"></script>
+</head>
+<body data-page="join">
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">O4</span>OceanData4AI
+      </a>
+      <nav class="nav-links">
+        <a href="about.html" data-page="about">About</a>
+        <a href="blog.html" data-page="blog">Blog</a>
+        <a href="events.html" data-page="events">Events</a>
+        <a href="join.html" data-page="join">Join</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
+        <a href="join.html" class="btn btn-primary btn-sm">Join Community</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Join the community</h1>
+        <p>Pick your path — chat on Discord, contribute on GitHub, follow us on LinkedIn, or apply to write as a Fellow.</p>
+      </div>
+    </div>
+
+    <section style="padding-top:48px">
+      <div class="container join-layout">
+        <div class="join-paths">
+          <div class="path-card featured">
+            <h3>💬 Discord — fastest way in</h3>
+            <p>Introduce yourself in #introductions, ask questions, join office hours. No OceanBase experience required.</p>
+            <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-primary" target="_blank" rel="noopener">Join Discord ↗</a>
+          </div>
+          <div class="path-card">
+            <h3>⌥ GitHub — contribute code & docs</h3>
+            <p>Star repos, open issues, submit PRs. See our contribution guidelines on GitHub.</p>
+            <a href="https://github.com/oceanbase" class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub ↗</a>
+          </div>
+          <div class="path-card">
+            <h3>📅 Events — meet us live</h3>
+            <p>Office hours, workshops, and AMAs announced in Discord. Great if you prefer live interaction.</p>
+            <a href="events.html" class="btn btn-ghost">Browse events</a>
+          </div>
+          <div class="path-card">
+            <h3>LinkedIn — stay in the loop</h3>
+            <p>Join our group for updates, discussions, and community news between live sessions.</p>
+            <a href="https://www.linkedin.com/groups/24360001/" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Join on LinkedIn ↗</a>
+          </div>
+        </div>
+
+        <div class="form-card" id="fellows">
+          <h2>Apply as a Fellow</h2>
+          <p class="form-note">Fellows publish under the OceanData4AI brand, get editorial support, and help shape community content. We respond within <strong>5–7 business days</strong>.</p>
+          <form data-formspree="fellows">
+            <input type="hidden" name="_subject" value="OceanData4AI Fellow Application" />
+            <div class="form-group">
+              <label for="name">Full name *</label>
+              <input type="text" id="name" name="name" required placeholder="Jane Builder" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label for="profile">GitHub or LinkedIn *</label>
+              <input type="url" id="profile" name="profile" required placeholder="https://github.com/yourname" />
+            </div>
+            <div class="form-group">
+              <label for="topics">Topic interests *</label>
+              <select id="topics" name="topics" required>
+                <option value="">Select a primary topic</option>
+                <option>RAG & retrieval</option>
+                <option>Vector databases</option>
+                <option>Agent memory</option>
+                <option>Hybrid search</option>
+                <option>Knowledge engineering</option>
+                <option>Other AI data infra</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sample">Sample writing *</label>
+              <textarea id="sample" name="sample" required placeholder="Link to a blog post, talk, or paste a short writing sample (200+ words)"></textarea>
+              <p class="hint">We look for clarity, accuracy, and builder empathy — not marketing copy.</p>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Submit application</button>
+            <div class="form-error" role="alert"></div>
+            <div class="form-success">Thanks! Your application has been received. We'll reply within 5–7 business days.</div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+        <span class="logo-mark">O4</span>OceanData4AI
+      </a>
+          <p>A vendor-neutral community for AI data infrastructure builders.</p>
+          <p class="footer-note">Initiated with support from OceanBase</p>
+        </div>
+        <div class="footer-col"><h4>Community</h4><ul><li><a href="about.html">About</a></li><li><a href="join.html">Join</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Medium ↗</a></li><li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="conduct.html">Code of Conduct</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 OceanData4AI Community</span><span>Built for builders · Not a sales page</span></div>
+    </div>
+  </footer>
+  <script src="js/form-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
