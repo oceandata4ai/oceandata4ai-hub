@@ -41,7 +41,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  document.querySelectorAll('.filter-tabs').forEach((tabs) => {
+  document.querySelectorAll('.filter-tabs[data-tag-filters]').forEach((tabs) => {
+    tabs.addEventListener('click', (e) => {
+      const btn = e.target.closest('button');
+      if (!btn) return;
+      tabs.querySelectorAll('button').forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.articles-grid [data-category]').forEach((card) => {
+        const show = filter === 'all' || card.dataset.category === filter;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  document.querySelectorAll('.filter-tabs:not([data-tag-filters])').forEach((tabs) => {
     tabs.addEventListener('click', (e) => {
       const btn = e.target.closest('button');
       if (!btn) return;

@@ -6,11 +6,12 @@
   <title>Blog — OceanData4AI Community</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/tech.css" />
   <script src="js/theme-init.js"></script>
 </head>
-<body data-page="blog">
+<body class="page-shell" data-page="blog">
 
   <header class="nav" id="nav">
     <div class="container nav-inner">
@@ -19,8 +20,10 @@
       </a>
       <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
+        <a href="ask-oug.html" data-page="ask-oug">Forums</a>
         <a href="blog.html" data-page="blog">Blog</a>
         <a href="events.html" data-page="events">Events</a>
+        <a href="fellows.html" data-page="fellows">Fellows</a>
         <a href="join.html" data-page="join">Join</a>
       </nav>
       <div class="nav-actions">
@@ -34,21 +37,22 @@
 
   <main>
     <div class="page-hero">
-      <div class="container">
+      <div class="container reveal">
+        <div class="section-kicker">Articles</div>
         <h1>Blog</h1>
-        <p>Tutorials, deep dives, and community stories on RAG, vectors, agents, and AI data infrastructure.</p>
+        <p>Tutorials, deep dives, and user stories on AI data infrastructure — one feed, filtered by topic tags.</p>
       </div>
     </div>
 
     <section style="padding-top:40px">
       <div class="container">
         <div class="blog-toolbar">
-          <div class="filter-tabs">
+          <div class="filter-tabs" data-tag-filters>
             <button type="button" class="active" data-filter="all">All</button>
             <button type="button" data-filter="news">News & Updates</button>
             <button type="button" data-filter="tutorials">Tutorials</button>
             <button type="button" data-filter="deep">Deep Dives</button>
-            <button type="button" data-filter="community">Builder Stories</button>
+            <button type="button" data-filter="user-stories">User Stories</button>
           </div>
           <a href="https://medium.com/@pub_opensource_global" class="link-arrow" target="_blank" rel="noopener">
             Read on Medium
@@ -70,7 +74,7 @@
               <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
               <h3>Why Your Vector Database Benchmark Is Wrong for AI Agents</h3>
               <p class="article-excerpt">Why agent workloads break traditional benchmark assumptions.</p>
-              <div class="article-footer"><span>Charles Wu</span><span>Jun 1, 2026</span></div>
+              <div class="article-footer"><span>Harry Zhang</span><span>Jun 1, 2026</span></div>
             </div>
           </a>
           <a href="https://medium.com/from-zero-to-seekdb/memory-md-every-turn-thats-noise-not-memory-af3cab38f0c1" class="article-card" data-category="deep" target="_blank" rel="noopener noreferrer">
@@ -78,7 +82,7 @@
               <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
               <h3>MEMORY.md Every Turn — That's Noise, Not Memory</h3>
               <p class="article-excerpt">Design agent memory that scales without polluting every context window.</p>
-              <div class="article-footer"><span>Charles Wu</span><span>Mar 24, 2026</span></div>
+              <div class="article-footer"><span>Harry Zhang</span><span>Mar 24, 2026</span></div>
             </div>
           </a>
           <a href="https://medium.com/@pub_opensource_global/cli-over-mcp-why-ai-agents-need-a-different-kind-of-database-interface-98f3bfe3dd0f" class="article-card" data-category="tutorials" target="_blank" rel="noopener noreferrer">
@@ -94,7 +98,7 @@
               <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
               <h3>Beyond RAG: Why Knowledge Engineering Becomes the Real Moat</h3>
               <p class="article-excerpt">Curation, freshness, and trust in knowledge graphs beat naive retrieval.</p>
-              <div class="article-footer"><span>Charles Wu</span><span>May 7, 2026</span></div>
+              <div class="article-footer"><span>Harry Zhang</span><span>May 7, 2026</span></div>
             </div>
           </a>
           <a href="https://medium.com/from-zero-to-seekdb/stop-stitching-your-rag-stack-why-we-built-seekdb-a3b9725fd844" class="article-card" data-category="tutorials" target="_blank" rel="noopener noreferrer">
@@ -121,12 +125,12 @@
               <div class="article-footer"><span>OceanData4AI Team</span><span>Jun 9, 2026</span></div>
             </div>
           </a>
-          <a href="https://medium.com/ob4ai/harness-engineering-in-practice-building-a-6-agent-system-that-runs-itself-bf2493075f3d" class="article-card" data-category="community" target="_blank" rel="noopener noreferrer">
+          <a href="https://medium.com/ob4ai/harness-engineering-in-practice-building-a-6-agent-system-that-runs-itself-bf2493075f3d" class="article-card" data-category="user-stories" target="_blank" rel="noopener noreferrer">
             <div class="article-body">
-              <div class="article-meta"><span class="tag tag-amber">Builder Stories</span></div>
+              <div class="article-meta"><span class="tag tag-amber">User Stories</span></div>
               <h3>Harness Engineering in Practice: Building a 6-Agent System</h3>
               <p class="article-excerpt">Patterns for orchestrating multiple agents with shared memory and tools.</p>
-              <div class="article-footer"><span>Charles Wu</span><span>Apr 22, 2026</span></div>
+              <div class="article-footer"><span>Harry Zhang</span><span>Apr 22, 2026</span></div>
             </div>
           </a>
         </div>
@@ -151,6 +155,7 @@
       <div class="footer-bottom"><span>© 2026 OceanData4AI Community</span><span>Built for builders · Not a sales page</span></div>
     </div>
   </footer>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/effects.js" defer></script>
 </body>
 </html>

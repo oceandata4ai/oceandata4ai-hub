@@ -6,11 +6,12 @@
   <title>Join — OceanData4AI Community</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/tech.css" />
   <script src="js/theme-init.js"></script>
 </head>
-<body data-page="join">
+<body class="page-shell" data-page="join">
 
   <header class="nav" id="nav">
     <div class="container nav-inner">
@@ -19,8 +20,10 @@
       </a>
       <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
+        <a href="ask-oug.html" data-page="ask-oug">Forums</a>
         <a href="blog.html" data-page="blog">Blog</a>
         <a href="events.html" data-page="events">Events</a>
+        <a href="fellows.html" data-page="fellows">Fellows</a>
         <a href="join.html" data-page="join">Join</a>
       </nav>
       <div class="nav-actions">
@@ -35,12 +38,13 @@
   <main>
     <div class="page-hero">
       <div class="container">
+        <div class="section-kicker">Community</div>
         <h1>Join the community</h1>
         <p>Pick your path — chat on Discord, contribute on GitHub, follow us on LinkedIn, or apply to write as a Fellow.</p>
       </div>
     </div>
 
-    <section style="padding-top:48px">
+    <section style="padding-top:48px;padding-bottom:24px">
       <div class="container join-layout">
         <div class="join-paths">
           <div class="path-card featured">
@@ -126,6 +130,7 @@
     </div>
   </footer>
   <script src="js/form-config.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/effects.js" defer></script>
 </body>
 </html>

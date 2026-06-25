@@ -4,6 +4,8 @@ Static HTML prototype matching PRD Phase 1 (7-page Hub + SaaS links). Open in an
 
 ## Preview
 
+**Live demo (GitHub Pages):** https://oceandata4ai.github.io/oceandata4ai-hub/
+
 ```bash
 open /Users/gongbo/Downloads/wechat-to-yuque/data4ai-hub/index.html
 ```
@@ -22,6 +24,8 @@ python3 -m http.server 8080
 |------|----------|-------|
 | `index.html` | Home | Hero, latest articles, gather, events, join CTA |
 | `about.html` | About | Mission, neutrality, stats |
+| `fellows.html` | Fellows | Directory grid + topic filters (Phase 3 preview) |
+| `fellow.html?slug=…` | Fellow profile | Bio + recent articles |
 | `join.html` | Join | Discord/GitHub paths + Fellows form (Formspree) |
 | `blog.html` | Blog | Category filters + article grid |
 | `article.html` | Blog detail | Sample tutorial + Medium/Discord sidebar |
