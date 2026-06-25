@@ -6,6 +6,8 @@ Static HTML prototype matching PRD Phase 1 (7-page Hub + SaaS links). Open in an
 
 **Live demo (GitHub Pages):** https://oceandata4ai.github.io/oceandata4ai-hub/
 
+**M1 milestone demo (separate):** https://oceandata4ai.github.io/oceandata4ai-hub/m1/
+
 ```bash
 open /Users/gongbo/Downloads/wechat-to-yuque/data4ai-hub/index.html
 ```

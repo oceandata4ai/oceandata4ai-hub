@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — OceanData4AI M1</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/m1.css" />
+</head>
+<body data-page="contact">
+  <div class="ambient" aria-hidden="true"></div>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <div class="m1-banner">M1 Milestone Demo · <a href="../index.html">View original hub ↗</a></div>
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo"><span class="logo-hex">O4</span>OceanData4AI</a>
+      <nav class="nav-links">
+        <a href="about.html" data-page="about">About</a>
+        <a href="forums.html" data-page="forums">Forums</a>
+        <a href="blog.html" data-page="blog">Blog</a>
+        <a href="events.html" data-page="events">Events</a>
+        <a href="join.html" data-page="join">Join</a>
+        <a href="contact.html" data-page="contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+  <main>
+    <div class="page-hero"><div class="container"><h1>Contact</h1><p>Partnerships, press, or community questions.</p></div></div>
+    <section><div class="container">
+      <div class="form-card">
+        <form data-demo-form>
+          <div class="form-group"><label for="name">Name</label><input id="name" name="name" required /></div>
+          <div class="form-group"><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+          <div class="form-group"><label for="topic">Topic</label>
+            <select id="topic" name="topic"><option>General inquiry</option><option>Partnership</option><option>Press</option><option>Report an issue</option></select>
+          </div>
+          <div class="form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-msg" style="margin-top:0.75rem;font-size:0.85rem"></p>
+        </form>
+      </div>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 OceanData4AI</span></div></div></footer>
+  <script src="js/m1.js"></script>
+</body>
+</html>
