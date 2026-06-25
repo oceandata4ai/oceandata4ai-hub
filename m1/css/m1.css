@@ -332,7 +332,77 @@ section { padding: 3.5rem 0; }
 .gather-item strong { font-size: 0.95rem; }
 .gather-item span { font-size: 0.8rem; color: var(--text-muted); }
 
-/* Blog */
+/* Blog — tag series legend */
+.tag-series {
+  margin-bottom: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  overflow: hidden;
+}
+.tag-series-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(34, 211, 238, 0.04);
+}
+.tag-series-head h2 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.tag-series-head span {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.tag-series-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+.tag-series-table th,
+.tag-series-table td {
+  padding: 0.85rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.tag-series-table tr:last-child td { border-bottom: none; }
+.tag-series-table th {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  background: rgba(6, 8, 15, 0.4);
+}
+.tag-series-table code {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--accent);
+}
+.tag-series-table td:nth-child(4) {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  text-align: center;
+  width: 4.5rem;
+}
+.tag-series-table tbody tr:hover td {
+  background: rgba(34, 211, 238, 0.04);
+}
+
 .filter-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -510,6 +580,8 @@ section { padding: 3.5rem 0; }
   .hero-grid { grid-template-columns: 1fr; }
   .gather-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
+  .tag-series-table th:nth-child(4),
+  .tag-series-table td:nth-child(4) { display: none; }
   .nav-links, .nav-actions .btn-ghost { display: none; }
   .nav-toggle { display: block; }
   .nav.open .nav-links {
