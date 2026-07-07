@@ -88,6 +88,12 @@ a:hover { text-decoration: underline; }
   text-decoration: none;
 }
 .logo:hover { text-decoration: none; }
+.logo-img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
 .logo-hex {
   width: 36px;
   height: 36px;
