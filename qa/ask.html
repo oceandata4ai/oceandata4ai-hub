@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New topic — OceanData4AI Community</title>
+  <link rel="icon" href="../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/tech.css" />
+  <link rel="stylesheet" href="../css/qa.css" />
+  <script src="../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="qa-ask">
+
+  <div class="qa-banner"><strong>M1</strong> · On-site Q&amp;A demo · Posting opens after legal review</div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <img src="../assets/oceandata4ai-logo.svg" alt="" class="logo-img" width="36" height="36" />
+        OceanData4AI
+      </a>
+      <nav class="nav-links">
+        <a href="../about.html" data-page="about">About</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false">Q&amp;A ▾</button>
+          <div class="nav-dropdown-menu">
+            <a href="oug-help.html" data-page="qa-oug">OUG Help</a>
+            <a href="o4ai-chat.html" data-page="qa-o4ai">O4AI Chat</a>
+          </div>
+        </div>
+        <a href="../blog.html" data-page="blog">Blog</a>
+        <a href="../events.html" data-page="events">Events</a>
+        <a href="../join.html" data-page="join">Join</a>
+      </nav>
+      <div class="nav-actions">
+        <a href="../join.html" class="btn btn-primary btn-sm">Join Community</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding: 48px 0 80px">
+      <div class="container" style="max-width:640px">
+        <div class="section-kicker">New topic</div>
+        <h1>Start a discussion</h1>
+        <p style="color:var(--text-muted);margin-bottom:24px">Compose your question on-site. Publishing will be enabled when hosted Q&amp;A goes live.</p>
+        <form class="qa-ask-form" id="qa-ask-form">
+          <label>Board
+            <select name="board" id="qa-board">
+              <option value="oug-help">OUG Help — product &amp; deployment</option>
+              <option value="o4ai-chat">O4AI Chat — AI infra discussion</option>
+            </select>
+          </label>
+          <label>Title
+            <input type="text" name="title" required placeholder="Summarize your question" />
+          </label>
+          <label>Body
+            <textarea name="body" rows="8" required placeholder="Include version, environment, and steps to reproduce if applicable."></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Preview topic</button>
+          <p class="form-note" id="qa-ask-note">Demo only — your topic will not be published until Q&amp;A posting is enabled.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 OceanData4AI</span></div></div></footer>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const board = params.get('board');
+    if (board) document.getElementById('qa-board').value = board;
+    document.getElementById('qa-ask-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('qa-ask-note').textContent =
+        'Thanks — preview saved locally for demo. Full posting opens after legal review & Discourse setup.';
+    });
+  </script>
+  <script src="../js/main.js" defer></script>
+</body>
+</html>

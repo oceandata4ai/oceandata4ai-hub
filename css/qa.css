@@ -99,6 +99,82 @@
 .qa-pinned .qa-topic-title::before {
   content: '📌 ';
 }
+.qa-thread { margin-bottom: 32px; }
+.qa-thread h1 { font-size: 1.75rem; margin-bottom: 12px; }
+.qa-thread-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+.qa-thread-body {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+.qa-thread-body pre {
+  background: var(--bg-muted);
+  padding: 14px 16px;
+  border-radius: 10px;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  margin: 12px 0;
+}
+.qa-thread-body code {
+  font-family: var(--mono);
+  font-size: 0.88em;
+  background: var(--bg-muted);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.qa-replies h2 { font-size: 1.1rem; margin-bottom: 16px; }
+.qa-reply {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  background: var(--bg-elevated);
+}
+.qa-reply header {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.qa-reply-body { line-height: 1.6; font-size: 0.95rem; }
+.qa-no-replies { color: var(--text-muted); font-size: 0.92rem; margin: 24px 0; }
+.qa-breadcrumb {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.qa-breadcrumb a { color: var(--accent); }
+.qa-reply-form-demo {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.qa-reply-form-demo h3 { margin-bottom: 8px; }
+.qa-ask-form {
+  max-width: 640px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.qa-ask-form label { display: flex; flex-direction: column; gap: 6px; font-size: 0.9rem; font-weight: 600; }
+.qa-ask-form input,
+.qa-ask-form textarea,
+.qa-ask-form select {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-elevated);
+  color: var(--text);
+}
+.qa-error { color: var(--text-muted); padding: 40px 0; }
 @media (max-width: 768px) {
   .qa-layout { grid-template-columns: 1fr; }
   .qa-sidebar { display: none; }
