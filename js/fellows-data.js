@@ -73,7 +73,7 @@ window.FELLOWS_DATA = [
       {
         title: 'Harness Engineering in Practice: Building a 6-Agent System',
         url: 'https://medium.com/ob4ai/harness-engineering-in-practice-building-a-6-agent-system-that-runs-itself-bf2493075f3d',
-        tag: 'User Stories',
+        tag: 'Builder Stories',
       },
     ],
   },

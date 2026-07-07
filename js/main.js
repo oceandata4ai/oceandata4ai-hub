@@ -29,16 +29,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   if (toggle && nav) {
     toggle.addEventListener('click', () => nav.classList.toggle('open'));
-    nav.querySelectorAll('.nav-links a').forEach((link) => {
+    nav.querySelectorAll('.nav-links a, .nav-dropdown-menu a').forEach((link) => {
       link.addEventListener('click', () => nav.classList.remove('open'));
     });
   }
+
+  document.querySelectorAll('[data-nav-dropdown]').forEach((dropdown) => {
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = dropdown.classList.toggle('open');
+      trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+  document.addEventListener('click', () => {
+    document.querySelectorAll('[data-nav-dropdown].open').forEach((dropdown) => {
+      dropdown.classList.remove('open');
+      const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  });
 
   const current = document.body.dataset.page;
   if (current) {
     document.querySelectorAll(`.nav-links a[data-page="${current}"]`).forEach((el) => {
       el.classList.add('active');
     });
+    document.querySelectorAll(`.nav-dropdown-menu a[data-page="${current}"]`).forEach((el) => {
+      el.classList.add('active');
+      const dropdown = el.closest('[data-nav-dropdown]');
+      if (dropdown) dropdown.querySelector('.nav-dropdown-trigger')?.classList.add('active');
+    });
+    if (current === 'qa-oug' || current === 'qa-o4ai') {
+      document.querySelectorAll('[data-nav-dropdown] .nav-dropdown-trigger').forEach((el) => {
+        el.classList.add('active');
+      });
+    }
   }
 
   document.querySelectorAll('.filter-tabs[data-tag-filters]').forEach((tabs) => {

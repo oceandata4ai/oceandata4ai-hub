@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/oceandata4ai-logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/tech.css" />
   <script src="js/theme-init.js"></script>
@@ -17,11 +18,18 @@
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark">O4</span>OceanData4AI
+        <img src="assets/oceandata4ai-logo.svg" alt="" class="logo-img" width="36" height="36" />
+        OceanData4AI
       </a>
       <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
-        <a href="ask-oug.html" data-page="ask-oug">Forums</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false">Q&amp;A <span aria-hidden="true">▾</span></button>
+          <div class="nav-dropdown-menu">
+            <a href="qa/oug-help.html" data-page="qa-oug">OUG Help<small>Product &amp; deployment Q&amp;A</small></a>
+            <a href="qa/o4ai-chat.html" data-page="qa-o4ai">O4AI Chat<small>AI infra discussion</small></a>
+          </div>
+        </div>
         <a href="blog.html" data-page="blog">Blog</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="fellows.html" data-page="fellows">Fellows</a>
@@ -32,6 +40,7 @@
           <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
         </button>
         <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="https://github.com/oceandata4ai" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
         <a href="join.html" class="btn btn-primary btn-sm btn-glow">Join Community</a>
       </div>
@@ -67,7 +76,7 @@
           <div class="hero-cta">
             <a href="join.html" class="btn btn-primary btn-glow">Join Community</a>
             <a href="blog.html" class="btn btn-ghost">Read the Blog</a>
-            <a href="ask-oug.html" class="btn btn-ghost">Browse Forums</a>
+            <a href="qa/oug-help.html" class="btn btn-ghost">Browse Q&A</a>
           </div>
           <div class="hero-stats">
             <div class="stat">
@@ -119,7 +128,7 @@
                 </a>
                 <a href="https://medium.com/ob4ai/harness-engineering-in-practice-building-a-6-agent-system-that-runs-itself-bf2493075f3d" class="feed-item" target="_blank" rel="noopener noreferrer">
                   <div class="feed-title">Harness Engineering in Practice: Building a 6-Agent System</div>
-                  <div class="feed-meta"><span class="tag tag-amber">User Stories</span> · Apr 22, 2026</div>
+                  <div class="feed-meta"><span class="tag tag-amber">Builder Stories</span> · Apr 22, 2026</div>
                 </a>
               </div>
             </div>
@@ -138,15 +147,20 @@
           </div>
         </div>
         <div class="gather-grid">
-          <a href="ask-oug.html" class="gather-card">
+          <a href="qa/oug-help.html" class="gather-card">
             <div class="gather-icon" style="background:var(--accent);color:white">?</div>
-            <h3>Forums</h3>
-            <p>Product questions, deployment, and architecture — answered by the community.</p>
+            <h3>OUG Help</h3>
+            <p>Product questions, deployment, and architecture — searchable Q&amp;A.</p>
+          </a>
+          <a href="qa/o4ai-chat.html" class="gather-card">
+            <div class="gather-icon" style="background:var(--violet);color:white">💬</div>
+            <h3>O4AI Chat</h3>
+            <p>RAG, vectors, agents — open discussion for builders.</p>
           </a>
           <a href="blog.html" class="gather-card">
             <div class="gather-icon" style="background:var(--violet);color:white">✎</div>
             <h3>Blog</h3>
-            <p>Tutorials, deep dives, and user stories on AI data infrastructure.</p>
+            <p>Tutorials, deep dives, and builder stories on AI data infrastructure.</p>
           </a>
           <a href="events.html" class="gather-card">
             <div class="gather-icon" style="background:var(--highlight);color:white">◷</div>
@@ -156,7 +170,7 @@
           <a href="fellows.html" class="gather-card">
             <div class="gather-icon" style="background:var(--warm);color:white">★</div>
             <h3>Fellows</h3>
-            <p>Featured contributors — tutorials, deep dives, and user stories.</p>
+            <p>Featured contributors — tutorials, deep dives, and builder stories.</p>
           </a>
           <a href="join.html" class="gather-card">
             <div class="gather-icon" style="background:var(--accent);color:white">+</div>
@@ -207,7 +221,7 @@
           <div>
             <div class="section-kicker">Blog</div>
             <h2>Latest from the community</h2>
-            <p>Tutorials, deep dives, and user stories — filter by topic, not by team or module.</p>
+            <p>Tutorials, deep dives, and builder stories — filter by topic, not by team or module.</p>
           </div>
           <a href="blog.html" class="link-arrow">
             View all articles
@@ -359,7 +373,8 @@
             <p>Join Discord for daily discussion, apply to become a Fellow, or star us on GitHub. Everyone welcome — especially if you don't know OceanBase yet.</p>
           </div>
           <div class="join-actions">
-            <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-white" target="_blank" rel="noopener noreferrer">Join Discord</a>
+            <a href="qa/oug-help.html" class="btn btn-white">Ask in Q&amp;A</a>
+            <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-outline-white" target="_blank" rel="noopener noreferrer">Join Discord</a>
             <a href="fellows.html" class="btn btn-outline-white">Meet Fellows</a>
           </div>
         </div>
@@ -381,7 +396,8 @@
           <h4>Community</h4>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="ask-oug.html">Forums</a></li>
+            <li><a href="qa/oug-help.html">OUG Help</a></li>
+            <li><a href="qa/o4ai-chat.html">O4AI Chat</a></li>
             <li><a href="join.html">Join</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="events.html">Events</a></li>

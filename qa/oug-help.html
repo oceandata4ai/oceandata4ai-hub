@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OUG Help — OceanData4AI Community</title>
+  <meta name="description" content="Product troubleshooting, how-to guides, and deployment help for OceanBase and seekdb." />
+  <link rel="icon" href="../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/tech.css" />
+  <link rel="stylesheet" href="../css/qa.css" />
+  <script src="../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="qa-oug">
+
+  <div class="qa-banner"><strong>M1</strong> · Hosted Q&amp;A (Discourse) launches after legal review · Browse &amp; search demo below</div>
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <img src="../assets/oceandata4ai-logo.svg" alt="" class="logo-img" width="36" height="36" />
+        OceanData4AI
+      </a>
+      <nav class="nav-links">
+        <a href="../about.html" data-page="about">About</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false">Q&amp;A <span aria-hidden="true">▾</span></button>
+          <div class="nav-dropdown-menu">
+            <a href="oug-help.html" data-page="qa-oug">OUG Help<small>Product &amp; deployment Q&amp;A</small></a>
+            <a href="o4ai-chat.html" data-page="qa-o4ai">O4AI Chat<small>AI infra discussion</small></a>
+          </div>
+        </div>
+        <a href="../blog.html" data-page="blog">Blog</a>
+        <a href="../events.html" data-page="events">Events</a>
+        <a href="../fellows.html" data-page="fellows">Fellows</a>
+        <a href="../join.html" data-page="join">Join</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-ghost btn-sm theme-toggle" type="button" aria-label="Switch theme"><span class="theme-toggle-icon" aria-hidden="true">🌙</span></button>
+        <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="https://github.com/oceandata4ai" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
+        <a href="../join.html" class="btn btn-primary btn-sm btn-glow">Join Community</a>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section style="padding: 48px 0 80px">
+      <div class="container qa-layout">
+        <aside class="qa-sidebar">
+          <h3>Q&amp;A</h3>
+          <ul>
+            <li><a href="oug-help.html" class="active">OUG Help</a></li>
+            <li><a href="o4ai-chat.html">O4AI Chat</a></li>
+          </ul>
+          <h3 style="margin-top:24px">Tags</h3>
+          <ul>
+            <li><a href="#">seekdb</a></li>
+            <li><a href="#">deployment</a></li>
+            <li><a href="#">vector</a></li>
+            <li><a href="#">hybrid-search</a></li>
+          </ul>
+        </aside>
+        <div>
+          <div class="qa-header reveal">
+            <div class="section-kicker">OUG Help</div>
+            <h1>Product &amp; deployment Q&amp;A</h1>
+            <p>Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros.</p>
+            <div class="qa-actions">
+              <a href="https://www.reddit.com/r/OceanBase_User_Group/submit" class="btn btn-primary" target="_blank" rel="noopener">Ask on Reddit ↗</a>
+              <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost" target="_blank" rel="noopener">Discord #help ↗</a>
+            </div>
+          </div>
+          <table class="qa-topic-table reveal">
+            <thead>
+              <tr>
+                <th>Topic</th>
+                <th class="num">Replies</th>
+                <th class="num">Views</th>
+                <th class="num">Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="qa-pinned">
+                <td>
+                  <a class="qa-topic-title" href="#">About the OUG Help category</a>
+                  <div class="qa-topic-excerpt">Search before posting. Include version, OS, and minimal repro. English preferred; BGO team responds within 2 business days.</div>
+                </td>
+                <td class="num">0</td>
+                <td class="num">1.2k</td>
+                <td class="num">Jul 2026</td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="qa-topic-title" href="https://www.reddit.com/r/OceanBase_User_Group/" target="_blank" rel="noopener">seekdb hybrid search returns empty — knn + BM25 in one SQL</a>
+                  <div class="qa-topic-excerpt">Running DBMS_HYBRID_SEARCH on a 50k doc table; vector leg works alone but combined query returns 0 rows.</div>
+                  <div class="qa-topic-tags"><span class="tag tag-teal">seekdb</span><span class="tag tag-slate">hybrid-search</span></div>
+                </td>
+                <td class="num">4</td>
+                <td class="num">186</td>
+                <td class="num">2d</td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="qa-topic-title" href="https://www.reddit.com/r/OceanBase_User_Group/" target="_blank" rel="noopener">How to install OceanBase on Kubernetes (minimal prod checklist)?</a>
+                  <div class="qa-topic-excerpt">Looking for a hardened single-replica dev setup vs. 3-node obcluster for staging.</div>
+                  <div class="qa-topic-tags"><span class="tag tag-teal">deployment</span><span class="tag tag-slate">kubernetes</span></div>
+                </td>
+                <td class="num">7</td>
+                <td class="num">412</td>
+                <td class="num">5d</td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="qa-topic-title" href="https://www.reddit.com/r/OceanBase_User_Group/" target="_blank" rel="noopener">Vector index build fails after upgrade to 4.3</a>
+                  <div class="qa-topic-excerpt">IVF index rebuild stalls at 78%; logs show memory limit on observer node.</div>
+                  <div class="qa-topic-tags"><span class="tag tag-violet">vector</span></div>
+                </td>
+                <td class="num">3</td>
+                <td class="num">94</td>
+                <td class="num">1w</td>
+              </tr>
+              <tr>
+                <td>
+                  <a class="qa-topic-title" href="https://www.reddit.com/r/OceanBase_User_Group/" target="_blank" rel="noopener">MySQL compatibility: GROUP BY behavior difference migration</a>
+                  <div class="qa-topic-excerpt">Porting from MySQL 8 — only_full_group_by queries failing on OceanBase.</div>
+                  <div class="qa-topic-tags"><span class="tag tag-slate">mysql-mode</span></div>
+                </td>
+                <td class="num">5</td>
+                <td class="num">221</td>
+                <td class="num">2w</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo"><img src="../assets/oceandata4ai-logo.svg" alt="" class="logo-img" width="36" height="36" />OceanData4AI</a>
+          <p>A vendor-neutral community for AI data infrastructure builders.</p>
+          <p class="footer-note">Initiated with support from OceanBase</p>
+        </div>
+        <div class="footer-col"><h4>Community</h4><ul><li><a href="../about.html">About</a></li><li><a href="oug-help.html">OUG Help</a></li><li><a href="o4ai-chat.html">O4AI Chat</a></li><li><a href="../join.html">Join</a></li><li><a href="../blog.html">Blog</a></li></ul></div>
+        <div class="footer-col"><h4>Resources</h4><ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceandata4ai" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Medium ↗</a></li></ul></div>
+        <div class="footer-col"><h4>Legal</h4><ul><li><a href="../privacy.html">Privacy Policy</a></li><li><a href="../conduct.html">Code of Conduct</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      </div>
+      <div class="footer-bottom"><span>© 2026 OceanData4AI Community</span><span>Built for builders · Not a sales page</span></div>
+    </div>
+  </footer>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/effects.js" defer></script>
+</body>
+</html>

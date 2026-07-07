@@ -1,0 +1,107 @@
+/* Q&A category pages — Speckle-style topic list (M1 demo) */
+.qa-banner {
+  background: linear-gradient(90deg, rgba(13, 148, 136, 0.12), rgba(99, 102, 241, 0.12));
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+.qa-banner strong { color: var(--accent); }
+.qa-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 32px;
+  align-items: start;
+}
+.qa-sidebar h3 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.qa-sidebar ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.qa-sidebar a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+.qa-sidebar a:hover,
+.qa-sidebar a.active {
+  background: var(--bg-muted);
+  color: var(--text);
+}
+.qa-header {
+  margin-bottom: 24px;
+}
+.qa-header h1 { margin-bottom: 8px; }
+.qa-header p { color: var(--text-muted); max-width: 52ch; }
+.qa-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+.qa-topic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+}
+.qa-topic-table thead th {
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+.qa-topic-table thead th.num {
+  text-align: center;
+  width: 72px;
+}
+.qa-topic-table tbody tr {
+  border-bottom: 1px solid var(--border);
+  transition: background 0.12s;
+}
+.qa-topic-table tbody tr:hover { background: var(--bg-muted); }
+.qa-topic-table td { padding: 14px 12px; vertical-align: top; }
+.qa-topic-table td.num {
+  text-align: center;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.qa-topic-title {
+  font-weight: 600;
+  color: var(--text);
+  display: block;
+  margin-bottom: 4px;
+}
+.qa-topic-title:hover { color: var(--accent); }
+.qa-topic-excerpt {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+.qa-topic-tags { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+.qa-pinned {
+  background: rgba(13, 148, 136, 0.06);
+}
+.qa-pinned .qa-topic-title::before {
+  content: '📌 ';
+}
+@media (max-width: 768px) {
+  .qa-layout { grid-template-columns: 1fr; }
+  .qa-sidebar { display: none; }
+  .qa-topic-table thead { display: none; }
+  .qa-topic-table td.num { display: none; }
+}

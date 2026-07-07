@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="icon" href="assets/oceandata4ai-logo.svg" type="image/svg+xml" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/tech.css" />
   <script src="js/theme-init.js"></script>
@@ -16,11 +17,18 @@
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="logo">
-        <span class="logo-mark">O4</span>OceanData4AI
+        <img src="assets/oceandata4ai-logo.svg" alt="" class="logo-img" width="36" height="36" />
+        OceanData4AI
       </a>
       <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
-        <a href="ask-oug.html" data-page="ask-oug">Forums</a>
+        <div class="nav-dropdown" data-nav-dropdown>
+          <button type="button" class="nav-dropdown-trigger" aria-expanded="false">Q&amp;A <span aria-hidden="true">▾</span></button>
+          <div class="nav-dropdown-menu">
+            <a href="qa/oug-help.html" data-page="qa-oug">OUG Help<small>Product &amp; deployment Q&amp;A</small></a>
+            <a href="qa/o4ai-chat.html" data-page="qa-o4ai">O4AI Chat<small>AI infra discussion</small></a>
+          </div>
+        </div>
         <a href="blog.html" data-page="blog">Blog</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="fellows.html" data-page="fellows">Fellows</a>
@@ -28,6 +36,7 @@
       </nav>
       <div class="nav-actions">
         <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="https://github.com/oceandata4ai" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
         <a href="join.html" class="btn btn-primary btn-sm">Join Community</a>
       </div>
@@ -49,7 +58,7 @@
           <p>A vendor-neutral community for AI data infrastructure builders.</p>
           <p class="footer-note">Initiated with support from OceanBase</p>
         </div>
-        <div class="footer-col"><h4>Community</h4><ul><li><a href="about.html">About</a></li><li><a href="ask-oug.html">Forums</a></li><li><a href="fellows.html">Fellows</a></li><li><a href="join.html">Join</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li></ul></div>
+        <div class="footer-col"><h4>Community</h4><ul><li><a href="about.html">About</a></li><li><a href="qa/oug-help.html">OUG Help</a></li><li><a href="fellows.html">Fellows</a></li><li><a href="join.html">Join</a></li><li><a href="blog.html">Blog</a></li><li><a href="events.html">Events</a></li></ul></div>
         <div class="footer-col"><h4>Resources</h4><ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Medium ↗</a></li><li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a></li></ul></div>
         <div class="footer-col"><h4>Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="conduct.html">Code of Conduct</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       </div>

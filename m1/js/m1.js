@@ -68,3 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+document.querySelectorAll('[data-nav-dropdown]').forEach((dropdown) => {
+  const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+  if (!trigger) return;
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    dropdown.classList.toggle('open');
+  });
+});
+document.addEventListener('click', () => {
+  document.querySelectorAll('[data-nav-dropdown].open').forEach((d) => d.classList.remove('open'));
+});
