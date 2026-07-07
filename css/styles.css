@@ -350,7 +350,7 @@ button { cursor: pointer; border: none; background: none; }
   overflow: hidden;
 }
 .hero > .container {
-  width: min(1520px, calc(100% - 48px));
+  width: min(1680px, calc(100% - 24px));
 }
 .hero::before {
   content: "";
@@ -379,8 +379,8 @@ html[data-theme="dark"] .hero-grid {
 .hero-content {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 500px);
-  gap: 32px;
+  grid-template-columns: minmax(0, 1fr) minmax(340px, 460px);
+  gap: 24px;
   align-items: center;
 }
 .hero-content > .reveal:first-child {
