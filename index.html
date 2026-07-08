@@ -8,8 +8,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-    <link rel="icon" href="assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/styles.css?v=20260707-hero-centered" />
+  <link rel="icon" href="assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
+  <link rel="stylesheet" href="css/styles.css?v=20260707-ch-community" />
+  <link rel="stylesheet" href="css/community.css?v=20260707-ch-community" />
   <link rel="stylesheet" href="css/tech.css" />
   <script src="js/theme-init.js"></script>
 </head>
@@ -50,336 +51,224 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-grid"></div>
-      <div class="hero-orb hero-orb-a" aria-hidden="true"></div>
-      <div class="hero-orb hero-orb-b" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <div class="reveal">
-          <div class="hero-announce">
-            <span class="badge-new">New</span>
-            <span>Community Hub Phase 1 — vendor-neutral, builder-first</span>
-            <a href="blog.html">Explore blog →</a>
+  <main class="community-page">
+
+    <section class="ch-hero reveal">
+      <div class="container">
+        <h1>Welcome to the OceanData4AI Community</h1>
+        <p class="ch-hero-lead">
+          Built by builders, for builders. Learn, contribute, connect, and help shape AI-native data infrastructure — from RAG and vectors to agents and hybrid search.
+        </p>
+      </div>
+    </section>
+
+    <section class="ch-promo-duo reveal">
+      <div class="container">
+        <div class="ch-promo-grid">
+          <div class="ch-promo-card">
+            <h3>Join 800+ builders on Discord</h3>
+            <p>Get support, share ideas, and discuss RAG pipelines, vector search, and agent memory with a passionate community.</p>
+            <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-primary" target="_blank" rel="noopener">Join Discord</a>
           </div>
-          <div class="hero-pills">
-            <span class="hero-pill">RAG</span>
-            <span class="hero-pill">Vectors</span>
-            <span class="hero-pill">Agents</span>
-            <span class="hero-pill">Hybrid Search</span>
-            <span class="hero-pill">Agent Memory</span>
-          </div>
-          <h1>Where builders talk about <em>AI data infrastructure</em></h1>
-          <p class="hero-lead">
-            RAG, vectors, agents, and everything in between. Tutorials, deep dives, and open discussion — vendor-neutral, builder-first.
-          </p>
-          <div class="hero-cta">
-            <a href="join.html" class="btn btn-primary btn-glow">Join Community</a>
-            <a href="blog.html" class="btn btn-ghost">Read the Blog</a>
-            <a href="qa/oug-help.html" class="btn btn-ghost">Browse Q&A</a>
-          </div>
-          <div class="hero-stats">
-            <div class="stat">
-              <span class="stat-value">847</span>
-              <span class="stat-label">Discord members</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">2.4k</span>
-              <span class="stat-label">GitHub stars</span>
-            </div>
-            <div class="stat">
-              <span class="stat-value">24</span>
-              <span class="stat-label">Articles published</span>
-            </div>
-          </div>
-        </div>
-        <div class="hero-visual reveal reveal-delay-2">
-          <div class="hero-visual-stack">
-            <div class="hero-terminal">
-              <div class="hero-terminal-bar">
-                <span class="dot dot-r"></span>
-                <span class="dot dot-y"></span>
-                <span class="dot dot-g"></span>
-                <span style="margin-left:8px">hybrid_search.sql</span>
-              </div>
-              <pre class="hero-terminal-body"><code><span class="cm">-- AI-native retrieval in one query</span>
-<span class="kw">SELECT</span> doc_id, title, score
-<span class="kw">FROM</span> <span class="fn">DBMS_HYBRID_SEARCH</span><span class="op">.</span><span class="fn">SEARCH</span><span class="op">(</span>
-  <span class="str">'knowledge_base'</span>,
-  <span class="str">'{"knn":{"k":5},"query":"agent memory"}'</span>
-<span class="op">)</span>
-<span class="kw">WHERE</span> recall <span class="op">&gt;</span> <span class="str">0.85</span><span class="op">;</span></code></pre>
-            </div>
-            <div class="hero-card">
-              <div class="hero-card-header">
-                <span class="dot dot-r"></span>
-                <span class="dot dot-y"></span>
-                <span class="dot dot-g"></span>
-                <span style="margin-left:8px">Latest from the community</span>
-              </div>
-              <div class="hero-card-body">
-                <a href="https://medium.com/ob4ai/why-an-all-in-one-data-foundation-matters-harness-tape-and-a-database-native-path-5f74bbaf48ae" class="feed-item" target="_blank" rel="noopener noreferrer">
-                  <div class="feed-title">Why an All-in-One Data Foundation Matters: Harness, Tape, and a Database-Native Path</div>
-                  <div class="feed-meta"><span class="tag tag-violet">Deep Dives</span> · Jun 5, 2026</div>
-                </a>
-                <a href="https://medium.com/from-zero-to-seekdb/why-your-vector-database-benchmark-is-wrong-for-ai-agents-ecc5f7a55dd5" class="feed-item" target="_blank" rel="noopener noreferrer">
-                  <div class="feed-title">Why Your Vector Database Benchmark Is Wrong for AI Agents</div>
-                  <div class="feed-meta"><span class="tag tag-violet">Deep Dives</span> · Jun 1, 2026</div>
-                </a>
-                <a href="https://medium.com/ob4ai/harness-engineering-in-practice-building-a-6-agent-system-that-runs-itself-bf2493075f3d" class="feed-item" target="_blank" rel="noopener noreferrer">
-                  <div class="feed-title">Harness Engineering in Practice: Building a 6-Agent System</div>
-                  <div class="feed-meta"><span class="tag tag-amber">Builder Stories</span> · Apr 22, 2026</div>
-                </a>
-              </div>
-            </div>
+          <div class="ch-promo-card">
+            <h3>Stay up to speed with the latest</h3>
+            <p>Stay informed on tutorials, deep dives, product releases, and community events — straight from the builders.</p>
+            <a href="blog.html" class="btn btn-primary">Read the Blog</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="gather reveal">
+    <section class="ch-program reveal">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Community</div>
-            <h2>Explore the community</h2>
-            <p>Learn, ask, and connect — the same entry point for builders and operators.</p>
+        <div class="ch-program-header">
+          <h2>Community Fellows Program</h2>
+          <p>Get recognized for sharing your expertise on AI data infrastructure with the global builder community.</p>
+        </div>
+        <div class="ch-program-grid">
+          <div class="ch-program-block">
+            <h3>Join the program</h3>
+            <p>Become a Fellow within the OceanData4AI community. Submit your application showcasing your technical writing skills and experience with RAG, vectors, or agent systems.</p>
+          </div>
+          <div class="ch-program-block">
+            <h3>What you get</h3>
+            <ul>
+              <li>Early access to product previews and beta features</li>
+              <li>Invitations to exclusive community events and AMAs</li>
+              <li>Career visibility within the AI data infrastructure ecosystem</li>
+              <li>Community recognition on the Fellows directory</li>
+            </ul>
           </div>
         </div>
-        <div class="gather-grid">
-          <a href="qa/oug-help.html" class="gather-card">
-            <div class="gather-icon" style="background:var(--accent);color:white">?</div>
-            <h3>OUG Help</h3>
-            <p>Product questions, deployment, and architecture — searchable Q&amp;A.</p>
-          </a>
-          <a href="qa/o4ai-chat.html" class="gather-card">
-            <div class="gather-icon" style="background:var(--violet);color:white">💬</div>
-            <h3>O4AI Chat</h3>
-            <p>RAG, vectors, agents — open discussion for builders.</p>
-          </a>
-          <a href="blog.html" class="gather-card">
-            <div class="gather-icon" style="background:var(--violet);color:white">✎</div>
-            <h3>Blog</h3>
-            <p>Tutorials, deep dives, and builder stories on AI data infrastructure.</p>
-          </a>
-          <a href="events.html" class="gather-card">
-            <div class="gather-icon" style="background:var(--highlight);color:white">◷</div>
-            <h3>Events</h3>
-            <p>Office hours, workshops, and AMAs — live with the team and Fellows.</p>
-          </a>
-          <a href="fellows.html" class="gather-card">
-            <div class="gather-icon" style="background:var(--warm);color:white">★</div>
-            <h3>Fellows</h3>
-            <p>Featured contributors — tutorials, deep dives, and builder stories.</p>
-          </a>
-          <a href="join.html" class="gather-card">
-            <div class="gather-icon" style="background:var(--accent);color:white">+</div>
-            <h3>Join</h3>
-            <p>Discord, GitHub, LinkedIn, or apply to write as a Fellow.</p>
-          </a>
+        <div class="ch-program-cta">
+          <a href="join.html#fellows" class="btn btn-primary btn-glow">Apply now</a>
         </div>
       </div>
     </section>
 
-    <section class="features">
+    <section class="ch-events reveal">
       <div class="container">
-        <div class="section-header reveal">
-          <div>
-            <div class="section-kicker">Community pillars</div>
-            <h2>Built for builders shipping AI systems</h2>
-            <p>Learn, discuss, and ship — from hybrid search to agent memory, without the sales pitch.</p>
-          </div>
-        </div>
-        <div class="features-grid">
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">⚡</div>
-            <h3>Build Fast</h3>
-            <p>Tutorials and quick starts — from prototype to production patterns in minutes, not months.</p>
-          </div>
-          <div class="feature-card reveal reveal-delay-1">
-            <div class="feature-icon">🔀</div>
-            <h3>Hybrid Stack</h3>
-            <p>Vector + full-text + structured data — how real RAG and agent pipelines come together.</p>
-          </div>
-          <div class="feature-card reveal reveal-delay-2">
-            <div class="feature-icon">🧠</div>
-            <h3>Agent Memory</h3>
-            <p>Deep dives on context windows, MEMORY.md, and long-term recall for production agents.</p>
-          </div>
-          <div class="feature-card reveal reveal-delay-3">
-            <div class="feature-icon">🌐</div>
-            <h3>Open Ecosystem</h3>
-            <p>Vendor-neutral discourse — industry insights, product practice, and builder voices in one feed.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="blog" class="reveal">
-      <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Blog</div>
-            <h2>Latest from the community</h2>
-            <p>Tutorials, deep dives, and builder stories — filter by topic, not by team or module.</p>
-          </div>
-          <a href="blog.html" class="link-arrow">
-            View all articles
+        <div class="ch-events-header">
+          <h2>Upcoming events</h2>
+          <a href="events.html" class="link-arrow">
+            View all events
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
           </a>
         </div>
-        <div class="articles-grid">
-          <a href="https://medium.com/@pub_opensource_global/get-started-with-seekdb-install-deploy-and-run-your-first-hybrid-search-c4c34110621c" class="article-card" target="_blank" rel="noopener noreferrer">
-            <div class="article-body">
-              <div class="article-meta"><span class="tag tag-teal">Tutorials</span></div>
-              <h3>Get Started with seekdb: Install, Deploy, and Run Your First Hybrid Search</h3>
-              <p class="article-excerpt">A hands-on walkthrough from zero to your first vector + full-text query in under 15 minutes.</p>
-              <div class="article-footer"><span>OceanBase User Group</span><span>Mar 6, 2026</span></div>
+        <div class="ch-event-list">
+          <article class="ch-event-item">
+            <div class="ch-event-date">
+              <strong>Jul 11, 2026</strong>
+              Tokyo (Japan)
             </div>
-          </a>
-          <a href="https://medium.com/from-zero-to-seekdb/why-your-vector-database-benchmark-is-wrong-for-ai-agents-ecc5f7a55dd5" class="article-card" target="_blank" rel="noopener noreferrer">
-            <div class="article-body">
-              <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
-              <h3>Why Your Vector Database Benchmark Is Wrong for AI Agents</h3>
-              <p class="article-excerpt">Latency profiles, recall trade-offs, and why agent workloads break traditional benchmark assumptions.</p>
-              <div class="article-footer"><span>Harry Zhang</span><span>Jun 1, 2026</span></div>
+            <div class="ch-event-body">
+              <h3><a href="events.html">Tokyo Onchain Night</a></h3>
+              <p class="ch-event-loc">Community meetup · Invite-only builder event with technical sessions</p>
             </div>
-          </a>
-          <a href="https://medium.com/from-zero-to-seekdb/memory-md-every-turn-thats-noise-not-memory-af3cab38f0c1" class="article-card" target="_blank" rel="noopener noreferrer">
-            <div class="article-body">
-              <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
-              <h3>MEMORY.md Every Turn — That's Noise, Not Memory</h3>
-              <p class="article-excerpt">How to design agent memory that scales without polluting every context window.</p>
-              <div class="article-footer"><span>Harry Zhang</span><span>Mar 24, 2026</span></div>
+          </article>
+          <article class="ch-event-item">
+            <div class="ch-event-date">
+              <strong>Jul 14, 2026</strong>
+              Tokyo (Japan)
             </div>
-          </a>
-          <a href="https://medium.com/@pub_opensource_global/cli-over-mcp-why-ai-agents-need-a-different-kind-of-database-interface-98f3bfe3dd0f" class="article-card" target="_blank" rel="noopener noreferrer">
-            <div class="article-body">
-              <div class="article-meta"><span class="tag tag-teal">Tutorials</span></div>
-              <h3>CLI Over MCP: Why AI Agents Need a Different Kind of Database Interface</h3>
-              <p class="article-excerpt">When structured tool calls beat raw SQL — and how to design agent-friendly database APIs.</p>
-              <div class="article-footer"><span>OceanBase User Group</span><span>Mar 27, 2026</span></div>
+            <div class="ch-event-body">
+              <h3><a href="events.html">Corporate Crypto Strategy Summit</a></h3>
+              <p class="ch-event-loc">B2B summit · Executive session for financial institutions and Web3 teams</p>
             </div>
-          </a>
-          <a href="https://medium.com/ob4ai/beyond-rag-why-knowledge-engineering-becomes-the-real-moat-in-the-agent-era-1f77e579ccaa" class="article-card" target="_blank" rel="noopener noreferrer">
-            <div class="article-body">
-              <div class="article-meta"><span class="tag tag-violet">Deep Dives</span></div>
-              <h3>Beyond RAG: Why Knowledge Engineering Becomes the Real Moat in the Agent Era</h3>
-              <p class="article-excerpt">Retrieval is table stakes. The winners will own curation, freshness, and trust in knowledge graphs.</p>
-              <div class="article-footer"><span>Harry Zhang</span><span>May 7, 2026</span></div>
+          </article>
+          <article class="ch-event-item">
+            <div class="ch-event-date">
+              <strong>Aug TBD, 2026</strong>
+              Vietnam
             </div>
-          </a>
-          <a href="https://medium.com/@pub_opensource_global" class="article-card" target="_blank" rel="noopener noreferrer">
-            <div class="article-body">
-              <div class="article-meta"><span class="tag tag-slate">News & Updates</span></div>
-              <h3>Welcome to OceanData4AI — Your Hub for AI Data Infrastructure</h3>
-              <p class="article-excerpt">We're launching a vendor-neutral community for builders working on RAG, vectors, and agent memory.</p>
-              <div class="article-footer"><span>OceanData4AI Team</span><span>Jun 9, 2026</span></div>
+            <div class="ch-event-body">
+              <h3><a href="events.html">Vietnam OceanData4AI Meetup</a></h3>
+              <p class="ch-event-loc">Local meetup · AI data infrastructure builders and community discussion</p>
             </div>
-          </a>
+          </article>
+          <article class="ch-event-item">
+            <div class="ch-event-date">
+              <strong>Weekly</strong>
+              Discord (Virtual)
+            </div>
+            <div class="ch-event-body">
+              <h3><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Community Office Hours</a></h3>
+              <p class="ch-event-loc">Virtual · Ask questions, get feedback, and connect with Fellows</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="gather reveal">
+    <section class="ch-github reveal">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Channels</div>
-            <h2>Where we gather</h2>
-            <p>Discord, GitHub, Medium, and more — pick your preferred way to stay in the loop.</p>
+        <div class="ch-github-header">
+          <h2>Fork it. Work it. Ship it.</h2>
+          <p>Join us on GitHub — contribute code, docs, and examples that help builders ship AI systems faster.</p>
+        </div>
+        <div class="ch-github-stats">
+          <div class="ch-stat">
+            <span class="ch-stat-value">180+</span>
+            <span class="ch-stat-label">Contributors</span>
+          </div>
+          <div class="ch-stat">
+            <span class="ch-stat-value">12k+</span>
+            <span class="ch-stat-label">PRs merged</span>
+          </div>
+          <div class="ch-stat">
+            <span class="ch-stat-value">120+</span>
+            <span class="ch-stat-label">Releases</span>
+          </div>
+          <div class="ch-stat">
+            <span class="ch-stat-value">8.5k</span>
+            <span class="ch-stat-label">Stars</span>
           </div>
         </div>
-        <div class="gather-grid">
-          <a href="https://www.reddit.com/r/OceanBase_User_Group/" class="gather-card" target="_blank" rel="noopener noreferrer">
-            <div class="gather-icon" style="background:#FF4500;color:white">r/</div>
-            <h3>Reddit</h3>
-            <p>Searchable Q&amp;A for OceanBase and production deployments.</p>
-          </a>
-          <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="gather-card" target="_blank" rel="noopener">
-            <div class="gather-icon" style="background:#5865F2;color:white">💬</div>
+        <div class="ch-github-footer">
+          <p>Every contribution makes the ecosystem faster, smarter, and more powerful for thousands of builders around the world.</p>
+          <a href="https://github.com/oceanbase" class="btn btn-white" target="_blank" rel="noopener">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ch-social reveal">
+      <div class="container">
+        <div class="ch-social-header">
+          <h2>Follow us on your favorite platform</h2>
+        </div>
+        <div class="ch-social-grid">
+          <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="ch-social-card" target="_blank" rel="noopener">
+            <div class="ch-social-icon" style="background:#5865F2;color:#fff">💬</div>
             <h3>Discord</h3>
-            <p>Real-time chat, #introductions, office hours, and peer help.</p>
+            <p>Join 800+ builders for real-time chat, office hours, and peer help.</p>
+            <span class="ch-social-link">Follow on Discord →</span>
           </a>
-          <a href="https://github.com/oceanbase" class="gather-card" target="_blank" rel="noopener">
-            <div class="gather-icon" style="background:#24292f;color:white">⌥</div>
+          <a href="https://github.com/oceanbase" class="ch-social-card" target="_blank" rel="noopener">
+            <div class="ch-social-icon" style="background:#24292f;color:#fff">⌥</div>
             <h3>GitHub</h3>
             <p>Issues, PRs, and open-source projects from the ecosystem.</p>
+            <span class="ch-social-link">Follow on GitHub →</span>
           </a>
-          <a href="https://medium.com/@pub_opensource_global" class="gather-card" target="_blank" rel="noopener">
-            <div class="gather-icon" style="background:#000;color:white">M</div>
-            <h3>Medium</h3>
-            <p>Long-form articles with canonical links back to the Hub.</p>
-          </a>
-          <a href="https://www.linkedin.com/groups/24360001/" class="gather-card" target="_blank" rel="noopener noreferrer">
-            <div class="gather-icon" style="background:#0A66C2;color:white">in</div>
+          <a href="https://www.linkedin.com/groups/24360001/" class="ch-social-card" target="_blank" rel="noopener noreferrer">
+            <div class="ch-social-icon" style="background:#0A66C2;color:#fff">in</div>
             <h3>LinkedIn</h3>
-            <p>Join the group for updates, discussions, and community news.</p>
+            <p>Learn the latest about releases, events, and community news.</p>
+            <span class="ch-social-link">Follow on LinkedIn →</span>
+          </a>
+          <a href="https://medium.com/@pub_opensource_global" class="ch-social-card" target="_blank" rel="noopener">
+            <div class="ch-social-icon" style="background:#000;color:#fff">M</div>
+            <h3>Medium</h3>
+            <p>Tutorials, deep dives, and builder stories from the community.</p>
+            <span class="ch-social-link">Follow on Medium →</span>
+          </a>
+          <a href="qa/oug-help.html" class="ch-social-card">
+            <div class="ch-social-icon" style="background:var(--accent);color:#fff">?</div>
+            <h3>OUG Help</h3>
+            <p>Searchable Q&amp;A for product questions and deployment help.</p>
+            <span class="ch-social-link">Browse Q&amp;A →</span>
+          </a>
+          <a href="events.html" class="ch-social-card">
+            <div class="ch-social-icon" style="background:var(--highlight);color:#fff">◷</div>
+            <h3>Events</h3>
+            <p>Find out when the next meetup, AMA, or workshop will take place.</p>
+            <span class="ch-social-link">View calendar →</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section id="events" class="reveal">
+    <section class="ch-resources reveal">
       <div class="container">
-        <div class="section-header">
-          <div>
-            <div class="section-kicker">Events</div>
-            <h2>Upcoming events</h2>
-            <p>Office hours, AMAs, and live demos — see what's coming up.</p>
-          </div>
-          <a href="events.html" class="link-arrow">
-            View calendar
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        <h2>More resources</h2>
+        <div class="ch-resources-grid">
+          <a href="https://en.oceanbase.com/docs" class="ch-resource-card" target="_blank" rel="noopener">
+            <h3>Documentation</h3>
+            <p>Official guides, API references, and deployment docs for OceanBase and seekdb.</p>
+            <span class="link-arrow">
+              Read docs
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
           </a>
-        </div>
-        <div class="events-grid">
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-box"><span class="month">Jul</span><span class="day">11</span></div>
-              <div><div class="event-type">Tokyo · Community meetup</div></div>
-            </div>
-            <h3>Tokyo Onchain Night</h3>
-            <p>Invite-only builder meetup for Japan's Web3 community, with an OceanBase technical pitch and booth.</p>
-            <a href="events.html" class="btn btn-primary btn-sm" style="align-self:flex-start">View details</a>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-box"><span class="month">Jul</span><span class="day">14</span></div>
-              <div><div class="event-type">Tokyo · B2B summit</div></div>
-            </div>
-            <h3>Corporate Crypto Strategy Summit</h3>
-            <p>B2B executive session for financial institutions, Web3 infrastructure teams, and strategic partners.</p>
-            <a href="events.html" class="btn btn-primary btn-sm" style="align-self:flex-start">View details</a>
-          </div>
-          <div class="event-card">
-            <div class="event-date">
-              <div class="event-date-box"><span class="month">Aug</span><span class="day">TBD</span></div>
-              <div><div class="event-type">Vietnam · Meetup</div></div>
-            </div>
-            <h3>Vietnam OceanData4AI Meetup</h3>
-            <p>Planned local meetup for AI data infrastructure builders and customer-facing community discussion.</p>
-            <a href="events.html" class="btn btn-primary btn-sm" style="align-self:flex-start">View details</a>
-          </div>
+          <a href="about.html" class="ch-resource-card">
+            <h3>About OceanData4AI</h3>
+            <p>Learn more about our mission, values, and vendor-neutral community approach.</p>
+            <span class="link-arrow">
+              About us
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+          </a>
+          <a href="conduct.html" class="ch-resource-card">
+            <h3>Code of Conduct</h3>
+            <p>Community guidelines — be respectful, constructive, and inclusive.</p>
+            <span class="link-arrow">
+              Read guidelines
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+          </a>
         </div>
       </div>
     </section>
 
-    <section class="join-cta">
-      <div class="container">
-        <div class="join-box">
-          <div>
-            <h2>Ready to build with us?</h2>
-            <p>Join Discord for daily discussion, apply to become a Fellow, or star us on GitHub. Everyone welcome — especially if you don't know OceanBase yet.</p>
-          </div>
-          <div class="join-actions">
-            <a href="qa/oug-help.html" class="btn btn-white">Ask in Q&amp;A</a>
-            <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-outline-white" target="_blank" rel="noopener noreferrer">Join Discord</a>
-            <a href="fellows.html" class="btn btn-outline-white">Meet Fellows</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
