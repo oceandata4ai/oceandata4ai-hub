@@ -9,10 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css?v=20260708-ask-oug" />
   <link rel="stylesheet" href="../css/tech.css" />
-  <link rel="stylesheet" href="../css/qa.css?v=20260708-auth-email" />
+  <link rel="stylesheet" href="../css/qa.css?v=20260708-verify-send" />
   <script src="../js/theme-init.js"></script>
   <script src="../js/qa-auth.js"></script>
+  <script src="../js/qa-email-config.js"></script>
   <script src="../js/qa-email-template.js"></script>
+  <script src="../js/qa-email-send.js"></script>
 </head>
 <body class="page-shell" data-page="qa-ask">
 
@@ -89,7 +91,7 @@
               </div>
 
               <button type="submit" class="btn qa-auth-submit" id="qa-auth-submit">Sign up with email</button>
-              <p class="qa-auth-note" id="qa-auth-note">Demo auth — accounts stored locally in your browser.</p>
+              <p class="qa-auth-note" id="qa-auth-note">We will email you a verification link before you can post.</p>
               <p class="qa-auth-switch" id="qa-auth-switch"></p>
             </form>
           </div>
@@ -99,13 +101,16 @@
           <div class="qa-auth-shell">
             <h2 class="qa-auth-title">Check your email</h2>
             <p class="qa-check-email-lead">We sent a confirmation link to <strong id="qa-check-email-address"></strong>.</p>
-            <p class="qa-check-email-copy">Thanks for registering with the OceanData4AI Community. Click <strong>Verify email</strong> in the message to complete sign up. The link expires in 24 hours.</p>
-            <p class="qa-check-email-signoff">Regards,<br /><strong>The OceanData4AI Community</strong></p>
+            <p class="qa-check-email-copy">Open the message from <strong>The OceanData4AI Community</strong> and click <strong>Verify email</strong> to finish sign up. The link expires in 24 hours.</p>
             <div class="qa-check-email-actions">
-              <a href="#" id="qa-open-verify-link" class="btn qa-auth-submit" target="_blank" rel="noopener">Open verification link</a>
+              <button type="button" class="btn btn-ghost" id="qa-resend-email">Resend verification email</button>
               <button type="button" class="btn btn-ghost" id="qa-back-to-signin">Back to sign in</button>
             </div>
-            <p class="qa-auth-note" id="qa-check-email-note"></p>
+            <p class="qa-auth-note" id="qa-check-email-note">Did not receive it? Check spam, or resend above.</p>
+            <div id="qa-dev-verify-fallback" class="qa-dev-fallback" hidden>
+              <p class="form-note">Email service not configured — dev fallback link:</p>
+              <a href="#" id="qa-open-verify-link" target="_blank" rel="noopener">Open verification link</a>
+            </div>
           </div>
         </div>
 

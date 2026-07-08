@@ -172,5 +172,15 @@
     logout() {
       writeJson(SESSION_KEY, null);
     },
+
+    resendVerification(email) {
+      const normalized = email.trim().toLowerCase();
+      if (!isValidEmail(normalized)) throw new Error('Enter a valid email address.');
+      const account = this.getAccount(normalized);
+      if (!account) throw new Error('No account found for this email. Sign up first.');
+      if (account.emailVerified) throw new Error('This email is already verified. Sign in instead.');
+      const token = createVerificationToken(normalized);
+      return { email: normalized, verificationToken: token };
+    },
   };
 })();

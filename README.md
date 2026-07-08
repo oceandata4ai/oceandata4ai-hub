@@ -48,3 +48,40 @@ Settings → Pages → source: `main` branch, `/ (root)`.
 ## Formspree
 
 See `js/form-config.js` — enable after Privacy/CoC legal sign-off.
+
+## Ask OUG — verification email (any registering user)
+
+When a user signs up on `qa/ask.html`, the site sends a **ClickHouse-style confirmation email** to **the email they entered** (not a fixed test address). They must click **Verify email** before posting.
+
+1. Create a free [EmailJS](https://www.emailjs.com/) account
+2. Add an email service (Gmail, SendGrid, etc.)
+3. Create a template with variables: `{{to_email}}`, `{{verify_url}}`, `{{subject}}`, `{{message}}`, `{{from_name}}`
+   - Set the template **To** field to `{{to_email}}`
+   - Example body:
+
+```
+Hi there,
+
+Thanks for registering an account with the OceanData4AI Community. To complete your sign up, please verify your email.
+
+Verify email: {{verify_url}}
+
+This link will expire after 24 hours.
+
+Regards,
+The OceanData4AI Community
+```
+
+4. Paste keys into `js/qa-email-config.js`:
+
+```js
+emailjs: {
+  publicKey: 'your_public_key',
+  serviceId: 'your_service_id',
+  templateId: 'your_template_id',
+},
+```
+
+Until keys are set, signup still works but shows a **dev fallback link** instead of delivering mail. Production should use EmailJS, Discourse SSO, or your own SMTP API.
+
+Server-side alternative: `scripts/send-verification-email.py` (requires `SMTP_*` env vars).

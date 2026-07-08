@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let authMode = 'signup';
   let emailEditing = true;
+  let pendingVerificationEmail = '';
 
   const MAX_IMAGE_BYTES = 2 * 1024 * 1024;
   const ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/gif', 'image/webp'];
@@ -137,20 +138,41 @@ document.addEventListener('DOMContentLoaded', () => {
     passwordToggle.textContent = isPassword ? '🙈' : '👁';
   });
 
-  function showCheckEmail({ email, token }) {
+  async function deliverVerificationEmail({ email, token }) {
+    const sender = window.O4AI_QA_EMAIL_SEND;
+    if (!sender) {
+      return { ok: false, demo: true, reason: 'Email sender unavailable.' };
+    }
+    return sender.sendVerificationEmail({ email, token });
+  }
+
+  async function showCheckEmail({ email, token }, sendResult) {
     const checkEmail = document.getElementById('qa-check-email');
     const loginGateEl = document.getElementById('qa-login-gate');
     const addressEl = document.getElementById('qa-check-email-address');
     const openLink = document.getElementById('qa-open-verify-link');
     const checkNote = document.getElementById('qa-check-email-note');
+    const devFallback = document.getElementById('qa-dev-verify-fallback');
     const mail = window.O4AI_QA_EMAIL?.buildVerificationEmail({ email, token });
 
     if (!checkEmail || !mail) return;
 
+    pendingVerificationEmail = email;
+
     if (addressEl) addressEl.textContent = email;
     if (openLink) openLink.href = mail.verifyUrl;
-    if (checkNote) {
-      checkNote.textContent = 'Did not receive it? Check spam or sign up again with the same email.';
+
+    if (sendResult?.ok) {
+      if (checkNote) {
+        checkNote.textContent = 'Did not receive it? Check spam, or click Resend verification email above.';
+      }
+      if (devFallback) devFallback.hidden = true;
+    } else {
+      if (checkNote) {
+        checkNote.textContent = sendResult?.reason
+          || 'Verification email could not be sent. Use the dev fallback link below or contact support.';
+      }
+      if (devFallback) devFallback.hidden = false;
     }
 
     loginGateEl.hidden = true;
@@ -162,8 +184,46 @@ document.addEventListener('DOMContentLoaded', () => {
       token,
       verifyUrl: mail.verifyUrl,
       sentAt: new Date().toISOString(),
+      delivered: Boolean(sendResult?.ok),
     }));
   }
+
+  async function handleSignup() {
+    if (!termsInput?.checked) throw new Error('Please accept the terms and privacy policy.');
+    authSubmit.disabled = true;
+    authSubmit.textContent = 'Sending verification email…';
+
+    try {
+      const result = await auth.register({
+        email: emailInput.value,
+        password: passwordInput.value,
+        company: companyInput.value,
+      });
+      const sendResult = await deliverVerificationEmail(result);
+      await showCheckEmail(result, sendResult);
+    } finally {
+      authSubmit.disabled = false;
+      authSubmit.textContent = 'Sign up with email';
+    }
+  }
+
+  document.getElementById('qa-resend-email')?.addEventListener('click', async () => {
+    const checkNote = document.getElementById('qa-check-email-note');
+    const email = pendingVerificationEmail || emailInput?.value?.trim();
+    if (!email) return;
+
+    try {
+      if (checkNote) checkNote.textContent = 'Resending verification email…';
+      const result = auth.resendVerification(email);
+      const sendResult = await deliverVerificationEmail(result);
+      await showCheckEmail(result, sendResult);
+    } catch (err) {
+      if (checkNote) {
+        checkNote.textContent = err.message || 'Unable to resend verification email.';
+        checkNote.classList.add('qa-auth-error');
+      }
+    }
+  });
 
   document.getElementById('qa-back-to-signin')?.addEventListener('click', () => {
     const checkEmail = document.getElementById('qa-check-email');
@@ -179,13 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       if (authMode === 'signup') {
-        if (!termsInput?.checked) throw new Error('Please accept the terms and privacy policy.');
-        const result = await auth.register({
-          email: emailInput.value,
-          password: passwordInput.value,
-          company: companyInput.value,
-        });
-        showCheckEmail(result);
+        await handleSignup();
       } else {
         await auth.signIn({
           email: emailInput.value,
