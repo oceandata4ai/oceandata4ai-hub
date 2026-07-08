@@ -61,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const dropdown = el.closest('[data-nav-dropdown]');
       if (dropdown) dropdown.querySelector('.nav-dropdown-trigger')?.classList.add('active');
     });
-    if (current === 'qa-oug' || current === 'qa-o4ai') {
-      document.querySelectorAll('[data-nav-dropdown] .nav-dropdown-trigger').forEach((el) => {
+    if (current === 'qa-oug') {
+      document.querySelectorAll('.nav-links a[data-page="qa-oug"]').forEach((el) => {
         el.classList.add('active');
       });
     }

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('qa-topic-root');
   if (!root || !topic) {
     if (root) {
-      root.innerHTML = '<p class="qa-error">Topic not found. <a href="oug-help.html">Back to Q&amp;A</a></p>';
+      root.innerHTML = '<p class="qa-error">Topic not found. <a href="oug-help.html">Back to OUG Discussion</a></p>';
     }
     return;
   }
@@ -14,8 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.title = `${topic.title} — OceanData4AI Community`;
   const breadcrumb = document.getElementById('qa-breadcrumb');
   if (breadcrumb) {
-    const boardHref = topic.board === 'o4ai-chat' ? 'o4ai-chat.html' : 'oug-help.html';
-    breadcrumb.innerHTML = `<a href="${boardHref}">${topic.boardLabel}</a> / <span>${topic.title}</span>`;
+    breadcrumb.innerHTML = `<a href="oug-help.html">${topic.boardLabel}</a> / <span>${topic.title}</span>`;
   }
 
   const tags = (topic.tags || [])

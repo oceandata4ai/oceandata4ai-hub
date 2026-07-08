@@ -9,7 +9,7 @@ Standalone **Phase M1** showcase — complements the [main hub](../index.html).
 | Item | Status |
 |------|--------|
 | Hub pages (Home, About, Blog, Events, Join, Contact, Legal) | ✅ |
-| **Dual Q&A** → links to [`../qa/`](../qa/oug-help.html) | ✅ |
+| **Q&A** → links to [`../qa/`](../qa/oug-help.html) | ✅ |
 | Blog 4 tags incl. **Builder Stories** | ✅ |
 | Fellows + forms (demo until Formspree) | ✅ |
 
