@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css?v=20260708-ask-oug" />
   <link rel="stylesheet" href="../css/tech.css" />
-  <link rel="stylesheet" href="../css/qa.css?v=20260708-ask-oug" />
+  <link rel="stylesheet" href="../css/qa.css?v=20260708-auth-email" />
   <script src="../js/theme-init.js"></script>
   <script src="../js/qa-auth.js"></script>
 </head>
@@ -39,24 +39,65 @@
 
   <main>
     <section class="qa-ask-section">
-      <div class="container qa-ask-wrap">
-        <div class="section-kicker">Ask OUG</div>
-        <h1>Start a discussion</h1>
-        <p class="qa-ask-intro">Ask the OceanBase User Group community. Sign in before posting. You can paste or upload images in the body.</p>
-
+      <div class="container qa-ask-wrap" id="qa-ask-container">
         <div id="qa-login-gate" class="qa-login-gate">
-          <div class="qa-login-card">
-            <h2>Sign in to continue</h2>
-            <p>You need to verify your identity before asking a question on Ask OUG.</p>
-            <div class="qa-login-actions">
-              <button type="button" class="btn btn-primary" data-qa-login="github">Sign in with GitHub</button>
-              <button type="button" class="btn btn-ghost" data-qa-login="discord">Sign in with Discord</button>
-            </div>
-            <p class="form-note">Demo auth — stored locally in your browser. Production will use OAuth / Discourse SSO.</p>
+          <div class="qa-auth-shell">
+            <h2 id="qa-auth-title" class="qa-auth-title">Sign up for Ask OUG</h2>
+
+            <form id="qa-auth-form" class="qa-auth-form" novalidate>
+              <div id="qa-email-display" class="qa-email-display" hidden>
+                <div class="qa-email-display-row">
+                  <span id="qa-email-value" class="qa-email-value">your.email@company.com</span>
+                  <button type="button" class="qa-auth-link" id="qa-email-edit">Edit</button>
+                </div>
+              </div>
+
+              <div id="qa-email-field" class="qa-field qa-field-float" hidden>
+                <input type="email" id="qa-email" name="email" autocomplete="email" required placeholder=" " />
+                <label for="qa-email">Email</label>
+              </div>
+
+              <div class="qa-field qa-field-float qa-field-password">
+                <input type="password" id="qa-password" name="password" autocomplete="new-password" required placeholder=" " />
+                <label for="qa-password">Password<span aria-hidden="true">*</span></label>
+                <button type="button" class="qa-password-toggle" id="qa-password-toggle" aria-label="Show password">👁</button>
+              </div>
+
+              <div id="qa-signup-fields">
+                <div class="qa-password-rules" aria-live="polite">
+                  <p class="qa-password-rules-title">Your password must contain:</p>
+                  <ul>
+                    <li data-rule="min-length"><span class="qa-rule-icon" aria-hidden="true"></span>At least 12 characters</li>
+                    <li data-rule="three-groups"><span class="qa-rule-icon" aria-hidden="true"></span>At least 3 of the following:</li>
+                    <li class="qa-rule-sub" data-rule="lower"><span class="qa-rule-icon" aria-hidden="true"></span>Lower case letters (a-z)</li>
+                    <li class="qa-rule-sub" data-rule="upper"><span class="qa-rule-icon" aria-hidden="true"></span>Upper case letters (A-Z)</li>
+                    <li class="qa-rule-sub" data-rule="digit"><span class="qa-rule-icon" aria-hidden="true"></span>Numbers (0-9)</li>
+                    <li class="qa-rule-sub" data-rule="special"><span class="qa-rule-icon" aria-hidden="true"></span>Special characters (e.g. !@#$%^&amp;*)</li>
+                  </ul>
+                </div>
+
+                <div class="qa-field qa-field-float">
+                  <input type="text" id="qa-company" name="company" autocomplete="organization" placeholder=" " />
+                  <label for="qa-company">Company name</label>
+                </div>
+
+                <label class="qa-terms">
+                  <input type="checkbox" id="qa-terms" name="terms" />
+                  <span>I accept the <a href="../conduct.html" target="_blank" rel="noopener">Code of Conduct</a>, <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>, and community terms</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn qa-auth-submit" id="qa-auth-submit">Sign up with email</button>
+              <p class="qa-auth-note" id="qa-auth-note">Demo auth — accounts stored locally in your browser.</p>
+              <p class="qa-auth-switch" id="qa-auth-switch"></p>
+            </form>
           </div>
         </div>
 
         <div id="qa-ask-panel" hidden>
+          <div class="section-kicker">Ask OUG</div>
+          <h1>Start a discussion</h1>
+          <p class="qa-ask-intro">Ask the OceanBase User Group community. You can paste or upload images in the body.</p>
           <div id="qa-user-badge" class="qa-user-badge" hidden></div>
 
           <form class="qa-ask-form" id="qa-ask-form">

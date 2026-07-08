@@ -11,8 +11,75 @@ document.addEventListener('DOMContentLoaded', () => {
   const fileInput = document.getElementById('qa-image-input');
   const imagePreview = document.getElementById('qa-image-preview');
 
+  const authForm = document.getElementById('qa-auth-form');
+  const authNote = document.getElementById('qa-auth-note');
+  const authTitle = document.getElementById('qa-auth-title');
+  const authSubmit = document.getElementById('qa-auth-submit');
+  const authSwitch = document.getElementById('qa-auth-switch');
+  const signupFields = document.getElementById('qa-signup-fields');
+  const emailDisplay = document.getElementById('qa-email-display');
+  const emailValue = document.getElementById('qa-email-value');
+  const emailEditBtn = document.getElementById('qa-email-edit');
+  const emailField = document.getElementById('qa-email-field');
+  const emailInput = document.getElementById('qa-email');
+  const passwordInput = document.getElementById('qa-password');
+  const passwordToggle = document.getElementById('qa-password-toggle');
+  const companyInput = document.getElementById('qa-company');
+  const termsInput = document.getElementById('qa-terms');
+  const ruleEls = {
+    minLength: document.querySelector('[data-rule="min-length"]'),
+    threeGroups: document.querySelector('[data-rule="three-groups"]'),
+    lower: document.querySelector('[data-rule="lower"]'),
+    upper: document.querySelector('[data-rule="upper"]'),
+    digit: document.querySelector('[data-rule="digit"]'),
+    special: document.querySelector('[data-rule="special"]'),
+  };
+
+  let authMode = 'signup';
+  let emailEditing = true;
+
   const MAX_IMAGE_BYTES = 2 * 1024 * 1024;
   const ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/gif', 'image/webp'];
+
+  function setAuthMode(mode) {
+    authMode = mode;
+    const isSignup = mode === 'signup';
+    authTitle.textContent = isSignup ? 'Sign up for Ask OUG' : 'Sign in to Ask OUG';
+    authSubmit.textContent = isSignup ? 'Sign up with email' : 'Sign in with email';
+    signupFields.hidden = !isSignup;
+    passwordInput.autocomplete = isSignup ? 'new-password' : 'current-password';
+    companyInput.required = isSignup;
+
+    if (isSignup) {
+      const hasEmail = Boolean(emailInput?.value.trim());
+      emailEditing = !hasEmail;
+      emailDisplay.hidden = emailEditing;
+      emailField.hidden = !emailEditing;
+    } else {
+      emailDisplay.hidden = true;
+      emailField.hidden = false;
+    }
+    authSwitch.innerHTML = isSignup
+      ? 'Already have an account? <button type="button" class="qa-auth-link" data-auth-mode="signin">Sign in</button>'
+      : 'New here? <button type="button" class="qa-auth-link" data-auth-mode="signup">Sign up</button>';
+    authSwitch.querySelectorAll('[data-auth-mode]').forEach((btn) => {
+      btn.addEventListener('click', () => setAuthMode(btn.dataset.authMode));
+    });
+  }
+
+  function updatePasswordRules() {
+    const rules = auth.getPasswordRules(passwordInput?.value || '');
+    Object.entries(ruleEls).forEach(([key, el]) => {
+      if (!el) return;
+      el.classList.toggle('is-met', Boolean(rules[key]));
+    });
+    return rules;
+  }
+
+  function syncEmailDisplay() {
+    if (!emailInput || !emailValue) return;
+    emailValue.textContent = emailInput.value.trim() || 'your.email@company.com';
+  }
 
   function renderAuthState() {
     const user = auth.getUser();
@@ -30,25 +97,69 @@ document.addEventListener('DOMContentLoaded', () => {
       userBadge.innerHTML = `
         <span class="qa-user-pill">
           <span class="qa-user-avatar" aria-hidden="true">${user.displayName.charAt(0).toUpperCase()}</span>
-          Signed in as <strong>${user.displayName}</strong>
-          <span class="qa-user-provider">via ${user.provider}</span>
+          Signed in as <strong>${user.email}</strong>
+          ${user.company ? `<span class="qa-user-provider">${user.company}</span>` : ''}
         </span>
         <button type="button" class="btn btn-ghost btn-sm" id="qa-logout-btn">Sign out</button>
       `;
       document.getElementById('qa-logout-btn')?.addEventListener('click', () => {
         auth.logout();
         renderAuthState();
+        setAuthMode('signin');
       });
     }
   }
 
-  document.querySelectorAll('[data-qa-login]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const provider = btn.dataset.qaLogin;
-      auth.login(provider);
+  emailEditBtn?.addEventListener('click', () => {
+    emailEditing = true;
+    emailDisplay.hidden = true;
+    emailField.hidden = false;
+    emailInput?.focus();
+  });
+
+  emailInput?.addEventListener('blur', () => {
+    if (authMode !== 'signup') return;
+    syncEmailDisplay();
+    if (emailInput.value.trim()) {
+      emailEditing = false;
+      emailDisplay.hidden = false;
+      emailField.hidden = true;
+    }
+  });
+
+  passwordInput?.addEventListener('input', updatePasswordRules);
+  passwordToggle?.addEventListener('click', () => {
+    const isPassword = passwordInput.type === 'password';
+    passwordInput.type = isPassword ? 'text' : 'password';
+    passwordToggle.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+    passwordToggle.textContent = isPassword ? '🙈' : '👁';
+  });
+
+  authForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    authNote.textContent = '';
+    authNote.classList.remove('qa-auth-error');
+
+    try {
+      if (authMode === 'signup') {
+        if (!termsInput?.checked) throw new Error('Please accept the terms and privacy policy.');
+        await auth.register({
+          email: emailInput.value,
+          password: passwordInput.value,
+          company: companyInput.value,
+        });
+      } else {
+        await auth.signIn({
+          email: emailInput.value,
+          password: passwordInput.value,
+        });
+      }
       renderAuthState();
-      note.textContent = 'You are signed in. Compose your question below.';
-    });
+      if (note) note.textContent = 'You are signed in. Compose your question below.';
+    } catch (err) {
+      authNote.textContent = err.message || 'Unable to sign in.';
+      authNote.classList.add('qa-auth-error');
+    }
   });
 
   function insertImage(dataUrl, name) {
@@ -130,16 +241,21 @@ document.addEventListener('DOMContentLoaded', () => {
       note.textContent = 'Title and body are required.';
       return;
     }
+    const user = auth.getUser();
     const draft = {
       board: form.board.value,
       title,
       bodyHtml,
-      author: auth.getUser().displayName,
+      author: user.email,
+      company: user.company,
       savedAt: new Date().toISOString(),
     };
     localStorage.setItem('o4ai_qa_last_draft', JSON.stringify(draft));
     note.textContent = 'Preview saved locally for demo. Full posting opens after legal review & Discourse setup.';
   });
 
+  setAuthMode('signup');
+  syncEmailDisplay();
+  updatePasswordRules();
   renderAuthState();
 });
