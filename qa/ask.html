@@ -3,18 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>New topic — OceanData4AI Community</title>
+  <title>Ask OUG — OceanData4AI Community</title>
   <link rel="icon" href="../assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../css/styles.css?v=20260707-hero-centered" />
+  <link rel="stylesheet" href="../css/styles.css?v=20260708-ask-oug" />
   <link rel="stylesheet" href="../css/tech.css" />
-  <link rel="stylesheet" href="../css/qa.css" />
+  <link rel="stylesheet" href="../css/qa.css?v=20260708-ask-oug" />
   <script src="../js/theme-init.js"></script>
+  <script src="../js/qa-auth.js"></script>
 </head>
 <body class="page-shell" data-page="qa-ask">
 
-  <div class="qa-banner"><strong>M1</strong> · On-site Q&amp;A demo · Posting opens after legal review</div>
+  <div class="qa-banner"><strong>M1</strong> · Ask OUG demo · Sign in required to post · Images supported in body</div>
 
   <header class="nav" id="nav">
     <div class="container nav-inner">
@@ -24,7 +25,7 @@
       </a>
       <nav class="nav-links">
         <a href="../about.html" data-page="about">About</a>
-        <a href="oug-help.html" data-page="qa-oug">OUG Discussion</a>
+        <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
         <a href="../blog.html" data-page="blog">Blog</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../join.html" data-page="join">Join</a>
@@ -37,22 +38,58 @@
   </header>
 
   <main>
-    <section style="padding: 48px 0 80px">
-      <div class="container" style="max-width:640px">
-        <div class="section-kicker">New topic</div>
+    <section class="qa-ask-section">
+      <div class="container qa-ask-wrap">
+        <div class="section-kicker">Ask OUG</div>
         <h1>Start a discussion</h1>
-        <p style="color:var(--text-muted);margin-bottom:24px">Compose your question on-site. Publishing will be enabled when hosted Q&amp;A goes live.</p>
-        <form class="qa-ask-form" id="qa-ask-form">
-          <input type="hidden" name="board" id="qa-board" value="oug-help" />
-          <label>Title
-            <input type="text" name="title" required placeholder="Summarize your question" />
-          </label>
-          <label>Body
-            <textarea name="body" rows="8" required placeholder="Include version, environment, and steps to reproduce if applicable."></textarea>
-          </label>
-          <button type="submit" class="btn btn-primary">Preview topic</button>
-          <p class="form-note" id="qa-ask-note">Demo only — your topic will not be published until Q&amp;A posting is enabled.</p>
-        </form>
+        <p class="qa-ask-intro">Ask the OceanBase User Group community. Sign in before posting. You can paste or upload images in the body.</p>
+
+        <div id="qa-login-gate" class="qa-login-gate">
+          <div class="qa-login-card">
+            <h2>Sign in to continue</h2>
+            <p>You need to verify your identity before asking a question on Ask OUG.</p>
+            <div class="qa-login-actions">
+              <button type="button" class="btn btn-primary" data-qa-login="github">Sign in with GitHub</button>
+              <button type="button" class="btn btn-ghost" data-qa-login="discord">Sign in with Discord</button>
+            </div>
+            <p class="form-note">Demo auth — stored locally in your browser. Production will use OAuth / Discourse SSO.</p>
+          </div>
+        </div>
+
+        <div id="qa-ask-panel" hidden>
+          <div id="qa-user-badge" class="qa-user-badge" hidden></div>
+
+          <form class="qa-ask-form" id="qa-ask-form">
+            <input type="hidden" name="board" id="qa-board" value="oug-help" />
+
+            <label for="qa-title">Title
+              <input type="text" id="qa-title" name="title" required placeholder="Summarize your question" />
+            </label>
+
+            <div class="qa-body-field">
+              <div class="qa-body-label-row">
+                <label for="qa-body-editor">Body</label>
+                <div class="qa-body-toolbar">
+                  <button type="button" class="btn btn-ghost btn-sm" id="qa-insert-image">Insert image</button>
+                  <span class="qa-body-hint">PNG · JPEG · GIF · WebP · paste or drag</span>
+                </div>
+              </div>
+              <div
+                id="qa-body-editor"
+                class="qa-body-editor"
+                contenteditable="true"
+                role="textbox"
+                aria-multiline="true"
+                data-placeholder="Include version, environment, and steps to reproduce if applicable. Paste screenshots here."
+              ></div>
+              <input type="file" id="qa-image-input" accept="image/png,image/jpeg,image/gif,image/webp" multiple hidden />
+              <div id="qa-image-preview" class="qa-image-preview" hidden aria-label="Attached images"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Preview topic</button>
+            <p class="form-note" id="qa-ask-note">Demo only — your topic will not be published until Q&amp;A posting is enabled.</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
@@ -62,12 +99,8 @@
     const params = new URLSearchParams(location.search);
     const board = params.get('board');
     if (board) document.getElementById('qa-board').value = board;
-    document.getElementById('qa-ask-form').addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('qa-ask-note').textContent =
-        'Thanks — preview saved locally for demo. Full posting opens after legal review & Discourse setup.';
-    });
   </script>
   <script src="../js/main.js" defer></script>
+  <script src="../js/qa-ask.js" defer></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('qa-topic-root');
   if (!root || !topic) {
     if (root) {
-      root.innerHTML = '<p class="qa-error">Topic not found. <a href="oug-help.html">Back to OUG Discussion</a></p>';
+      root.innerHTML = '<p class="qa-error">Topic not found. <a href="oug-help.html">Back to Ask OUG</a></p>';
     }
     return;
   }

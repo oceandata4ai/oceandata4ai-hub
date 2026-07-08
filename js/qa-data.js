@@ -1,8 +1,8 @@
 window.OCEANDATA4AI_QA_TOPICS = {
   'about-oug-discussion': {
     board: 'oug-help',
-    boardLabel: 'OUG Discussion',
-    title: 'About OUG Discussion',
+    boardLabel: 'Ask OUG',
+    title: 'About Ask OUG',
     author: 'OceanData4AI Team',
     date: 'Jul 1, 2026',
     tags: [],
@@ -17,7 +17,7 @@ window.OCEANDATA4AI_QA_TOPICS = {
   },
   'seekdb-hybrid-empty': {
     board: 'oug-help',
-    boardLabel: 'OUG Discussion',
+    boardLabel: 'Ask OUG',
     title: 'seekdb hybrid search returns empty — knn + BM25 in one SQL',
     author: 'alex_dev',
     date: 'Jul 5, 2026',
@@ -36,7 +36,7 @@ FROM DBMS_HYBRID_SEARCH.SEARCH(
   },
   'ob-k8s-install': {
     board: 'oug-help',
-    boardLabel: 'OUG Discussion',
+    boardLabel: 'Ask OUG',
     title: 'How to install OceanBase on Kubernetes (minimal prod checklist)?',
     author: 'platform_eng',
     date: 'Jul 2, 2026',
@@ -48,7 +48,7 @@ FROM DBMS_HYBRID_SEARCH.SEARCH(
   },
   'vector-index-43': {
     board: 'oug-help',
-    boardLabel: 'OUG Discussion',
+    boardLabel: 'Ask OUG',
     title: 'Vector index build fails after upgrade to 4.3',
     author: 'dba_sea',
     date: 'Jun 28, 2026',
@@ -58,7 +58,7 @@ FROM DBMS_HYBRID_SEARCH.SEARCH(
   },
   'mysql-group-by': {
     board: 'oug-help',
-    boardLabel: 'OUG Discussion',
+    boardLabel: 'Ask OUG',
     title: 'MySQL compatibility: GROUP BY behavior difference migration',
     author: 'migrator',
     date: 'Jun 22, 2026',
