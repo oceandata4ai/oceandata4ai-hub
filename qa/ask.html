@@ -11,10 +11,10 @@
   <link rel="stylesheet" href="../css/tech.css" />
   <link rel="stylesheet" href="../css/qa.css?v=20260708-verify-send" />
   <script src="../js/theme-init.js"></script>
-  <script src="../js/qa-auth.js"></script>
-  <script src="../js/qa-email-config.js"></script>
-  <script src="../js/qa-email-template.js"></script>
-  <script src="../js/qa-email-send.js"></script>
+  <script src="../js/qa-auth.js?v=20260708-email-fix"></script>
+  <script src="../js/qa-email-config.js?v=20260708-email-fix"></script>
+  <script src="../js/qa-email-template.js?v=20260708-email-fix"></script>
+  <script src="../js/qa-email-send.js?v=20260708-email-fix"></script>
 </head>
 <body class="page-shell" data-page="qa-ask">
 
@@ -101,7 +101,7 @@
           <div class="qa-auth-shell">
             <h2 class="qa-auth-title">Check your email</h2>
             <p class="qa-check-email-lead">We sent a confirmation link to <strong id="qa-check-email-address"></strong>.</p>
-            <p class="qa-check-email-copy">Open the message from <strong>The OceanData4AI Community</strong> and click <strong>Verify email</strong> to finish sign up. The link expires in 24 hours.</p>
+            <p class="qa-check-email-copy">Open the message from <strong>The OceanData4AI Community</strong> and click <strong>Verify email</strong> to finish sign up. Please open the link in the same browser where you signed up. The link expires in 24 hours.</p>
             <div class="qa-check-email-actions">
               <button type="button" class="btn btn-ghost" id="qa-resend-email">Resend verification email</button>
               <button type="button" class="btn btn-ghost" id="qa-back-to-signin">Back to sign in</button>
@@ -162,6 +162,6 @@
     if (board) document.getElementById('qa-board').value = board;
   </script>
   <script src="../js/main.js" defer></script>
-  <script src="../js/qa-ask.js" defer></script>
+  <script src="../js/qa-ask.js?v=20260708-email-fix" defer></script>
 </body>
 </html>

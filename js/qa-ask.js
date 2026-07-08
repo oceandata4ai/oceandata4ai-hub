@@ -138,7 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
     passwordToggle.textContent = isPassword ? '🙈' : '👁';
   });
 
-  async function deliverVerificationEmail({ email, token }) {
+  function normalizeVerificationResult(result) {
+    const token = result?.token || result?.verificationToken;
+    return { email: result?.email, token };
+  }
+
+  async function deliverVerificationEmail(result) {
+    const { email, token } = normalizeVerificationResult(result);
     const sender = window.O4AI_QA_EMAIL_SEND;
     if (!sender) {
       return { ok: false, demo: true, reason: 'Email sender unavailable.' };
@@ -146,7 +152,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return sender.sendVerificationEmail({ email, token });
   }
 
-  async function showCheckEmail({ email, token }, sendResult) {
+  async function showCheckEmail(result, sendResult) {
+    const { email, token } = normalizeVerificationResult(result);
     const checkEmail = document.getElementById('qa-check-email');
     const loginGateEl = document.getElementById('qa-login-gate');
     const addressEl = document.getElementById('qa-check-email-address');
@@ -165,15 +172,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (sendResult?.ok) {
       if (checkNote) {
         checkNote.textContent = 'Did not receive it? Check spam, or click Resend verification email above.';
+        checkNote.classList.remove('qa-auth-error');
       }
       if (devFallback) devFallback.hidden = true;
     } else {
       if (checkNote) {
         checkNote.textContent = sendResult?.reason
-          || 'Verification email could not be sent. Use the dev fallback link below or contact support.';
+          || 'Verification email could not be sent. Use the verification link below or contact support.';
+        checkNote.classList.add('qa-auth-error');
       }
       if (devFallback) devFallback.hidden = false;
     }
+
+    if (openLink && mail?.verifyUrl) openLink.href = mail.verifyUrl;
 
     loginGateEl.hidden = true;
     checkEmail.hidden = false;
@@ -199,7 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
         password: passwordInput.value,
         company: companyInput.value,
       });
-      const sendResult = await deliverVerificationEmail(result);
+      let sendResult;
+      try {
+        sendResult = await deliverVerificationEmail(result);
+      } catch (err) {
+        sendResult = {
+          ok: false,
+          reason: err?.text || err?.message || 'Email delivery failed.',
+        };
+      }
       await showCheckEmail(result, sendResult);
     } finally {
       authSubmit.disabled = false;

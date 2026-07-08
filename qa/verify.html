@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="../css/styles.css?v=20260708-auth-email" />
   <link rel="stylesheet" href="../css/qa.css?v=20260708-auth-email" />
   <script src="../js/theme-init.js"></script>
-  <script src="../js/qa-auth.js"></script>
+  <script src="../js/qa-auth.js?v=20260708-email-fix"></script>
 </head>
 <body class="page-shell" data-page="qa-verify">
   <header class="nav" id="nav">
@@ -39,6 +39,16 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const root = document.getElementById('qa-verify-root');
+      const VERIFY_KEY = 'o4ai_qa_verifications';
+      const ACCOUNTS_KEY = 'o4ai_qa_accounts';
+      function readJson(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch {
+          return fallback;
+        }
+      }
       const params = new URLSearchParams(location.search);
       const token = params.get('token');
       const email = params.get('email');
@@ -51,9 +61,18 @@
           <a href="ask.html?board=oug-help" class="btn btn-primary">Continue to Ask OUG</a>
         `;
       } else {
+        const verifications = readJson(VERIFY_KEY, {});
+        const accounts = readJson(ACCOUNTS_KEY, {});
+        const normalizedEmail = (email || '').trim().toLowerCase();
+        const hasLocalAccount = Boolean(accounts[normalizedEmail]);
+        const hasLocalToken = Boolean(token && verifications[token]);
+        const likelyDifferentBrowser = Boolean(token && email && !hasLocalToken && !hasLocalAccount);
+        const errorText = likelyDifferentBrowser
+          ? 'This link was opened in a different browser/device from where you signed up. Please open it in the same browser session, or sign up again and verify there.'
+          : (result?.error || 'This link is invalid or has expired.');
         root.innerHTML = `
           <h2 style="margin-bottom:12px">Verification failed</h2>
-          <p style="color:var(--text-muted);margin-bottom:24px">${result?.error || 'This link is invalid or has expired.'}</p>
+          <p style="color:var(--text-muted);margin-bottom:24px">${errorText}</p>
           <a href="ask.html?board=oug-help" class="btn btn-primary">Back to sign up</a>
         `;
       }

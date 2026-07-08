@@ -44,15 +44,28 @@
     const client = await loadEmailJs();
     client.init(cfg.publicKey);
 
-    await client.send(cfg.serviceId, cfg.templateId, {
+    const displayName = (email.split('@')[0] || 'there').replace(/[._]/g, ' ');
+    const params = {
       to_email: email,
+      email,
+      user_email: email,
+      to_name: displayName,
       verify_url: template.verifyUrl,
+      link: template.verifyUrl,
+      reset_link: template.verifyUrl,
       subject: template.subject,
       message: template.text,
       html_message: template.html,
       from_name: fromName || 'The OceanData4AI Community',
       reply_to: email,
-    });
+    };
+
+    try {
+      await client.send(cfg.serviceId, cfg.templateId, params);
+    } catch (err) {
+      const reason = err?.text || err?.message || 'Email delivery failed.';
+      return { ok: false, reason, ...template };
+    }
 
     return { ok: true, ...template };
   }
