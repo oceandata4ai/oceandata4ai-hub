@@ -407,6 +407,32 @@ html[data-theme="dark"] .qa-auth-submit {
   margin: 0;
 }
 
+.qa-check-email { margin-bottom: 24px; }
+.qa-check-email-lead {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+.qa-check-email-copy {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 20px;
+}
+.qa-check-email-signoff {
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+.qa-check-email-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
 .qa-login-card {
   border: 1px solid var(--border);
   border-radius: calc(var(--radius) + 4px);

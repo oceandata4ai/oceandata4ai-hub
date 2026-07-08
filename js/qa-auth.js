@@ -2,6 +2,8 @@
 (function () {
   const SESSION_KEY = 'o4ai_qa_session';
   const ACCOUNTS_KEY = 'o4ai_qa_accounts';
+  const VERIFY_KEY = 'o4ai_qa_verifications';
+  const VERIFY_TTL_MS = 24 * 60 * 60 * 1000;
 
   function readJson(key, fallback) {
     try {
@@ -47,6 +49,18 @@
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   }
 
+  function createVerificationToken(email) {
+    const token = crypto.randomUUID().replace(/-/g, '');
+    const verifications = readJson(VERIFY_KEY, {});
+    verifications[token] = {
+      email: email.toLowerCase(),
+      expiresAt: Date.now() + VERIFY_TTL_MS,
+      used: false,
+    };
+    writeJson(VERIFY_KEY, verifications);
+    return token;
+  }
+
   window.O4AI_QA_AUTH = {
     getPasswordRules,
     isValidEmail,
@@ -56,12 +70,56 @@
     },
 
     isLoggedIn() {
-      return Boolean(readJson(SESSION_KEY, null)?.email);
+      const user = readJson(SESSION_KEY, null);
+      return Boolean(user?.email && user?.emailVerified);
+    },
+
+    isEmailVerified(email) {
+      const account = this.getAccount(email);
+      return Boolean(account?.emailVerified);
     },
 
     getAccount(email) {
       const accounts = readJson(ACCOUNTS_KEY, {});
       return accounts[email.toLowerCase()] || null;
+    },
+
+    verifyEmail(token, email) {
+      if (!token || !email) return { ok: false, error: 'Invalid verification link.' };
+      const normalized = email.trim().toLowerCase();
+      const verifications = readJson(VERIFY_KEY, {});
+      const entry = verifications[token];
+      if (!entry || entry.email !== normalized) {
+        return { ok: false, error: 'This verification link is invalid.' };
+      }
+      if (entry.used) return { ok: false, error: 'This link has already been used.' };
+      if (Date.now() > entry.expiresAt) {
+        return { ok: false, error: 'This link has expired. Please sign up again.' };
+      }
+
+      const accounts = readJson(ACCOUNTS_KEY, {});
+      const account = accounts[normalized];
+      if (!account) return { ok: false, error: 'Account not found.' };
+
+      entry.used = true;
+      verifications[token] = entry;
+      writeJson(VERIFY_KEY, verifications);
+
+      account.emailVerified = true;
+      account.verifiedAt = new Date().toISOString();
+      accounts[normalized] = account;
+      writeJson(ACCOUNTS_KEY, accounts);
+
+      const session = {
+        email: normalized,
+        displayName: normalized.split('@')[0],
+        company: account.company,
+        provider: 'email',
+        emailVerified: true,
+        loggedInAt: new Date().toISOString(),
+      };
+      writeJson(SESSION_KEY, session);
+      return { ok: true, email: normalized };
     },
 
     async register({ email, password, company }) {
@@ -74,23 +132,18 @@
       if (accounts[normalized]) throw new Error('An account with this email already exists. Sign in instead.');
 
       const passwordHash = await hashPassword(password);
+      const token = createVerificationToken(normalized);
       accounts[normalized] = {
         email: normalized,
         company: company.trim(),
         passwordHash,
+        emailVerified: false,
         createdAt: new Date().toISOString(),
       };
       writeJson(ACCOUNTS_KEY, accounts);
+      writeJson(SESSION_KEY, null);
 
-      const session = {
-        email: normalized,
-        displayName: normalized.split('@')[0],
-        company: company.trim(),
-        provider: 'email',
-        loggedInAt: new Date().toISOString(),
-      };
-      writeJson(SESSION_KEY, session);
-      return session;
+      return { email: normalized, company: company.trim(), verificationToken: token };
     },
 
     async signIn({ email, password }) {
@@ -100,12 +153,16 @@
 
       const passwordHash = await hashPassword(password);
       if (passwordHash !== account.passwordHash) throw new Error('Incorrect password.');
+      if (!account.emailVerified) {
+        throw new Error('Please verify your email before signing in. Check your inbox for the confirmation link.');
+      }
 
       const session = {
         email: normalized,
         displayName: normalized.split('@')[0],
         company: account.company,
         provider: 'email',
+        emailVerified: true,
         loggedInAt: new Date().toISOString(),
       };
       writeJson(SESSION_KEY, session);

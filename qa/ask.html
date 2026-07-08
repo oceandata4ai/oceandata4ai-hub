@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="../css/qa.css?v=20260708-auth-email" />
   <script src="../js/theme-init.js"></script>
   <script src="../js/qa-auth.js"></script>
+  <script src="../js/qa-email-template.js"></script>
 </head>
 <body class="page-shell" data-page="qa-ask">
 
@@ -91,6 +92,20 @@
               <p class="qa-auth-note" id="qa-auth-note">Demo auth — accounts stored locally in your browser.</p>
               <p class="qa-auth-switch" id="qa-auth-switch"></p>
             </form>
+          </div>
+        </div>
+
+        <div id="qa-check-email" class="qa-check-email" hidden>
+          <div class="qa-auth-shell">
+            <h2 class="qa-auth-title">Check your email</h2>
+            <p class="qa-check-email-lead">We sent a confirmation link to <strong id="qa-check-email-address"></strong>.</p>
+            <p class="qa-check-email-copy">Thanks for registering with the OceanData4AI Community. Click <strong>Verify email</strong> in the message to complete sign up. The link expires in 24 hours.</p>
+            <p class="qa-check-email-signoff">Regards,<br /><strong>The OceanData4AI Community</strong></p>
+            <div class="qa-check-email-actions">
+              <a href="#" id="qa-open-verify-link" class="btn qa-auth-submit" target="_blank" rel="noopener">Open verification link</a>
+              <button type="button" class="btn btn-ghost" id="qa-back-to-signin">Back to sign in</button>
+            </div>
+            <p class="qa-auth-note" id="qa-check-email-note"></p>
           </div>
         </div>
 

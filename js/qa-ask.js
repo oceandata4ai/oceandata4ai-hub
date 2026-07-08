@@ -84,8 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderAuthState() {
     const user = auth.getUser();
     const loggedIn = auth.isLoggedIn();
+    const checkEmail = document.getElementById('qa-check-email');
 
-    if (loginGate) loginGate.hidden = loggedIn;
+    if (loginGate) loginGate.hidden = loggedIn || (checkEmail && !checkEmail.hidden);
+    if (checkEmail && loggedIn) checkEmail.hidden = true;
     if (askPanel) askPanel.hidden = !loggedIn;
 
     if (userBadge) {
@@ -135,6 +137,41 @@ document.addEventListener('DOMContentLoaded', () => {
     passwordToggle.textContent = isPassword ? '🙈' : '👁';
   });
 
+  function showCheckEmail({ email, token }) {
+    const checkEmail = document.getElementById('qa-check-email');
+    const loginGateEl = document.getElementById('qa-login-gate');
+    const addressEl = document.getElementById('qa-check-email-address');
+    const openLink = document.getElementById('qa-open-verify-link');
+    const checkNote = document.getElementById('qa-check-email-note');
+    const mail = window.O4AI_QA_EMAIL?.buildVerificationEmail({ email, token });
+
+    if (!checkEmail || !mail) return;
+
+    if (addressEl) addressEl.textContent = email;
+    if (openLink) openLink.href = mail.verifyUrl;
+    if (checkNote) {
+      checkNote.textContent = 'Did not receive it? Check spam or sign up again with the same email.';
+    }
+
+    loginGateEl.hidden = true;
+    checkEmail.hidden = false;
+    if (askPanel) askPanel.hidden = true;
+
+    localStorage.setItem('o4ai_qa_last_verification', JSON.stringify({
+      email,
+      token,
+      verifyUrl: mail.verifyUrl,
+      sentAt: new Date().toISOString(),
+    }));
+  }
+
+  document.getElementById('qa-back-to-signin')?.addEventListener('click', () => {
+    const checkEmail = document.getElementById('qa-check-email');
+    if (checkEmail) checkEmail.hidden = true;
+    if (loginGate) loginGate.hidden = false;
+    setAuthMode('signin');
+  });
+
   authForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     authNote.textContent = '';
@@ -143,19 +180,20 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       if (authMode === 'signup') {
         if (!termsInput?.checked) throw new Error('Please accept the terms and privacy policy.');
-        await auth.register({
+        const result = await auth.register({
           email: emailInput.value,
           password: passwordInput.value,
           company: companyInput.value,
         });
+        showCheckEmail(result);
       } else {
         await auth.signIn({
           email: emailInput.value,
           password: passwordInput.value,
         });
+        renderAuthState();
+        if (note) note.textContent = 'You are signed in. Compose your question below.';
       }
-      renderAuthState();
-      if (note) note.textContent = 'You are signed in. Compose your question below.';
     } catch (err) {
       authNote.textContent = err.message || 'Unable to sign in.';
       authNote.classList.add('qa-auth-error');

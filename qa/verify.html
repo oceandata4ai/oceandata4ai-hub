@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify email — OceanData4AI Community</title>
+  <link rel="icon" href="../assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
+  <link rel="stylesheet" href="../css/styles.css?v=20260708-auth-email" />
+  <link rel="stylesheet" href="../css/qa.css?v=20260708-auth-email" />
+  <script src="../js/theme-init.js"></script>
+  <script src="../js/qa-auth.js"></script>
+</head>
+<body class="page-shell" data-page="qa-verify">
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <img src="../assets/oceandata4ai-logo.svg?v=20260707-planet" alt="" class="logo-img" width="36" height="36" />
+        OceanData4AI
+      </a>
+      <nav class="nav-links">
+        <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="../join.html" data-page="join">Join</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="qa-ask-section">
+      <div class="container qa-ask-wrap" style="max-width:520px">
+        <div id="qa-verify-root" class="qa-login-card" style="text-align:center;padding:40px 28px">
+          <p>Verifying your email…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 OceanData4AI</span></div></div></footer>
+  <script src="../js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.getElementById('qa-verify-root');
+      const params = new URLSearchParams(location.search);
+      const token = params.get('token');
+      const email = params.get('email');
+      const result = window.O4AI_QA_AUTH?.verifyEmail(token, email);
+
+      if (result?.ok) {
+        root.innerHTML = `
+          <h2 style="margin-bottom:12px">Email verified</h2>
+          <p style="color:var(--text-muted);margin-bottom:24px">Your email <strong>${result.email}</strong> is confirmed. You can now ask questions on Ask OUG.</p>
+          <a href="ask.html?board=oug-help" class="btn btn-primary">Continue to Ask OUG</a>
+        `;
+      } else {
+        root.innerHTML = `
+          <h2 style="margin-bottom:12px">Verification failed</h2>
+          <p style="color:var(--text-muted);margin-bottom:24px">${result?.error || 'This link is invalid or has expired.'}</p>
+          <a href="ask.html?board=oug-help" class="btn btn-primary">Back to sign up</a>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>
