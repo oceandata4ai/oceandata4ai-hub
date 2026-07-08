@@ -5,9 +5,9 @@ window.O4AI_QA_EMAIL_CONFIG = {
   //   {{to_email}} {{verify_url}} {{subject}} {{message}} {{from_name}}
   // Set template "To email" field to {{to_email}}
   emailjs: {
-    publicKey: '',
-    serviceId: '',
-    templateId: '',
+    publicKey: 'Z86bh9pBsZJ-ZC6iN',
+    serviceId: 'service_wrt6g74',
+    templateId: 'template_xtjk0zm',
   },
   fromName: 'The OceanData4AI Community',
 };
