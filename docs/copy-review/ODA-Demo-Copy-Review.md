@@ -222,38 +222,137 @@
 
 ---
 
-## H. Ask OUG 问答 (`qa/oug-help.html` + `qa/ask.html`)
+## H. Ask OUG 问答 (`qa/oug-help.html` + `qa/ask.html` + `qa/topic.html` + `qa/verify.html`)
 
 **预览：** https://oceandata4ai.github.io/oceandata4ai-hub/qa/oug-help.html  
-**截图：** `screenshots/qa-oug.png` · `qa-ask-signup.png`
+**截图：** `screenshots/qa-oug-full.png` · `qa-ask-signup.png` · `qa-topic-full.png`
 
-### H1. 列表页
+### H1. 列表页 — 顶栏与主内容
 
-| ID | 模块 | 英文原文 |
-|---|---|---|
-| Q-01 | 顶栏 Banner | M1 · On-site Q&A demo · Browse topics below; posting opens after legal review |
-| Q-02 | Kicker | Ask OUG |
-| Q-03 | H1 | OceanBase User Group Q&A |
-| Q-04 | 描述 | Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros. |
-| Q-05 | CTA | Ask OUG |
-| Q-06 | 置顶帖 | About Ask OUG — Search before posting. Include version, OS, and minimal repro. English preferred; BGO team responds within 2 business days. |
+| ID | 模块 | 英文原文 | 类型 |
+|---|---|---|---|
+| Q-META-01 | `<meta description>` | Product troubleshooting, how-to guides, and deployment help for OceanBase and seekdb. | SEO |
+| Q-01 | 顶栏 Banner | M1 · On-site Q&A demo · Browse topics below; posting opens after legal review | 顶栏 |
+| Q-02 | Kicker | Ask OUG | 标签 |
+| Q-03 | H1 | OceanBase User Group Q&A | 标题 |
+| Q-04 | 描述 | Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros. | 正文 |
+| Q-05 | CTA | Ask OUG | 按钮 |
 
-### H2. 注册发帖页 (`qa/ask.html`)
+### H2. 列表页 — 左侧栏（Discussion / Tags）
 
-| ID | 模块 | 英文原文 |
-|---|---|---|
-| Q-07 | Banner | M1 · Ask OUG demo · Sign in required to post · Images supported in body |
-| Q-08 | 注册标题 | Sign up for Ask OUG |
-| Q-09 | 字段 | Email* · Password* · Company name · Terms checkbox |
-| Q-10 | 密码规则 | At least 12 characters · At least 3 of: lower/upper/digit/special |
-| Q-11 | Terms | I accept the Code of Conduct, Privacy Policy, and community terms |
-| Q-12 | 提交 | Sign up with email |
-| Q-13 | 提示 | We will email you a verification link before you can post. |
-| Q-14 | 验证页 | Check your email — We sent a confirmation link to {email}. — Open the message from **The OceanData4AI Community** and click **Verify email**… |
-| Q-15 | 发帖页 | Start a discussion — Ask the OceanBase User Group community. You can paste or upload images in the body. |
-| Q-16 | 表单 | Title · Body · Insert image — PNG · JPEG · GIF · WebP · paste or drag |
-| Q-17 | 提交 | Preview topic |
-| Q-18 | 注脚 | Demo only — your topic will not be published until Q&A posting is enabled. |
+| ID | 模块 | 英文原文 | 类型 | 备注 |
+|---|---|---|---|---|
+| Q-SB-01 | 侧栏标题 | Discussion | 导航区标题 | |
+| Q-SB-02 | 侧栏链接 | Ask OUG | 导航项（当前页高亮） | |
+| Q-SB-03 | 侧栏标题 | Tags | 标签区标题 | 见截图 |
+| Q-SB-04 | 侧栏 Tag | seekdb | 筛选标签 | |
+| Q-SB-05 | 侧栏 Tag | deployment | 筛选标签 | |
+| Q-SB-06 | 侧栏 Tag | vector | 筛选标签 | |
+| Q-SB-07 | 侧栏 Tag | hybrid-search | 筛选标签 | |
+| Q-SB-NOTE | 一致性 | 侧栏无 `kubernetes` / `mysql-mode`，但话题卡片有 | — | ⚠️ 专家需确认是否补全侧栏 |
+
+### H3. 列表页 — 话题表头与 Demo 话题
+
+| ID | 模块 | 英文原文 | 类型 |
+|---|---|---|---|
+| Q-TB-01 | 表头 | Topic | 列名 |
+| Q-TB-02 | 表头 | Replies | 列名 |
+| Q-TB-03 | 表头 | Views | 列名 |
+| Q-TB-04 | 表头 | Activity | 列名 |
+| Q-TP-01 | 置顶帖标题 | About Ask OUG | 话题 |
+| Q-TP-01a | 置顶帖摘要 | Search before posting. Include version, OS, and minimal repro. English preferred; BGO team responds within 2 business days. | 摘要 |
+| Q-TP-02 | 话题标题 | seekdb hybrid search returns empty — knn + BM25 in one SQL | 话题 |
+| Q-TP-02a | 话题摘要 | Running DBMS_HYBRID_SEARCH on a 50k doc table; vector leg works alone but combined query returns 0 rows. | 摘要 |
+| Q-TP-02b | 话题标签 | seekdb · hybrid-search | Tag |
+| Q-TP-03 | 话题标题 | How to install OceanBase on Kubernetes (minimal prod checklist)? | 话题 |
+| Q-TP-03a | 话题摘要 | Looking for a hardened single-replica dev setup vs. 3-node obcluster for staging. | 摘要 |
+| Q-TP-03b | 话题标签 | deployment · kubernetes | Tag |
+| Q-TP-04 | 话题标题 | Vector index build fails after upgrade to 4.3 | 话题 |
+| Q-TP-04a | 话题摘要 | IVF index rebuild stalls at 78%; logs show memory limit on observer node. | 摘要 |
+| Q-TP-04b | 话题标签 | vector | Tag |
+| Q-TP-05 | 话题标题 | MySQL compatibility: GROUP BY behavior difference migration | 话题 |
+| Q-TP-05a | 话题摘要 | Porting from MySQL 8 — only_full_group_by queries failing on OceanBase. | 摘要 |
+| Q-TP-05b | 话题标签 | mysql-mode | Tag |
+
+### H4. 注册 / 登录 / 发帖 (`qa/ask.html`)
+
+| ID | 模块 | 英文原文 | 类型 |
+|---|---|---|---|
+| Q-07 | Banner | M1 · Ask OUG demo · Sign in required to post · Images supported in body | 顶栏 |
+| Q-08 | 注册模式标题 | Sign up for Ask OUG | 标题 |
+| Q-08b | 登录模式标题 | Sign in to Ask OUG | 标题 |
+| Q-09 | 字段标签 | Email* · Password* · Company name | 表单 |
+| Q-09a | Email 占位 | your.email@company.com | 占位 |
+| Q-09b | 编辑按钮 | Edit | 按钮 |
+| Q-10 | 密码规则标题 | Your password must contain: | 规则 |
+| Q-10a | 密码规则 | At least 12 characters · At least 3 of: lower / upper / digit / special | 规则项 |
+| Q-11 | Terms | I accept the Code of Conduct, Privacy Policy, and community terms | 勾选 |
+| Q-12 | 注册提交 | Sign up with email | 按钮 |
+| Q-12b | 登录提交 | Sign in with email | 按钮 |
+| Q-12c | 发送中 | Sending verification email… | 状态 |
+| Q-13 | 注册提示 | We will email you a verification link before you can post. | 提示 |
+| Q-13b | 切换登录 | Already have an account? Sign in | 链接 |
+| Q-13c | 切换注册 | New here? Sign up | 链接 |
+| Q-14 | 验证页标题 | Check your email | 标题 |
+| Q-14a | 验证页正文 | We sent a confirmation link to {email}. Open the message from **The OceanData4AI Community** and click **Verify email** to finish sign up. Please open the link in the same browser where you signed up. The link expires in 24 hours. | 正文 |
+| Q-14b | 验证操作 | Resend verification email · Back to sign in | 按钮 |
+| Q-14c | 未收到提示 | Did not receive it? Check spam, or click Resend verification email above. | 提示 |
+| Q-14d | Dev 回退 | Email service not configured — dev fallback link: · Open verification link | 仅发信失败时 |
+| Q-15 | 发帖标题 | Start a discussion | H1 |
+| Q-15a | 发帖引导 | Ask the OceanBase User Group community. You can paste or upload images in the body. | 正文 |
+| Q-15b | 登录态 | Signed in as {email} · Sign out | 状态条 |
+| Q-16 | 表单 | Title · Body · Insert image | 字段 |
+| Q-16a | Title 占位 | Summarize your question | 占位 |
+| Q-16b | Body 占位 | Include version, environment, and steps to reproduce if applicable. Paste screenshots here. | 占位 |
+| Q-16c | 图片提示 | PNG · JPEG · GIF · WebP · paste or drag | 提示 |
+| Q-17 | 提交 | Preview topic | 按钮 |
+| Q-18 | 注脚 | Demo only — your topic will not be published until Q&A posting is enabled. | 注脚 |
+| Q-18b | 登录后提示 | You are signed in. Compose your question below. | 提示 |
+| Q-18c | 预览成功 | Preview saved locally for demo. Full posting opens after legal review & Discourse setup. | 提示 |
+| Q-ERR-01 | 错误 | Please sign in before posting. · Title and body are required. · Only PNG, JPEG, GIF, and WebP images are supported. · Image must be 2 MB or smaller for this demo. | 错误 |
+
+### H5. 话题详情页 (`qa/topic.html` + `js/qa-data.js`)
+
+| ID | 模块 | 英文原文 | 类型 |
+|---|---|---|---|
+| Q-TV-01 | Banner | M1 · On-site Q&A demo · Posting opens after legal review | 顶栏（与列表页不同） |
+| Q-TV-02 | 面包屑 | {boardLabel} / {topic title} | 导航 |
+| Q-TV-03 | 无回复 | No replies yet — be the first to respond after posting opens. | 空状态 |
+| Q-TV-04 | 回复区标题 | Reply · {N} Reply / Replies | 标题 |
+| Q-TV-05 | 回复表单说明 | Posting and replies open when hosted Q&A goes live (post legal review). Browse topics on-site for now. | 说明 |
+| Q-TV-06 | 404 | Topic not found. Back to Ask OUG | 错误 |
+| Q-TV-07 | 页脚 | ← Back to Q&A | 链接 |
+
+### H6. 邮箱验证页 (`qa/verify.html`)
+
+| ID | 模块 | 英文原文 | 类型 |
+|---|---|---|---|
+| Q-VF-01 | 加载中 | Verifying your email… | 状态 |
+| Q-VF-02 | 成功标题 | Email verified | 标题 |
+| Q-VF-03 | 成功正文 | Your email {email} is confirmed. You can now ask questions on Ask OUG. | 正文 |
+| Q-VF-04 | 成功 CTA | Continue to Ask OUG | 按钮 |
+| Q-VF-05 | 失败标题 | Verification failed | 标题 |
+| Q-VF-06 | 失败-无效 | This verification link is invalid. | 错误 |
+| Q-VF-07 | 失败-跨浏览器 | This link was opened in a different browser/device from where you signed up. Please open it in the same browser session, or sign up again and verify there. | 错误 |
+| Q-VF-08 | 失败 CTA | Back to sign up | 按钮 |
+
+---
+
+## 附录 3：Ask OUG Demo 话题正文（`js/qa-data.js`）
+
+| Slug | 标题 | 作者 | 标签 | 正文摘要 |
+|---|---|---|---|---|
+| about-oug-discussion | About Ask OUG | OceanData4AI Team | — | Community space for OceanBase, seekdb, AI data infra; search first; English preferred; 2 business day response |
+| seekdb-hybrid-empty | seekdb hybrid search returns empty… | alex_dev | seekdb, hybrid-search | DBMS_HYBRID_SEARCH 50k docs; vector works, combined returns 0 |
+| ob-k8s-install | How to install OceanBase on Kubernetes… | platform_eng | deployment, kubernetes | Single-replica dev vs 3-node obcluster; Helm/operator tips |
+| vector-index-43 | Vector index build fails after upgrade to 4.3 | dba_sea | vector | IVF rebuild stalls 78%; memory limit on observer |
+| mysql-group-by | MySQL compatibility: GROUP BY… | migrator | mysql-mode | ONLY_FULL_GROUP_BY migration from MySQL 8 |
+
+**示例回复文案（节选）：**
+
+- `oug_mod`: Check that the FTS index finished building… Try lowering k to 3 for a smoke test.
+- `harry_z`: Start with the official ob-operator quickstart; for staging use 3 observers + 1 OBProxy.
+- `oug_mod`: See docs on sql_mode parity; we're tracking edge cases in 4.3.1 release notes.
 
 ---
 
