@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OceanData4AI Demo 文案评审</title>
+  <style>
+    :root {
+      --bg: #0f1419;
+      --panel: #1a2332;
+      --border: #2d3a4f;
+      --text: #e8edf4;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(15, 20, 25, 0.95);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+    }
+    header h1 { margin: 0 0 4px; font-size: 1.25rem; }
+    header p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+    nav.toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    nav.toc a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+    }
+    .section {
+      display: grid;
+      grid-template-columns: minmax(320px, 42%) 1fr;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      min-height: 480px;
+    }
+    @media (max-width: 1100px) {
+      .section { grid-template-columns: 1fr; }
+    }
+    .copy {
+      padding: 24px;
+      border-right: 1px solid var(--border);
+      overflow: auto;
+    }
+    .preview {
+      background: #0a0e14;
+      position: relative;
+    }
+    .preview-label {
+      position: sticky;
+      top: 0;
+      background: #111827;
+      padding: 8px 16px;
+      font-size: 0.75rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      z-index: 2;
+    }
+    .preview iframe {
+      width: 100%;
+      height: 520px;
+      border: 0;
+      display: block;
+    }
+    .preview a.open {
+      display: inline-block;
+      margin: 8px 16px 16px;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+    h2 { font-size: 1.1rem; margin: 0 0 8px; }
+    .meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 16px; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { background: var(--panel); color: var(--muted); font-weight: 600; }
+    code { font-size: 0.78rem; color: #fbbf24; }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #1e3a5f; font-size: 0.72rem; margin-right: 4px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>OceanData4AI Demo 文案评审（可视化版）</h1>
+    <p>左侧：结构化文案 · 右侧：线上 Demo 页面预览 · 
+      <a href="ODA-Demo-Copy-Review.docx" style="color:#38bdf8">下载 Word ↓</a> · 
+      <a href="ODA-Demo-Copy-Review.pdf" style="color:#38bdf8">下载 PDF ↓</a> · 
+      <a href="ODA-Demo-Copy-Review.md" style="color:#38bdf8">Markdown</a>
+    </p>
+    <nav class="toc">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#join">Join</a>
+      <a href="#blog">Blog</a>
+      <a href="#events">Events</a>
+      <a href="#fellows">Fellows</a>
+      <a href="#qa">Ask OUG</a>
+      <a href="#m1">M1 Demo</a>
+    </nav>
+  </header>
+
+  <section class="section" id="home">
+    <div class="copy">
+      <h2>A. 首页 Home</h2>
+      <p class="meta">模块：Hero · Promo · Fellows · Events · GitHub · Social · Resources · Footer</p>
+      <table>
+        <thead><tr><th>ID</th><th>位置</th><th>英文原文</th></tr></thead>
+        <tbody>
+          <tr><td>H-02</td><td>Hero H1</td><td>Welcome to the OceanData4AI Community</td></tr>
+          <tr><td>H-03</td><td>Hero Lead</td><td>Built by builders, for builders. Learn, contribute, connect, and help shape AI-native data infrastructure — from RAG and vectors to agents and hybrid search.</td></tr>
+          <tr><td>H-04</td><td>Promo 左卡</td><td>Join 800+ builders on Discord</td></tr>
+          <tr><td>H-05</td><td>Promo 左卡正文</td><td>Get support, share ideas, and discuss RAG pipelines, vector search, and agent memory with a passionate community.</td></tr>
+          <tr><td>H-10</td><td>Fellows</td><td>Community Fellows Program</td></tr>
+          <tr><td>H-23</td><td>GitHub</td><td>Fork it. Work it. Ship it.</td></tr>
+          <tr><td>H-28~33</td><td>Social 6卡</td><td>Discord · GitHub · LinkedIn · Medium · Ask OUG · Events</td></tr>
+          <tr><td>G-FT-07</td><td>Footer</td><td>Built for builders · Not a sales page</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 页面预览 — 首页从上到下滚动对照左侧模块</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/index.html" title="Home preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/index.html" target="_blank" rel="noopener">在新窗口打开首页 ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="copy">
+      <h2>B. About</h2>
+      <table>
+        <thead><tr><th>ID</th><th>英文原文</th></tr></thead>
+        <tbody>
+          <tr><td>A-01</td><td>About OceanData4AI</td></tr>
+          <tr><td>A-02</td><td>Connecting builders who work on the data layer for AI — RAG, vectors, agents, and memory. Vendor-neutral, open, and builder-first.</td></tr>
+          <tr><td>A-03</td><td>Our mission — community hub for practitioners… whether they use OceanBase, seekdb, or entirely different stacks.</td></tr>
+          <tr><td>A-04</td><td>Neutrality & transparency — OceanBase initiated and supports OceanData4AI…</td></tr>
+          <tr><td>A-06</td><td>Builder-first · Honest comparisons · Community voice · Safe space</td></tr>
+          <tr><td>A-07</td><td>847 Discord members · 2.4k GitHub stars · 24 Articles</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 About 页面</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/about.html" title="About preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/about.html" target="_blank" rel="noopener">打开 About ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="join">
+    <div class="copy">
+      <h2>C. Join — 频道入口 + Fellow 申请</h2>
+      <table>
+        <thead><tr><th>频道</th><th>标题</th><th>描述</th></tr></thead>
+        <tbody>
+          <tr><td>Discord</td><td>💬 Discord — fastest way in</td><td>Introduce yourself in #introductions… No OceanBase experience required.</td></tr>
+          <tr><td>GitHub</td><td>⌥ GitHub — contribute code & docs</td><td>Star repos, open issues, submit PRs.</td></tr>
+          <tr><td>Events</td><td>📅 Events — meet us live</td><td>Office hours, workshops, and AMAs announced in Discord.</td></tr>
+          <tr><td>LinkedIn</td><td>LinkedIn — stay in the loop</td><td>Join our group for updates…</td></tr>
+          <tr><td>Fellow</td><td>Apply as a Fellow</td><td>We respond within 5–7 business days. We look for clarity, accuracy, and builder empathy — not marketing copy.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 Join 页面</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/join.html" title="Join preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/join.html" target="_blank" rel="noopener">打开 Join ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="blog">
+    <div class="copy">
+      <h2>D. Blog</h2>
+      <table>
+        <thead><tr><th>ID</th><th>英文原文</th></tr></thead>
+        <tbody>
+          <tr><td>B-02</td><td>Blog</td></tr>
+          <tr><td>B-03</td><td>Tutorials, deep dives, and builder stories on AI data infrastructure — one feed, filtered by topic tags.</td></tr>
+          <tr><td>B-04</td><td>All · News & Updates · Tutorials · Deep Dives · Builder Stories</td></tr>
+          <tr><td>B-05</td><td>Read on Medium</td></tr>
+        </tbody>
+      </table>
+      <p class="meta">文章标题与摘要见 <code>ODA-Demo-Copy-Review.md</code> 附录 1</p>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 Blog 页面</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/blog.html" title="Blog preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/blog.html" target="_blank" rel="noopener">打开 Blog ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="events">
+    <div class="copy">
+      <h2>E. Events</h2>
+      <table>
+        <thead><tr><th>活动</th><th>文案要点</th></tr></thead>
+        <tbody>
+          <tr><td>Tokyo Onchain Night</td><td>Invite-only builder meetup in Shibuya… Ask for invite ↗</td></tr>
+          <tr><td>Corporate Crypto Strategy Summit</td><td>B2B executive session… Request details ↗</td></tr>
+          <tr><td>Vietnam Meetup</td><td>Planned local meetup… Follow updates ↗</td></tr>
+          <tr><td>Past events</td><td>No replays published yet.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 Events 页面</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/events.html" title="Events preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/events.html" target="_blank" rel="noopener">打开 Events ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="fellows">
+    <div class="copy">
+      <h2>F. Fellows Directory</h2>
+      <table>
+        <thead><tr><th>ID</th><th>英文原文</th></tr></thead>
+        <tbody>
+          <tr><td>F-02</td><td>Fellows Directory</td></tr>
+          <tr><td>F-03</td><td>Builders who publish tutorials, deep dives, and builder stories — selected on merit, not pay-to-play.</td></tr>
+          <tr><td>F-04</td><td>Featured Fellows — Phase 1 showcase</td></tr>
+        </tbody>
+      </table>
+      <p class="meta">Fellow bio 见 Markdown 附录 2</p>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 Fellows 页面</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/fellows.html" title="Fellows preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/fellows.html" target="_blank" rel="noopener">打开 Fellows ↗</a>
+    </div>
+  </section>
+
+  <section class="section" id="qa">
+    <div class="copy">
+      <h2>G. Ask OUG（问答频道）</h2>
+      <table>
+        <thead><tr><th>ID</th><th>英文原文</th></tr></thead>
+        <tbody>
+          <tr><td>Q-01</td><td>M1 · On-site Q&A demo · Browse topics below; posting opens after legal review</td></tr>
+          <tr><td>Q-03</td><td>OceanBase User Group Q&A</td></tr>
+          <tr><td>Q-04</td><td>Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments.</td></tr>
+          <tr><td>Q-08</td><td>Sign up for Ask OUG</td></tr>
+          <tr><td>Q-14</td><td>Check your email — Verify email from The OceanData4AI Community</td></tr>
+          <tr><td>Q-15</td><td>Start a discussion — Ask the OceanBase User Group community.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 Ask OUG 列表页</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/qa/oug-help.html" title="Ask OUG preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/qa/oug-help.html" target="_blank" rel="noopener">打开 Ask OUG ↗</a>
+      <div class="preview-label" style="top:auto">📍 Ask OUG 注册发帖页</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/qa/ask.html?board=oug-help" title="Ask signup preview" style="height:640px"></iframe>
+    </div>
+  </section>
+
+  <section class="section" id="m1">
+    <div class="copy">
+      <h2>H. M1 里程碑 Demo（文案差异）</h2>
+      <table>
+        <thead><tr><th>ID</th><th>英文原文</th></tr></thead>
+        <tbody>
+          <tr><td>M1-01</td><td>M1 Milestone Demo · View original hub ↗</td></tr>
+          <tr><td>M1-02</td><td>Where builders talk about <em>AI data infrastructure</em></td></tr>
+          <tr><td>M1-03</td><td>Channels & external matrix — One hub — link out to discuss, publish, and learn.</td></tr>
+          <tr><td>M1-04</td><td>Mission / Neutrality / One platform / vs. en.oceanbase.com</td></tr>
+          <tr><td>M1-05</td><td>M1 · 4 content series — News 15% · Tutorials 25% · Deep Dives 35% · Builder Stories 25%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="preview">
+      <div class="preview-label">📍 M1 Demo 首页</div>
+      <iframe src="https://oceandata4ai.github.io/oceandata4ai-hub/m1/index.html" title="M1 preview"></iframe>
+      <a class="open" href="https://oceandata4ai.github.io/oceandata4ai-hub/m1/index.html" target="_blank" rel="noopener">打开 M1 Demo ↗</a>
+    </div>
+  </section>
+
+</body>
+</html>
