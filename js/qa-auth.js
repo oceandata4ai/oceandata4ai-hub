@@ -143,16 +143,16 @@
       const normalized = email.trim().toLowerCase();
       if (!isValidEmail(normalized)) throw new Error('Enter a valid email address.');
       if (!getPasswordRules(password).valid) throw new Error('Password does not meet requirements.');
-      if (!company?.trim()) throw new Error('Company name is required.');
 
       const accounts = readJson(ACCOUNTS_KEY, {});
       if (accounts[normalized]) throw new Error('An account with this email already exists. Sign in instead.');
 
+      const companyName = company?.trim() || '';
       const passwordHash = await hashPassword(password);
       const token = createVerificationToken(normalized);
       accounts[normalized] = {
         email: normalized,
-        company: company.trim(),
+        company: companyName,
         passwordHash,
         emailVerified: false,
         createdAt: new Date().toISOString(),
@@ -160,7 +160,7 @@
       writeJson(ACCOUNTS_KEY, accounts);
       writeJson(SESSION_KEY, null);
 
-      return { email: normalized, company: company.trim(), verificationToken: token };
+      return { email: normalized, company: companyName, verificationToken: token };
     },
 
     async signIn({ email, password }) {

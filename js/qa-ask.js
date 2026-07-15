@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     authSubmit.textContent = isSignup ? 'Sign up with email' : 'Sign in with email';
     signupFields.hidden = !isSignup;
     passwordInput.autocomplete = isSignup ? 'new-password' : 'current-password';
-    companyInput.required = isSignup;
+    if (companyInput) companyInput.required = false;
 
     if (isSignup) {
       const hasEmail = Boolean(emailInput?.value.trim());
