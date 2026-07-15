@@ -36,10 +36,6 @@ function renderTopic(root, topic, qa, auth) {
     breadcrumb.innerHTML = `<a href="oug-help.html">${topic.boardLabel}</a> / <span>${escapeHtml(topic.title)}</span>`;
   }
 
-  const tags = (topic.tags || [])
-    .map((t) => `<span class="tag ${qa.tagClass(t)}">${escapeHtml(t)}</span>`)
-    .join('');
-
   const replies = topic.replies || [];
   const replyHtml = replies
     .map(
@@ -73,7 +69,6 @@ function renderTopic(root, topic, qa, auth) {
       <h1>${escapeHtml(topic.title)}</h1>
       <div class="qa-thread-meta">
         <span>${escapeHtml(topic.author)}</span> · <time>${escapeHtml(topic.date)}</time>
-        ${tags ? `<div class="qa-topic-tags">${tags}</div>` : ''}
       </div>
       <div class="qa-thread-body">${topic.body}</div>
     </article>
