@@ -270,6 +270,13 @@
   color: var(--text-muted);
   font-size: 0.9em;
 }
+.nav-actions [data-qa-nav-signin].is-signed-in {
+  cursor: default;
+  pointer-events: none;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding: 0 4px;
+}
 .qa-email-display-row {
   display: flex;
   align-items: center;
