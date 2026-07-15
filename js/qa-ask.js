@@ -374,8 +374,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const title = form.title.value.trim();
     const bodyHtml = editor?.innerHTML.trim() || '';
     const bodyText = editor?.innerText.trim() || '';
-    if (!title || !bodyText) {
-      note.textContent = 'Title and body are required.';
+    if (!title) {
+      note.textContent = 'Please enter a title.';
+      form.title.focus();
+      return;
+    }
+    if (!bodyText) {
+      note.textContent = 'Please enter your question in the body.';
+      editor?.focus();
       return;
     }
     const user = auth.getUser();
