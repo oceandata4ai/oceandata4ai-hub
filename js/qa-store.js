@@ -89,12 +89,14 @@
       topic.replies.push(reply);
       topic.activity = 'just now';
       writeJson(TOPICS_KEY, all);
+      window.dispatchEvent(new CustomEvent('o4ai:reply-posted', { detail: { slug } }));
       return true;
     }
     const extras = readExtraReplies();
     extras[slug] = extras[slug] || [];
     extras[slug].push(reply);
     writeJson(REPLIES_KEY, extras);
+    window.dispatchEvent(new CustomEvent('o4ai:reply-posted', { detail: { slug } }));
     return true;
   }
 
