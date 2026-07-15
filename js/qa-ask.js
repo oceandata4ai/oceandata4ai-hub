@@ -390,14 +390,14 @@ document.addEventListener('DOMContentLoaded', () => {
       note.textContent = 'Unable to publish topic. Please refresh and try again.';
       return;
     }
-    const slug = store.createTopic({
+    store.createTopic({
       board: form.board.value,
       title,
       bodyHtml,
       author: user.email,
     });
     window.OCEANDATA4AI_QA?.clearCache();
-    window.location.href = `topic.html?slug=${encodeURIComponent(slug)}`;
+    window.location.href = 'oug-help.html';
   });
 
   setAuthMode(initialAuthMode);
