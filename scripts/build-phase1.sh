@@ -146,7 +146,22 @@ def strip_phase1_about(html: str) -> str:
     return strip_fellows_about(html)
 
 def strip_phase1_contact(html: str) -> str:
-    return strip_fellows_contact(html)
+    html = re.sub(
+        r'\s*<p class="form-note">.*?</p>\s*',
+        '\n',
+        html,
+        count=1,
+        flags=re.DOTALL,
+    )
+    html = re.sub(
+        r'\s*<div class="form-group">\s*<label for="subject">Subject \*</label>\s*<select id="subject" name="subject" required>.*?</select>\s*</div>\s*',
+        '\n',
+        html,
+        count=1,
+        flags=re.DOTALL,
+    )
+    html = html.replace('>Send message</button>', '>Submit</button>')
+    return html
 
 def strip_fellows_about(html: str) -> str:
     html = re.sub(
