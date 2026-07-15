@@ -88,6 +88,21 @@ CH_RESOURCES_SECTION = re.compile(
     re.DOTALL,
 )
 
+def strip_nav_github_discuss(html: str) -> str:
+    html = re.sub(
+        r'\s*<a href="https://github.com/oceanbase/oceanbase" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub ↗</a>\s*\n',
+        '\n',
+        html,
+        flags=re.I,
+    )
+    html = re.sub(
+        r'\s*<a href="https://discord.com/channels/[^"]*" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>\s*\n',
+        '\n',
+        html,
+        flags=re.I,
+    )
+    return html
+
 def strip_legal_contact(html: str) -> str:
     return re.sub(
         r'(<div class="footer-col">\s*<h4>Legal</h4>\s*<ul>.*?)<li><a href="(?:\.\./)?contact\.html">Contact(?: us)?</a></li>(\s*</ul>\s*</div>)',
@@ -171,9 +186,9 @@ def inject_signin_nav(html: str, href: str) -> str:
         count=1,
     )
     signin = (
-        f'<div class="qa-nav-user" data-qa-nav-user>\n'
-        f'        <a href="{href}" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\n'
-        f'      </div>\n'
+        f'        <div class="qa-nav-user" data-qa-nav-user>\n'
+        f'          <a href="{href}" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\n'
+        f'        </div>\n'
     )
     return html.replace(
         '      </div>\n      <button class="nav-toggle"',
@@ -258,6 +273,7 @@ for name in ["index.html", "about.html", "contact.html", "events.html"]:
     text = patch_legal_links(text)
     text = strip_legal_contact(text)
     text = patch_footer_resources(text)
+    text = strip_nav_github_discuss(text)
     p.write_text(text, encoding="utf-8")
 
 for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
@@ -280,6 +296,7 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
             '<script src="../../js/qa-nav-auth.js?v=20260715-nav-user"></script>\n  <script src="../../js/main.js" defer></script>',
             1,
         )
+    text = strip_nav_github_discuss(text)
     p.write_text(text, encoding="utf-8")
 
 print("phase1 build OK:", root)
