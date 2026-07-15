@@ -164,17 +164,27 @@ def strip_fellows_contact(html: str) -> str:
     return html
 
 def inject_signin_nav(html: str, href: str) -> str:
-    signin = f'<a href="{href}" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\n        '
+    html = re.sub(
+        r'\s*<a href="[^"]*" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\s*',
+        '\n        ',
+        html,
+        count=1,
+    )
+    signin = (
+        f'<div class="qa-nav-user" data-qa-nav-user>\n'
+        f'        <a href="{href}" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\n'
+        f'      </div>\n'
+    )
     return html.replace(
-        '<button class="btn btn-ghost btn-sm theme-toggle"',
-        signin + '<button class="btn btn-ghost btn-sm theme-toggle"',
+        '      </div>\n      <button class="nav-toggle"',
+        signin + '      </div>\n      <button class="nav-toggle"',
         1,
     )
 
 def inject_auth_scripts(html: str, js_prefix: str) -> str:
     snippet = (
         f'<script src="{js_prefix}qa-auth.js"></script>\n'
-        f'  <script src="{js_prefix}qa-nav-auth.js"></script>\n'
+        f'  <script src="{js_prefix}qa-nav-auth.js?v=20260715-nav-user"></script>\n'
         f'  <script src="{js_prefix}main.js" defer></script>'
     )
     return html.replace(f'<script src="{js_prefix}main.js" defer></script>', snippet, 1)
@@ -267,7 +277,7 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
         )
         text = text.replace(
             '<script src="../../js/main.js" defer></script>',
-            '<script src="../../js/qa-nav-auth.js"></script>\n  <script src="../../js/main.js" defer></script>',
+            '<script src="../../js/qa-nav-auth.js?v=20260715-nav-user"></script>\n  <script src="../../js/main.js" defer></script>',
             1,
         )
     p.write_text(text, encoding="utf-8")

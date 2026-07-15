@@ -287,12 +287,58 @@
   color: var(--text-muted);
   font-size: 0.9em;
 }
-.nav-actions [data-qa-nav-signin].is-signed-in {
-  cursor: default;
-  pointer-events: none;
-  color: var(--text-muted);
+.qa-nav-user {
+  position: relative;
+  margin-left: 4px;
+  flex-shrink: 0;
+}
+.qa-nav-user-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 180px;
+}
+.qa-nav-user-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.qa-nav-user-chevron {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  transition: transform 0.15s ease;
+}
+.qa-nav-user.is-open .qa-nav-user-chevron {
+  transform: rotate(180deg);
+}
+.qa-nav-user-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 168px;
+  padding: 6px;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  z-index: 220;
+}
+.qa-nav-user-item {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  background: none;
+  text-align: left;
+  font: inherit;
   font-size: 0.9rem;
-  padding: 0 4px;
+  font-weight: 500;
+  color: var(--text);
+  cursor: pointer;
+}
+.qa-nav-user-item:hover {
+  background: var(--bg-muted);
 }
 .qa-email-display-row {
   display: flex;
