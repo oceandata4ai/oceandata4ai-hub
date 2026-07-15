@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../css/styles.css?v=20260707-hero-centered" />
   <link rel="stylesheet" href="../css/tech.css" />
-  <link rel="stylesheet" href="../css/qa.css?v=20260708-ask-oug" />
+  <link rel="stylesheet" href="../css/qa.css?v=20260715-topic-cards" />
   <script src="../js/theme-init.js"></script>
 </head>
 <body class="page-shell" data-page="qa-oug">
@@ -44,27 +44,16 @@
   <main>
     <section style="padding: 48px 0 80px">
       <div class="container">
-        <div class="qa-header reveal">
-          <div class="section-kicker">Ask OUG</div>
-          <h1>OceanBase User Group Q&amp;A</h1>
-          <p>Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros.</p>
-          <div class="qa-actions">
-            <a href="ask.html?board=oug-help" class="btn btn-primary">Ask a question</a>
+        <div class="qa-board-header reveal">
+          <div class="qa-board-heading">
+            <div class="section-kicker">Ask OUG</div>
+            <h1>OceanBase User Group Q&amp;A</h1>
           </div>
+          <a href="ask.html?board=oug-help" class="btn btn-primary">Ask a question</a>
         </div>
-        <table class="qa-topic-table reveal">
-          <thead>
-            <tr>
-              <th>Topic</th>
-              <th class="num">Replies</th>
-              <th class="num">Views</th>
-              <th class="num">Activity</th>
-            </tr>
-          </thead>
-          <tbody id="qa-topic-list">
-            <tr><td colspan="4" class="qa-loading">Loading topics…</td></tr>
-          </tbody>
-        </table>
+        <div class="qa-topic-cards reveal" id="qa-topic-list" aria-live="polite">
+          <p class="qa-loading">Loading topics…</p>
+        </div>
       </div>
     </section>
   </main>
@@ -86,7 +75,7 @@
   </footer>
   <script src="../js/qa-store.js"></script>
   <script src="../js/qa-loader.js"></script>
-  <script src="../js/qa-board.js?v=20260715-no-tags"></script>
+  <script src="../js/qa-board.js?v=20260715-topic-cards"></script>
   <script src="../js/main.js" defer></script>
   <script src="../js/effects.js" defer></script>
 </body>

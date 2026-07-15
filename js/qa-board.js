@@ -1,33 +1,52 @@
 document.addEventListener('DOMContentLoaded', async () => {
-  const tbody = document.getElementById('qa-topic-list');
-  if (!tbody) return;
+  const listRoot = document.getElementById('qa-topic-list');
+  if (!listRoot) return;
 
   const qa = window.OCEANDATA4AI_QA;
   if (!qa) return;
 
   try {
     const { list } = await qa.loadTopics();
-    renderTopics(tbody, list, qa);
+    renderTopics(listRoot, list, qa);
   } catch (err) {
-    tbody.innerHTML = `<tr><td colspan="4"><p class="qa-error">Could not load topics. <a href="oug-help.html">Retry</a></p></td></tr>`;
+    listRoot.innerHTML =
+      '<p class="qa-error">Could not load topics. <a href="oug-help.html">Retry</a></p>';
     console.error(err);
   }
 });
 
-function renderTopics(tbody, topics, qa) {
-  tbody.innerHTML = topics
+function renderTopics(listRoot, topics, qa) {
+  if (!topics.length) {
+    listRoot.innerHTML = '<p class="qa-empty">No topics yet. <a href="ask.html?board=oug-help">Ask a question</a> to start the board.</p>';
+    return;
+  }
+
+  listRoot.innerHTML = topics
     .map((topic) => {
       const replyCount = (topic.replies || []).length;
-      const rowClass = topic.pinned ? ' class="qa-pinned"' : '';
-      return `<tr${rowClass}>
-        <td>
-          <a class="qa-topic-title" href="topic.html?slug=${encodeURIComponent(topic.slug)}">${escapeHtml(topic.title)}</a>
-          <div class="qa-topic-excerpt">${escapeHtml(topic.excerpt || '')}</div>
-        </td>
-        <td class="num">${replyCount}</td>
-        <td class="num">${qa.formatViews(topic.views || 0)}</td>
-        <td class="num">${escapeHtml(topic.activity || '')}</td>
-      </tr>`;
+      const pinned = topic.pinned ? '<span class="qa-topic-pin">Pinned</span>' : '';
+      return `<article class="qa-topic-card${topic.pinned ? ' is-pinned' : ''}">
+        <div class="qa-topic-card-main">
+          <div class="qa-topic-card-meta">
+            ${pinned}
+            <span>by ${escapeHtml(topic.author)}</span>
+            <span class="qa-topic-card-dot" aria-hidden="true">·</span>
+            <time>${escapeHtml(topic.activity || topic.date || '')}</time>
+          </div>
+          <a class="qa-topic-card-title" href="topic.html?slug=${encodeURIComponent(topic.slug)}">${escapeHtml(topic.title)}</a>
+          ${topic.excerpt ? `<p class="qa-topic-card-excerpt">${escapeHtml(topic.excerpt)}</p>` : ''}
+        </div>
+        <div class="qa-topic-card-stats" aria-label="Topic stats">
+          <div class="qa-topic-stat">
+            <strong>${replyCount}</strong>
+            <span>${replyCount === 1 ? 'Reply' : 'Replies'}</span>
+          </div>
+          <div class="qa-topic-stat">
+            <strong>${escapeHtml(qa.formatViews(topic.views || 0))}</strong>
+            <span>Views</span>
+          </div>
+        </div>
+      </article>`;
     })
     .join('');
 }
