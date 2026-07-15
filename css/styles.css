@@ -687,6 +687,17 @@ section { padding: 64px 0; }
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
+.event-card.is-past {
+  opacity: 0.92;
+}
+.event-card.is-past:hover {
+  transform: none;
+  box-shadow: none;
+}
+.event-card.is-past .event-date-box {
+  background: var(--bg-muted);
+  color: var(--text-muted);
+}
 .event-date {
   display: flex;
   align-items: center;
