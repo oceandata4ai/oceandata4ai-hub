@@ -72,6 +72,7 @@
     const all = readAll();
     all.unshift(topic);
     writeJson(TOPICS_KEY, all);
+    window.dispatchEvent(new CustomEvent('o4ai:topic-posted', { detail: { slug } }));
     return slug;
   }
 

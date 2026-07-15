@@ -154,9 +154,16 @@
     const board = params.get('board');
     if (board) document.getElementById('qa-board').value = board;
   </script>
-  <script src="../js/qa-store.js"></script>
+  <script src="../js/qa-store.js?v=20260715-topic-list"></script>
   <script src="../js/qa-nav-auth.js"></script>
   <script src="../js/main.js" defer></script>
-  <script src="../js/qa-ask.js?v=20260715-post-redirect" defer></script>
+  <script>
+    window.addEventListener('o4ai:topic-posted', function () {
+      setTimeout(function () {
+        window.location.replace('oug-help.html');
+      }, 0);
+    });
+  </script>
+  <script src="../js/qa-ask-form.js" defer></script>
 </body>
 </html>
