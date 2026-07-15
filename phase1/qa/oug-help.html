@@ -34,9 +34,9 @@
         <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
         <a href="https://github.com/oceanbase/oceanbase" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
-<div class="qa-nav-user" data-qa-nav-user>
-        <a href="ask.html?mode=signin" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>
-      </div>
+        <div class="qa-nav-user" data-qa-nav-user>
+          <a href="ask.html?mode=signin" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>
+        </div>
       </div>
       <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
     </div>
@@ -44,35 +44,28 @@
 
   <main>
     <section style="padding: 48px 0 80px">
-      <div class="container qa-layout">
-        <aside class="qa-sidebar">
-          <ul>
-            <li><a href="oug-help.html" class="active">Ask OUG</a></li>
-          </ul>
-        </aside>
-        <div>
-          <div class="qa-header reveal">
-            <div class="section-kicker">Ask OUG</div>
-            <h1>OceanBase User Group Q&amp;A</h1>
-            <p>Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros.</p>
-            <div class="qa-actions">
-              <a href="ask.html?board=oug-help" class="btn btn-primary">Ask OUG</a>
-            </div>
+      <div class="container">
+        <div class="qa-header reveal">
+          <div class="section-kicker">Ask OUG</div>
+          <h1>OceanBase User Group Q&amp;A</h1>
+          <p>Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros.</p>
+          <div class="qa-actions">
+            <a href="ask.html?board=oug-help" class="btn btn-primary">Ask OUG</a>
           </div>
-          <table class="qa-topic-table reveal">
-            <thead>
-              <tr>
-                <th>Topic</th>
-                <th class="num">Replies</th>
-                <th class="num">Views</th>
-                <th class="num">Activity</th>
-              </tr>
-            </thead>
-            <tbody id="qa-topic-list">
-              <tr><td colspan="4" class="qa-loading">Loading topics…</td></tr>
-            </tbody>
-          </table>
         </div>
+        <table class="qa-topic-table reveal">
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th class="num">Replies</th>
+              <th class="num">Views</th>
+              <th class="num">Activity</th>
+            </tr>
+          </thead>
+          <tbody id="qa-topic-list">
+            <tr><td colspan="4" class="qa-loading">Loading topics…</td></tr>
+          </tbody>
+        </table>
       </div>
     </section>
   </main>
