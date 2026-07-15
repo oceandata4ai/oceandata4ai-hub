@@ -52,7 +52,7 @@ function renderTopic(root, topic, qa, auth) {
 
   const loggedIn = auth?.isLoggedIn?.();
   const replyPanel = loggedIn
-    ? `<form class="qa-reply-form" id="qa-reply-form">
+    ? `<form class="qa-reply-form" id="qa-reply-form" novalidate>
         <h3>Reply</h3>
         <label for="qa-reply-body">Your answer</label>
         <textarea id="qa-reply-body" rows="5" required placeholder="Share steps, links, or follow-up questions."></textarea>
