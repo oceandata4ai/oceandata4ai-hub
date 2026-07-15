@@ -257,7 +257,7 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
     text = patch_legal_links(text)
     text = strip_legal_contact(text)
     text = patch_footer_resources(text)
-    if name in ("oug-help.html", "topic.html"):
+    if name == "oug-help.html":
         text = inject_auth_scripts(text, '../../js/')
     if name == "ask.html":
         text = text.replace(
