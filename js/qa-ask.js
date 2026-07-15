@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const emailInput = document.getElementById('qa-email');
   const passwordInput = document.getElementById('qa-password');
   const passwordToggle = document.getElementById('qa-password-toggle');
-  const companyInput = document.getElementById('qa-company');
   const termsInput = document.getElementById('qa-terms');
   const ruleEls = {
     minLength: document.querySelector('[data-rule="min-length"]'),
@@ -42,14 +41,31 @@ document.addEventListener('DOMContentLoaded', () => {
   const MAX_IMAGE_BYTES = 2 * 1024 * 1024;
   const ACCEPTED_TYPES = ['image/png', 'image/jpeg', 'image/gif', 'image/webp'];
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const returnUrl = urlParams.get('return') || '';
+  const wantsPost = Boolean(urlParams.get('board'));
+  const initialAuthMode = urlParams.get('mode') === 'signin' ? 'signin' : 'signup';
+
+  function getPostLoginRedirect() {
+    if (returnUrl) return returnUrl;
+    if (wantsPost) return null;
+    const path = window.location.pathname;
+    if (path.includes('/qa/')) return '../index.html';
+    return 'index.html';
+  }
+
+  function maybeRedirectAfterLogin() {
+    const target = getPostLoginRedirect();
+    if (target) window.location.href = target;
+  }
+
   function setAuthMode(mode) {
     authMode = mode;
     const isSignup = mode === 'signup';
-    authTitle.textContent = isSignup ? 'Sign up for Ask OUG' : 'Sign in to Ask OUG';
+    authTitle.textContent = isSignup ? 'Sign up' : 'Sign in';
     authSubmit.textContent = isSignup ? 'Sign up with email' : 'Sign in with email';
     signupFields.hidden = !isSignup;
     passwordInput.autocomplete = isSignup ? 'new-password' : 'current-password';
-    if (companyInput) companyInput.required = false;
 
     if (isSignup) {
       const hasEmail = Boolean(emailInput?.value.trim());
@@ -89,7 +105,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (loginGate) loginGate.hidden = loggedIn || (checkEmail && !checkEmail.hidden);
     if (checkEmail && loggedIn) checkEmail.hidden = true;
-    if (askPanel) askPanel.hidden = !loggedIn;
+    if (askPanel) askPanel.hidden = !loggedIn || !wantsPost;
+
+    if (loggedIn && !wantsPost && !(checkEmail && !checkEmail.hidden)) {
+      maybeRedirectAfterLogin();
+      return;
+    }
 
     if (userBadge) {
       if (!loggedIn) {
@@ -101,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="qa-user-pill">
           <span class="qa-user-avatar" aria-hidden="true">${user.displayName.charAt(0).toUpperCase()}</span>
           Signed in as <strong>${user.email}</strong>
-          ${user.company ? `<span class="qa-user-provider">${user.company}</span>` : ''}
         </span>
         <button type="button" class="btn btn-ghost btn-sm" id="qa-logout-btn">Sign out</button>
       `;
@@ -205,10 +225,12 @@ document.addEventListener('DOMContentLoaded', () => {
     authSubmit.textContent = 'Sending verification email…';
 
     try {
+      if (returnUrl) {
+        localStorage.setItem('o4ai_qa_return_url', returnUrl);
+      }
       const result = await auth.register({
         email: emailInput.value,
         password: passwordInput.value,
-        company: companyInput.value,
       });
       let sendResult;
       try {
@@ -264,6 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
           email: emailInput.value,
           password: passwordInput.value,
         });
+        if (!wantsPost) {
+          maybeRedirectAfterLogin();
+          return;
+        }
         renderAuthState();
         if (note) note.textContent = 'You are signed in. Compose your question below.';
       }
@@ -368,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = `topic.html?slug=${encodeURIComponent(slug)}`;
   });
 
-  setAuthMode('signup');
+  setAuthMode(initialAuthMode);
   syncEmailDisplay();
   updatePasswordRules();
   renderAuthState();

@@ -63,7 +63,7 @@ function renderTopic(root, topic, qa, auth) {
         <button type="submit" class="btn btn-primary">Post reply</button>
         <p class="form-note" id="qa-reply-note"></p>
       </form>`
-    : `<p class="qa-readonly-note"><a href="ask.html?board=oug-help">Sign in</a> to reply on-site.</p>`;
+    : `<p class="qa-readonly-note"><a href="ask.html?mode=signin&amp;return=${encodeURIComponent(window.location.href)}">Sign in</a> to reply on-site.</p>`;
 
   root.innerHTML = `
     <article class="qa-thread">

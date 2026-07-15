@@ -130,7 +130,6 @@
       const session = {
         email: normalized,
         displayName: normalized.split('@')[0],
-        company: account.company,
         provider: 'email',
         emailVerified: true,
         loggedInAt: new Date().toISOString(),
@@ -139,7 +138,7 @@
       return { ok: true, email: normalized };
     },
 
-    async register({ email, password, company }) {
+    async register({ email, password }) {
       const normalized = email.trim().toLowerCase();
       if (!isValidEmail(normalized)) throw new Error('Enter a valid email address.');
       if (!getPasswordRules(password).valid) throw new Error('Password does not meet requirements.');
@@ -147,12 +146,10 @@
       const accounts = readJson(ACCOUNTS_KEY, {});
       if (accounts[normalized]) throw new Error('An account with this email already exists. Sign in instead.');
 
-      const companyName = company?.trim() || '';
       const passwordHash = await hashPassword(password);
       const token = createVerificationToken(normalized);
       accounts[normalized] = {
         email: normalized,
-        company: companyName,
         passwordHash,
         emailVerified: false,
         createdAt: new Date().toISOString(),
@@ -160,7 +157,7 @@
       writeJson(ACCOUNTS_KEY, accounts);
       writeJson(SESSION_KEY, null);
 
-      return { email: normalized, company: companyName, verificationToken: token };
+      return { email: normalized, verificationToken: token };
     },
 
     async signIn({ email, password }) {
@@ -177,7 +174,6 @@
       const session = {
         email: normalized,
         displayName: normalized.split('@')[0],
-        company: account.company,
         provider: 'email',
         emailVerified: true,
         loggedInAt: new Date().toISOString(),

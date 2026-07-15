@@ -52,13 +52,15 @@
       const params = new URLSearchParams(location.search);
       const token = params.get('token');
       const email = params.get('email');
+      const returnUrl =
+        params.get('return') || localStorage.getItem('o4ai_qa_return_url') || '../index.html';
       const result = window.O4AI_QA_AUTH?.verifyEmail(token, email);
 
       if (result?.ok) {
         root.innerHTML = `
           <h2 style="margin-bottom:12px">Email verified</h2>
-          <p style="color:var(--text-muted);margin-bottom:24px">Your email <strong>${result.email}</strong> is confirmed. You can now ask questions on Ask OUG.</p>
-          <a href="ask.html?board=oug-help" class="btn btn-primary">Continue to Ask OUG</a>
+          <p style="color:var(--text-muted);margin-bottom:24px">Your email <strong>${result.email}</strong> is confirmed. You're signed in across the OceanData4AI Community.</p>
+          <a href="${returnUrl}" class="btn btn-primary">Continue</a>
         `;
       } else {
         const verifications = readJson(VERIFY_KEY, {});
@@ -73,7 +75,7 @@
         root.innerHTML = `
           <h2 style="margin-bottom:12px">Verification failed</h2>
           <p style="color:var(--text-muted);margin-bottom:24px">${errorText}</p>
-          <a href="ask.html?board=oug-help" class="btn btn-primary">Back to sign up</a>
+          <a href="ask.html?mode=signin" class="btn btn-primary">Back to sign in</a>
         `;
       }
     });

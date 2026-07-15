@@ -43,7 +43,7 @@
       <div class="container qa-ask-wrap" id="qa-ask-container">
         <div id="qa-login-gate" class="qa-login-gate">
           <div class="qa-auth-shell">
-            <h2 id="qa-auth-title" class="qa-auth-title">Sign up for Ask OUG</h2>
+            <h2 id="qa-auth-title" class="qa-auth-title">Sign up</h2>
 
             <form id="qa-auth-form" class="qa-auth-form" novalidate>
               <div id="qa-email-display" class="qa-email-display" hidden>
@@ -77,11 +77,6 @@
                   </ul>
                 </div>
 
-                <div class="qa-field qa-field-float">
-                  <input type="text" id="qa-company" name="company" autocomplete="organization" placeholder=" " />
-                  <label for="qa-company">Company name <span class="qa-optional">(optional)</span></label>
-                </div>
-
                 <label class="qa-terms">
                   <input type="checkbox" id="qa-terms" name="terms" />
                   <span>I accept the <a href="../conduct.html" target="_blank" rel="noopener">Code of Conduct</a>, <a href="../privacy.html" target="_blank" rel="noopener">Privacy Policy</a>, and community terms</span>
@@ -89,7 +84,7 @@
               </div>
 
               <button type="submit" class="btn qa-auth-submit" id="qa-auth-submit">Sign up with email</button>
-              <p class="qa-auth-note" id="qa-auth-note">We will email you a verification link before you can post.</p>
+              <p class="qa-auth-note" id="qa-auth-note">We will email you a verification link to activate your community account.</p>
               <p class="qa-auth-switch" id="qa-auth-switch"></p>
             </form>
           </div>
@@ -160,7 +155,8 @@
     if (board) document.getElementById('qa-board').value = board;
   </script>
   <script src="../js/qa-store.js"></script>
+  <script src="../js/qa-nav-auth.js"></script>
   <script src="../js/main.js" defer></script>
-  <script src="../js/qa-ask.js?v=20260714-post" defer></script>
+  <script src="../js/qa-ask.js?v=20260715-community-auth" defer></script>
 </body>
 </html>

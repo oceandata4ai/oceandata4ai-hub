@@ -163,10 +163,27 @@ def strip_fellows_contact(html: str) -> str:
     )
     return html
 
+def inject_signin_nav(html: str, href: str) -> str:
+    signin = f'<a href="{href}" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\n        '
+    return html.replace(
+        '<button class="btn btn-ghost btn-sm theme-toggle"',
+        signin + '<button class="btn btn-ghost btn-sm theme-toggle"',
+        1,
+    )
+
+def inject_auth_scripts(html: str, js_prefix: str) -> str:
+    snippet = (
+        f'<script src="{js_prefix}qa-auth.js"></script>\n'
+        f'  <script src="{js_prefix}qa-nav-auth.js"></script>\n'
+        f'  <script src="{js_prefix}main.js" defer></script>'
+    )
+    return html.replace(f'<script src="{js_prefix}main.js" defer></script>', snippet, 1)
+
 def patch_root(html: str) -> str:
     html = nav_pattern.sub(NAV_ROOT, html, count=1)
     for p in join_btn_patterns:
         html = p.sub('\n', html)
+    html = inject_signin_nav(html, 'qa/ask.html?mode=signin')
     html = re.sub(
         r'(<h4>Community</h4>\s*)<ul>.*?</ul>',
         r'\1' + FOOTER_COMMUNITY_ROOT,
@@ -180,12 +197,14 @@ def patch_root(html: str) -> str:
     html = html.replace('href="js/', 'href="../js/')
     html = html.replace('src="js/', 'src="../js/')
     html = html.replace('href="contact.html">Contact</a>', 'href="contact.html">Contact us</a>')
+    html = inject_auth_scripts(html, '../js/')
     return html
 
 def patch_qa(html: str) -> str:
     html = nav_pattern.sub(NAV_QA, html, count=1)
     for p in join_btn_patterns:
         html = p.sub('\n', html)
+    html = inject_signin_nav(html, 'ask.html?mode=signin')
     html = re.sub(
         r'(<h4>Community</h4>)<ul>.*?</ul>',
         r'\1' + FOOTER_COMMUNITY_QA,
@@ -238,6 +257,19 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
     text = patch_legal_links(text)
     text = strip_legal_contact(text)
     text = patch_footer_resources(text)
+    if name in ("oug-help.html", "topic.html"):
+        text = inject_auth_scripts(text, '../../js/')
+    if name == "ask.html":
+        text = text.replace(
+            '<script src="../../js/qa-nav-auth.js"></script>\n  <script src="../../js/main.js" defer></script>',
+            '<script src="../../js/main.js" defer></script>',
+            1,
+        )
+        text = text.replace(
+            '<script src="../../js/main.js" defer></script>',
+            '<script src="../../js/qa-nav-auth.js"></script>\n  <script src="../../js/main.js" defer></script>',
+            1,
+        )
     p.write_text(text, encoding="utf-8")
 
 print("phase1 build OK:", root)
