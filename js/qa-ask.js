@@ -353,16 +353,19 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const user = auth.getUser();
-    const draft = {
+    const store = window.OCEANDATA4AI_QA_STORE;
+    if (!store) {
+      note.textContent = 'Unable to publish topic. Please refresh and try again.';
+      return;
+    }
+    const slug = store.createTopic({
       board: form.board.value,
       title,
       bodyHtml,
       author: user.email,
-      company: user.company,
-      savedAt: new Date().toISOString(),
-    };
-    localStorage.setItem('o4ai_qa_last_draft', JSON.stringify(draft));
-    note.textContent = 'Preview saved locally for demo. Full posting opens after legal review & Discourse setup.';
+    });
+    window.OCEANDATA4AI_QA?.clearCache();
+    window.location.href = `topic.html?slug=${encodeURIComponent(slug)}`;
   });
 
   setAuthMode('signup');

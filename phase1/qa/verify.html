@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify email — OceanData4AI Community</title>
+  <link rel="icon" href="../../assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
+  <link rel="stylesheet" href="../../css/styles.css?v=20260708-auth-email" />
+  <link rel="stylesheet" href="../../css/qa.css?v=20260708-auth-email" />
+  <script src="../../js/theme-init.js"></script>
+  <script src="../../js/qa-auth.js?v=20260708-email-fix"></script>
+</head>
+<body class="page-shell" data-page="qa-verify">
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="logo">
+        <img src="../../assets/oceandata4ai-logo.svg?v=20260707-planet" alt="" class="logo-img" width="36" height="36" />
+        OceanData4AI
+      </a>
+            <nav class="nav-links">
+        <a href="../about.html" data-page="about">About</a>
+        <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="https://medium.com/@pub_opensource_global" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="../events.html" data-page="events">Events</a>
+        <a href="../contact.html" data-page="contact">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="qa-ask-section">
+      <div class="container qa-ask-wrap" style="max-width:520px">
+        <div id="qa-verify-root" class="qa-login-card" style="text-align:center;padding:40px 28px">
+          <p>Verifying your email…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 OceanData4AI</span></div></div></footer>
+  <script src="../../js/main.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const root = document.getElementById('qa-verify-root');
+      const VERIFY_KEY = 'o4ai_qa_verifications';
+      const ACCOUNTS_KEY = 'o4ai_qa_accounts';
+      function readJson(key, fallback) {
+        try {
+          const raw = localStorage.getItem(key);
+          return raw ? JSON.parse(raw) : fallback;
+        } catch {
+          return fallback;
+        }
+      }
+      const params = new URLSearchParams(location.search);
+      const token = params.get('token');
+      const email = params.get('email');
+      const result = window.O4AI_QA_AUTH?.verifyEmail(token, email);
+
+      if (result?.ok) {
+        root.innerHTML = `
+          <h2 style="margin-bottom:12px">Email verified</h2>
+          <p style="color:var(--text-muted);margin-bottom:24px">Your email <strong>${result.email}</strong> is confirmed. You can now ask questions on Ask OUG.</p>
+          <a href="ask.html?board=oug-help" class="btn btn-primary">Continue to Ask OUG</a>
+        `;
+      } else {
+        const verifications = readJson(VERIFY_KEY, {});
+        const accounts = readJson(ACCOUNTS_KEY, {});
+        const normalizedEmail = (email || '').trim().toLowerCase();
+        const hasLocalAccount = Boolean(accounts[normalizedEmail]);
+        const hasLocalToken = Boolean(token && verifications[token]);
+        const likelyDifferentBrowser = Boolean(token && email && !hasLocalToken && !hasLocalAccount);
+        const errorText = likelyDifferentBrowser
+          ? 'This link was opened in a different browser/device from where you signed up. Please open it in the same browser session, or sign up again and verify there.'
+          : (result?.error || 'This link is invalid or has expired.');
+        root.innerHTML = `
+          <h2 style="margin-bottom:12px">Verification failed</h2>
+          <p style="color:var(--text-muted);margin-bottom:24px">${errorText}</p>
+          <a href="ask.html?board=oug-help" class="btn btn-primary">Back to sign up</a>
+        `;
+      }
+    });
+  </script>
+</body>
+</html>

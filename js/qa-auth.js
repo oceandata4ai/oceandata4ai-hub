@@ -3,6 +3,9 @@
   const SESSION_KEY = 'o4ai_qa_session';
   const ACCOUNTS_KEY = 'o4ai_qa_accounts';
   const VERIFY_KEY = 'o4ai_qa_verifications';
+  const LAST_VERIFY_KEY = 'o4ai_qa_last_verification';
+  const RESET_MARKER_KEY = 'o4ai_qa_data_reset_version';
+  const RESET_VERSION = '20260708-reset-accounts';
   const VERIFY_TTL_MS = 24 * 60 * 60 * 1000;
 
   function readJson(key, fallback) {
@@ -17,6 +20,18 @@
   function writeJson(key, value) {
     if (value === null || value === undefined) localStorage.removeItem(key);
     else localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function clearHistoricalAuthDataOnce() {
+    try {
+      if (localStorage.getItem(RESET_MARKER_KEY) === RESET_VERSION) return;
+      [SESSION_KEY, ACCOUNTS_KEY, VERIFY_KEY, LAST_VERIFY_KEY].forEach((key) => {
+        localStorage.removeItem(key);
+      });
+      localStorage.setItem(RESET_MARKER_KEY, RESET_VERSION);
+    } catch {
+      // localStorage can fail in private mode; skip cleanup silently.
+    }
   }
 
   async function hashPassword(password) {
@@ -60,6 +75,8 @@
     writeJson(VERIFY_KEY, verifications);
     return token;
   }
+
+  clearHistoricalAuthDataOnce();
 
   window.O4AI_QA_AUTH = {
     getPasswordRules,

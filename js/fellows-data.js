@@ -41,7 +41,7 @@ window.FELLOWS_DATA = [
     initials: 'AR',
     accent: 'teal',
     links: {
-      github: 'https://github.com/oceanbase',
+      github: 'https://github.com/oceanbase/oceanbase',
     },
     articles: [
       {

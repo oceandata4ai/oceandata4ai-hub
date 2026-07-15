@@ -8,27 +8,26 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
-  <link rel="icon" href="assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
-  <link rel="stylesheet" href="css/styles.css?v=20260707-ch-community" />
-  <link rel="stylesheet" href="css/community.css?v=20260707-ch-community" />
-  <link rel="stylesheet" href="css/tech.css" />
-  <script src="js/theme-init.js"></script>
+  <link rel="icon" href="../assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
+  <link rel="stylesheet" href="../css/styles.css?v=20260707-ch-community" />
+  <link rel="stylesheet" href="../css/community.css?v=20260707-ch-community" />
+  <link rel="stylesheet" href="../css/tech.css" />
+  <script src="../js/theme-init.js"></script>
 </head>
 <body class="page-shell" data-page="home">
 
   <header class="nav" id="nav">
     <div class="container nav-inner">
       <a href="index.html" class="logo">
-        <img src="assets/oceandata4ai-logo.svg?v=20260707-planet" alt="" class="logo-img" width="36" height="36" />
+        <img src="../assets/oceandata4ai-logo.svg?v=20260707-planet" alt="" class="logo-img" width="36" height="36" />
         OceanData4AI
       </a>
-      <nav class="nav-links">
+            <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
         <a href="qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
-        <a href="blog.html" data-page="blog">Blog</a>
+        <a href="https://medium.com/@pub_opensource_global" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="events.html" data-page="events">Events</a>
-        <a href="fellows.html" data-page="fellows">Fellows</a>
-        <a href="join.html" data-page="join">Join</a>
+        <a href="contact.html" data-page="contact">Contact us</a>
       </nav>
       <div class="nav-actions">
         <button class="btn btn-ghost btn-sm theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle theme">
@@ -37,7 +36,6 @@
         <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
         <a href="https://github.com/oceanbase/oceanbase" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">GitHub ↗</a>
         <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Discuss ↗</a>
-        <a href="join.html" class="btn btn-primary btn-sm btn-glow">Join Community</a>
       </div>
       <button class="nav-toggle" aria-label="Menu">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -71,40 +69,12 @@
           <div class="ch-promo-card">
             <h3>Read tutorials and deep dives on the Blog</h3>
             <p>Guides, field notes, and technical write-ups from practitioners — dive into the Blog whenever you need a deeper cut.</p>
-            <a href="blog.html" class="btn btn-primary">Read Blog</a>
+            <a href="https://medium.com/@pub_opensource_global" class="btn btn-primary" target="_blank" rel="noopener">Read Blog</a>
           </div>
         </div>
       </div>
     </section>
-
-    <section class="ch-program reveal">
-      <div class="container">
-        <div class="ch-program-header">
-          <h2>OceanData4AI Fellows</h2>
-          <p>Get credit for the tutorials, talks, and hands-on expertise you share with builders around the world.</p>
-        </div>
-        <div class="ch-program-grid">
-          <div class="ch-program-block">
-            <h3>How to apply</h3>
-            <p>Tell us about your writing and your work with RAG, vectors, or agent systems. We look for contributors who teach clearly and ship thoughtfully.</p>
-          </div>
-          <div class="ch-program-block">
-            <h3>Member benefits</h3>
-            <ul>
-              <li>Early looks at upcoming product previews</li>
-              <li>Invites to closed-door AMAs and community sessions</li>
-              <li>A featured profile in the Fellows directory</li>
-              <li>Exposure to teams hiring across the AI data infrastructure space</li>
-            </ul>
-          </div>
-        </div>
-        <div class="ch-program-cta">
-          <a href="join.html#fellows" class="btn btn-primary btn-glow">Apply now</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="ch-events reveal">
+<section class="ch-events reveal">
       <div class="container">
         <div class="ch-events-header">
           <h2>Upcoming events</h2>
@@ -151,7 +121,7 @@
             </div>
             <div class="ch-event-body">
               <h3><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Community Office Hours</a></h3>
-              <p class="ch-event-loc">Virtual · Ask questions, get feedback, and connect with Fellows</p>
+              <p class="ch-event-loc">Virtual · Ask questions, get feedback, and connect with builders</p>
             </div>
           </article>
         </div>
@@ -233,76 +203,38 @@
         </div>
       </div>
     </section>
-
-    <section class="ch-resources reveal">
-      <div class="container">
-        <h2>Helpful links</h2>
-        <div class="ch-resources-grid">
-          <a href="https://en.oceanbase.com/docs" class="ch-resource-card" target="_blank" rel="noopener">
-            <h3>Documentation</h3>
-            <p>Official guides, API references, and deployment docs for OceanBase and seekdb.</p>
-            <span class="link-arrow">
-              Read docs
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </span>
-          </a>
-          <a href="about.html" class="ch-resource-card">
-            <h3>About OceanData4AI</h3>
-            <p>Our mission, editorial standards, and why we stay vendor-neutral.</p>
-            <span class="link-arrow">
-              About us
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </span>
-          </a>
-          <a href="conduct.html" class="ch-resource-card">
-            <h3>Code of Conduct</h3>
-            <p>Community guidelines — be respectful, constructive, and inclusive.</p>
-            <span class="link-arrow">
-              Read guidelines
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-  </main>
+</main>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="assets/oceandata4ai-logo.svg?v=20260707-planet" alt="" class="logo-img" width="36" height="36" />OceanData4AI
+            <img src="../assets/oceandata4ai-logo.svg?v=20260707-planet" alt="" class="logo-img" width="36" height="36" />OceanData4AI
           </a>
           <p>A vendor-neutral community for AI data infrastructure builders.</p>
           <p class="footer-note">Initiated with support from OceanBase</p>
         </div>
         <div class="footer-col">
           <h4>Community</h4>
-          <ul>
+                    <ul>
             <li><a href="about.html">About</a></li>
             <li><a href="qa/oug-help.html">Ask OUG</a></li>
-            <li><a href="join.html">Join</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Blog ↗</a></li>
             <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact us</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>Resources</h4>
-          <ul>
-            <li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li>
-            <li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li>
-            <li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a></li>
-            <li><a href="https://www.youtube.com/@Data4AI-m7n" target="_blank" rel="noopener">YouTube ↗</a></li>
-          </ul>
+          <ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a></li><li><a href="https://www.youtube.com/@Data4AI-m7n" target="_blank" rel="noopener">YouTube ↗</a></li></ul>
         </div>
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="conduct.html">Code of Conduct</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/oceanbase/oceanbase?tab=security-ov-file" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://github.com/oceanbase/oceanbase?tab=coc-ov-file" target="_blank" rel="noopener">Code of Conduct</a></li>
+            
           </ul>
         </div>
       </div>
@@ -313,7 +245,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js" defer></script>
-  <script src="js/effects.js" defer></script>
+  <script src="../js/main.js" defer></script>
+  <script src="../js/effects.js" defer></script>
 </body>
 </html>

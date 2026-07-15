@@ -19,12 +19,18 @@
   line-height: 1.1;
   margin-bottom: 20px;
 }
+.ch-hero h1 .ch-hero-line {
+  display: block;
+}
 .ch-hero-lead {
   font-size: clamp(1.05rem, 2vw, 1.2rem);
   color: var(--text-muted);
   line-height: 1.65;
-  max-width: 58ch;
+  max-width: 72ch;
   margin-inline: auto;
+}
+.ch-hero-lead .ch-hero-lead-line {
+  display: block;
 }
 
 /* ── Dual promo cards (Slack + Newsletter style) ── */
@@ -252,8 +258,7 @@
 .ch-stat-label {
   font-size: 0.82rem;
   color: #8b949e;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.01em;
 }
 .ch-github-footer {
   text-align: center;
