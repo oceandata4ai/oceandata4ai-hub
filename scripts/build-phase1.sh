@@ -22,7 +22,7 @@ from pathlib import Path
 
 root = Path("/Users/gongbo/Downloads/wechat-to-yuque/data4ai-hub/phase1")
 
-# Phase 1: Blog links out to Medium OUG. Phase 2: on-site blog.html (see ../blog.html).
+# Phase 1: Blog links out to Medium. Phase 2: on-site blog.html (see ../blog.html).
 MEDIUM_OUG = "https://medium.com/@pub_opensource_global"
 PRIVACY_URL = "https://github.com/oceanbase/oceanbase?tab=security-ov-file"
 COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
@@ -248,9 +248,9 @@ cat > "$DST/README.md" <<'EOF'
 
 **URL:** `https://oceandata4ai.github.io/oceandata4ai-hub/phase1/index.html`
 
-一期裁剪版，仅保留：**Home · Ask OUG · Blog（外链 Medium OUG）· Events · About · Contact us · Legal（外链）**。
+一期裁剪版，仅保留：**Home · Ask OUG · Blog（外链 Medium）· Events · About · Contact us · Legal（外链）**。
 
-- **Blog（一期）**：顶栏 / 首页 CTA 外链 [Medium OUG](https://medium.com/@pub_opensource_global)
+- **Blog（一期）**：顶栏 / 首页 CTA 外链 [Medium](https://medium.com/@pub_opensource_global)
 - **Blog（二期）**：站内 `blog.html`（见完整版 Hub）
 - **Legal（一期外链）**：[Privacy Policy](https://github.com/oceanbase/oceanbase?tab=security-ov-file) · [Code of Conduct](https://github.com/oceanbase/oceanbase?tab=coc-ov-file)
 - **Fellows / Join（一期不做）**：完整版保留；一期 Demo 已移除 Fellows Program 区块及相关文案
