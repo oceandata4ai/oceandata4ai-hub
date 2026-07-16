@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask OUG — OceanBase Community</title>
+  <link rel="icon" href="../../assets/oceandata4ai-logo.svg?v=20260707-planet" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css?v=20260708-ask-oug" />
+  <link rel="stylesheet" href="../../css/tech.css" />
+  <link rel="stylesheet" href="../../css/qa.css?v=20260708-verify-send" />
+  <script src="../../js/theme-init.js"></script>
+  <script src="../../js/qa-auth.js?v=20260708-email-fix"></script>
+  <script src="../../js/qa-email-config.js?v=20260708-email-fix"></script>
+  <script src="../../js/qa-email-template.js?v=20260708-email-fix"></script>
+  <script src="../../js/qa-email-send.js?v=20260708-email-fix"></script>
+</head>
+<body class="page-shell" data-page="qa-ask">
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+            <a href="../index.html" class="logo">
+        <span class="logo-mark">OB</span> OceanBase
+      </a>
+            <nav class="nav-links">
+        <a href="../about.html" data-page="about">About</a>
+        <a href="../ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
+        <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="../events.html" data-page="events">Events</a>
+        <a href="../contact.html" data-page="contact">Contact us</a>
+      </nav>
+      <div class="nav-actions">
+          <div class="qa-nav-user" data-qa-nav-user>
+          <a href="ask.html?mode=signin" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="qa-ask-section">
+      <div class="container qa-ask-wrap" id="qa-ask-container">
+        <div id="qa-login-gate" class="qa-login-gate">
+          <div class="qa-auth-shell">
+            <h2 id="qa-auth-title" class="qa-auth-title">Sign up</h2>
+
+            <form id="qa-auth-form" class="qa-auth-form" novalidate>
+              <div id="qa-email-display" class="qa-email-display" hidden>
+                <div class="qa-email-display-row">
+                  <span id="qa-email-value" class="qa-email-value">your.email@company.com</span>
+                  <button type="button" class="qa-auth-link" id="qa-email-edit">Edit</button>
+                </div>
+              </div>
+
+              <div id="qa-email-field" class="qa-field qa-field-float">
+                <input type="email" id="qa-email" name="email" autocomplete="email" required placeholder=" " />
+                <label for="qa-email">Email<span aria-hidden="true">*</span></label>
+              </div>
+
+              <div class="qa-field qa-field-float qa-field-password">
+                <input type="password" id="qa-password" name="password" autocomplete="new-password" required placeholder=" " />
+                <label for="qa-password">Password<span aria-hidden="true">*</span></label>
+                <button type="button" class="qa-password-toggle" id="qa-password-toggle" aria-label="Show password">👁</button>
+              </div>
+
+              <div id="qa-signup-fields">
+                <div class="qa-password-rules" aria-live="polite">
+                  <p class="qa-password-rules-title">Your password must contain:</p>
+                  <ul>
+                    <li data-rule="min-length"><span class="qa-rule-icon" aria-hidden="true"></span>At least 12 characters</li>
+                    <li data-rule="three-groups"><span class="qa-rule-icon" aria-hidden="true"></span>At least 3 of the following:</li>
+                    <li class="qa-rule-sub" data-rule="lower"><span class="qa-rule-icon" aria-hidden="true"></span>Lower case letters (a-z)</li>
+                    <li class="qa-rule-sub" data-rule="upper"><span class="qa-rule-icon" aria-hidden="true"></span>Upper case letters (A-Z)</li>
+                    <li class="qa-rule-sub" data-rule="digit"><span class="qa-rule-icon" aria-hidden="true"></span>Numbers (0-9)</li>
+                    <li class="qa-rule-sub" data-rule="special"><span class="qa-rule-icon" aria-hidden="true"></span>Special characters (e.g. !@#$%^&amp;*)</li>
+                  </ul>
+                </div>
+
+                <label class="qa-terms">
+                  <input type="checkbox" id="qa-terms" name="terms" />
+                  <span>I accept the <a href="https://github.com/oceanbase/oceanbase?tab=coc-ov-file" target="_blank" rel="noopener" target="_blank" rel="noopener">Code of Conduct</a>, <a href="https://github.com/oceanbase/oceanbase?tab=security-ov-file" target="_blank" rel="noopener" target="_blank" rel="noopener">Privacy Policy</a>, and community terms</span>
+                </label>
+              </div>
+
+              <button type="submit" class="btn qa-auth-submit" id="qa-auth-submit">Sign up with email</button>
+              <p class="qa-auth-note" id="qa-auth-note">We will email you a verification link to activate your community account.</p>
+              <p class="qa-auth-switch" id="qa-auth-switch"></p>
+            </form>
+          </div>
+        </div>
+
+        <div id="qa-check-email" class="qa-check-email" hidden>
+          <div class="qa-auth-shell">
+            <h2 class="qa-auth-title">Check your email</h2>
+            <p class="qa-check-email-lead">We sent a confirmation link to <strong id="qa-check-email-address"></strong>.</p>
+            <p class="qa-check-email-copy">Open the message from <strong>The OceanBase Community</strong> and click <strong>Verify email</strong> to finish sign up. Please open the link in the same browser where you signed up. The link expires in 24 hours.</p>
+            <div class="qa-check-email-actions">
+              <button type="button" class="btn btn-ghost" id="qa-resend-email">Resend verification email</button>
+              <button type="button" class="btn btn-ghost" id="qa-back-to-signin">Back to sign in</button>
+            </div>
+            <p class="qa-auth-note" id="qa-check-email-note">Did not receive it? Check spam, or resend above.</p>
+            <div id="qa-dev-verify-fallback" class="qa-dev-fallback" hidden>
+              <p class="form-note">Email service not configured — dev fallback link:</p>
+              <a href="#" id="qa-open-verify-link" target="_blank" rel="noopener">Open verification link</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="qa-ask-panel" hidden>
+          <div class="section-kicker">Ask OUG</div>
+          <h1>Start a discussion</h1>
+          <p class="qa-ask-intro">Ask the OceanBase User Group community. You can paste or upload images in the body.</p>
+          <div id="qa-user-badge" class="qa-user-badge" hidden></div>
+
+          <form class="qa-ask-form" id="qa-ask-form" novalidate>
+            <input type="hidden" name="board" id="qa-board" value="oug-help" />
+
+            <label for="qa-title">Title
+              <input type="text" id="qa-title" name="title" required placeholder="Summarize your question" />
+            </label>
+
+            <div class="qa-body-field">
+              <div class="qa-body-label-row">
+                <label for="qa-body-editor">Body</label>
+                <div class="qa-body-toolbar">
+                  <button type="button" class="btn btn-ghost btn-sm" id="qa-insert-image">Insert image</button>
+                  <span class="qa-body-hint">PNG · JPEG · GIF · WebP · paste or drag</span>
+                </div>
+              </div>
+              <div
+                id="qa-body-editor"
+                class="qa-body-editor"
+                contenteditable="true"
+                role="textbox"
+                aria-multiline="true"
+                data-placeholder="Include version, environment, and steps to reproduce if applicable. Paste screenshots here."
+              ></div>
+              <input type="file" id="qa-image-input" accept="image/png,image/jpeg,image/gif,image/webp" multiple hidden />
+              <div id="qa-image-preview" class="qa-image-preview" hidden aria-label="Attached images"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Post topic</button>
+            <p class="form-note" id="qa-ask-note">Sign in to post. Your topic appears on Ask OUG immediately.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="container"><div class="footer-bottom"><span>© 2026 OceanBase Community</span></div></div></footer>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const board = params.get('board');
+    if (board) document.getElementById('qa-board').value = board;
+  </script>
+  <script src="../../js/qa-store.js?v=20260715-topic-list"></script>
+  <script src="../../js/qa-nav-auth.js?v=20260716-ob-ai"></script>
+  <script src="../../js/main.js" defer></script>
+  <script>
+    window.addEventListener('o4ai:topic-posted', function () {
+      setTimeout(function () {
+        window.location.replace('oug-help.html');
+      }, 0);
+    });
+  </script>
+  <script src="../../js/qa-ask-form.js" defer></script>
+</body>
+</html>

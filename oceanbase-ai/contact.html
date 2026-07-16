@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact us — OceanBase Community</title>
+  <meta name="description" content="Questions about the community, meetups, partnerships, or press? We'd love to hear from you." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css?v=20260716-ob-ai" />
+  <link rel="stylesheet" href="../css/ob-community.css?v=20260716-ob-ai" />
+  <link rel="stylesheet" href="../css/tech.css?v=20260716-ob-ai" />
+  <script src="../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="contact">
+
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+            <a href="index.html" class="logo">
+        <span class="logo-mark">OB</span> OceanBase
+      </a>
+            <nav class="nav-links">
+        <a href="about.html" data-page="about">About</a>
+        <a href="ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
+        <a href="qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="events.html" data-page="events">Events</a>
+        <a href="contact.html" data-page="contact">Contact us</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="btn btn-ghost btn-sm theme-toggle" type="button" aria-label="Switch to dark mode" title="Toggle theme">
+          <span class="theme-toggle-icon" aria-hidden="true">🌙</span>
+        </button>
+        <a href="https://en.oceanbase.com/docs" class="btn btn-ghost btn-sm" target="_blank" rel="noopener">Docs ↗</a>
+        <div class="qa-nav-user" data-qa-nav-user>
+          <a href="qa/ask.html?mode=signin" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>
+        </div>
+      </div>
+      <button class="nav-toggle" aria-label="Menu"><svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-hero">
+      <div class="container">
+        <h1>Contact us</h1>
+        <p>Questions about the community, meetups, partnerships, or press? We&rsquo;d love to hear from you.</p>
+      </div>
+    </div>
+
+    <section style="padding-top:48px;padding-bottom:72px">
+      <div class="container" style="max-width:640px">
+        <div class="form-card">
+          <h2>Send a message</h2>
+          <form data-formspree="contact">
+            <input type="hidden" name="_subject" value="OceanBase Community Contact" />
+            <div class="form-group">
+              <label for="name">Name *</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" name="message" required placeholder="How can we help?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%">Submit</button>
+            <div class="form-error" role="alert"></div>
+            <div class="form-success">Message sent! We'll get back to you within 2 business days.</div>
+          </form>
+        </div>
+        <p class="form-note" style="margin-top:20px;text-align:center">For product sales or pricing, visit <a href="https://en.oceanbase.com" target="_blank" rel="noopener" style="color:var(--accent)">en.oceanbase.com</a>.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo-mark">OB</span> OceanBase
+          </a>
+          <p>Global open community for OceanBase and ecosystem projects.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Community</h4>
+                    <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="ecosystem/index.html">Ecosystem</a></li>
+            <li><a href="qa/oug-help.html">Ask OUG</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+            <li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Blog ↗</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a></li><li><a href="https://en.oceanbase.com" target="_blank" rel="noopener">en.oceanbase.com ↗</a></li></ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="https://github.com/oceanbase/oceanbase?tab=security-ov-file" target="_blank" rel="noopener">Privacy Policy</a></li>
+            <li><a href="https://github.com/oceanbase/oceanbase?tab=coc-ov-file" target="_blank" rel="noopener">Code of Conduct</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 OceanBase Community</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../js/form-config.js"></script>
+  <script src="../js/qa-auth.js"></script>
+  <script src="../js/qa-nav-auth.js?v=20260716-ob-ai"></script>
+  <script src="../js/main.js?v=20260716-ob-ai" defer></script>
+  <script src="../js/effects.js?v=20260716-ob-ai" defer></script>
+</body>
+</html>

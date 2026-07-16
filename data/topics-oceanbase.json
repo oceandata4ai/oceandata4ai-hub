@@ -1,0 +1,184 @@
+{
+  "topics": [
+    {
+      "slug": "ob-k8s-install",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "How to install OceanBase on Kubernetes (minimal prod checklist)?",
+      "excerpt": "Looking for a hardened single-replica dev setup vs. 3-node obcluster for staging.",
+      "author": "platform_eng",
+      "date": "Jul 2, 2026",
+      "activity": "5d",
+      "views": 412,
+      "tags": ["deployment", "kubernetes"],
+      "pinned": false,
+      "body": "<p>Looking for a hardened single-replica dev setup vs. 3-node obcluster for staging. Any Helm values or operator tips?</p>",
+      "replies": [
+        {
+          "author": "harry_z",
+          "date": "Jul 3, 2026",
+          "body": "<p>Start with the official ob-operator quickstart; for staging use 3 observers + 1 OBProxy. Happy to share our values.yaml stripped of secrets.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "mysql-migration-oug",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "MySQL to OceanBase migration: OMS vs manual dump — what worked for you?",
+      "excerpt": "500GB OLTP schema, need near-zero downtime. Comparing OceanBase Migration Service vs logical export.",
+      "author": "migrator_cn",
+      "date": "Jul 10, 2026",
+      "activity": "3d",
+      "views": 318,
+      "tags": ["migration", "mysql"],
+      "pinned": false,
+      "body": "<p>We are moving a 500GB MySQL 8 OLTP workload to OceanBase. Ops team prefers OMS; devs want mysqldump + load for control. Experiences?</p>",
+      "replies": [
+        {
+          "author": "oug_mod",
+          "date": "Jul 11, 2026",
+          "body": "<p>OMS for production cutover with incremental sync; manual dump fine for dev/staging. Check charset and <code>sql_mode</code> mapping first.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "htap-analytics-latency",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "HTAP: analytical queries slowing OLTP on same tenant — tuning tips?",
+      "excerpt": "Column store kicks in but p99 OLTP latency spikes during heavy AP jobs.",
+      "author": "dba_apac",
+      "date": "Jul 8, 2026",
+      "activity": "4d",
+      "views": 205,
+      "tags": ["htap", "performance"],
+      "pinned": false,
+      "body": "<p>Running mixed OLTP + reporting on one OceanBase tenant. When AP scans run, OLTP p99 jumps. Resource isolation settings?</p>",
+      "replies": []
+    },
+    {
+      "slug": "seekdb-hybrid-empty",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "seekdb hybrid search returns empty — knn + BM25 in one SQL",
+      "excerpt": "Vector leg works alone but combined knn + BM25 query returns 0 rows.",
+      "author": "alex_dev",
+      "date": "Jul 5, 2026",
+      "activity": "2d",
+      "views": 186,
+      "tags": ["seekdb", "hybrid-search"],
+      "pinned": false,
+      "body": "<p>Running hybrid search on a 50k doc table. Vector leg alone returns results; combined query returns 0 rows. seekdb 1.2 · FTS index status BUILDING?</p>",
+      "replies": [
+        {
+          "author": "oug_mod",
+          "date": "Jul 5, 2026",
+          "body": "<p>Check FTS index finished building (<code>SHOW INDEX</code>) and lower <code>k</code> for a smoke test.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "powermem-agent-tiers",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "PowerMem tier configuration for long-running agents",
+      "excerpt": "How to set decay and retrieval weights when sessions span days?",
+      "author": "agent_builder",
+      "date": "Jul 4, 2026",
+      "activity": "6d",
+      "views": 142,
+      "tags": ["powermem", "agents"],
+      "pinned": false,
+      "body": "<p>Integrating PowerMem with an OpenClaw-style agent. Sessions run for days — default decay seems too aggressive. Recommended tier setup?</p>",
+      "replies": []
+    },
+    {
+      "slug": "vector-index-43",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "Vector index build fails after upgrade to 4.3",
+      "excerpt": "IVF index rebuild stalls at 78%; logs show memory limit on observer node.",
+      "author": "dba_sea",
+      "date": "Jun 28, 2026",
+      "activity": "1w",
+      "views": 94,
+      "tags": ["vector"],
+      "pinned": false,
+      "body": "<p>IVF index rebuild stalls at 78%; observer logs show memory limit. 32GB RAM, 4c.</p>",
+      "replies": []
+    },
+    {
+      "slug": "mysql-group-by",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "MySQL compatibility: GROUP BY behavior difference after migration",
+      "excerpt": "ONLY_FULL_GROUP_BY queries failing on OceanBase with different error text.",
+      "author": "migrator",
+      "date": "Jun 22, 2026",
+      "activity": "2w",
+      "views": 221,
+      "tags": ["mysql-mode"],
+      "pinned": false,
+      "body": "<p>Porting from MySQL 8 — queries with <code>ONLY_FULL_GROUP_BY</code> fail on OceanBase. Anyone mapped the gaps?</p>",
+      "replies": [
+        {
+          "author": "oug_mod",
+          "date": "Jun 23, 2026",
+          "body": "<p>See docs on <code>sql_mode</code> parity; edge cases tracked in 4.3.1 release notes.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "obproxy-connection-pool",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "OBProxy connection pool sizing for Java microservices",
+      "excerpt": "Too many idle connections after scale-out; looking for pool + timeout guidance.",
+      "author": "java_ops",
+      "date": "Jun 18, 2026",
+      "activity": "3w",
+      "views": 167,
+      "tags": ["obproxy", "operations"],
+      "pinned": false,
+      "body": "<p>Spring Boot services behind OBProxy — connection count grows after pod scale. Best practices for max connections and idle timeout?</p>",
+      "replies": []
+    },
+    {
+      "slug": "backup-restore-sla",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "Backup and restore SLA: logical vs physical backup for 2TB tenant",
+      "excerpt": "RPO 15 min target; evaluating incremental backup schedule.",
+      "author": "sre_team",
+      "date": "Jun 12, 2026",
+      "activity": "1mo",
+      "views": 289,
+      "tags": ["backup", "operations"],
+      "pinned": false,
+      "body": "<p>2TB tenant, need RPO ~15 minutes. Physical backup nightly + log archive — does this match your production setup?</p>",
+      "replies": [
+        {
+          "author": "oug_mod",
+          "date": "Jun 14, 2026",
+          "body": "<p>Most teams combine periodic full backup with continuous clog archive; test restore quarterly.</p>"
+        }
+      ]
+    },
+    {
+      "slug": "seekdb-embedded-python",
+      "board": "oug-help",
+      "boardLabel": "Ask OUG",
+      "title": "seekdb embedded mode in Python — first hybrid query example?",
+      "excerpt": "pip install works; looking for minimal RAG retrieval SQL sample.",
+      "author": "ml_eng",
+      "date": "Jun 8, 2026",
+      "activity": "1mo",
+      "views": 134,
+      "tags": ["seekdb", "python"],
+      "pinned": false,
+      "body": "<p>Got seekdb running embedded in Python. Need a minimal example: insert docs, run vector + keyword hybrid search in one SQL.</p>",
+      "replies": []
+    }
+  ]
+}
