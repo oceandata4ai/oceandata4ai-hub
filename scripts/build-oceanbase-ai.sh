@@ -33,7 +33,6 @@ COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
 DISCORD_URL = "https://discord.com/channels/1331061822945624085/1331061823465590809"
 
 NAV_ROOT = f"""      <nav class="nav-links">
-        <a href="about.html" data-page="about">About</a>
         <a href="ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
         <a href="qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
         <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
@@ -42,7 +41,6 @@ NAV_ROOT = f"""      <nav class="nav-links">
       </nav>"""
 
 NAV_QA = f"""      <nav class="nav-links">
-        <a href="../about.html" data-page="about">About</a>
         <a href="../ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
         <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
         <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
@@ -51,7 +49,6 @@ NAV_QA = f"""      <nav class="nav-links">
       </nav>"""
 
 NAV_ECO = f"""      <nav class="nav-links">
-        <a href="../about.html" data-page="about">About</a>
         <a href="index.html" data-page="ecosystem">Ecosystem</a>
         <a href="../qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
         <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
@@ -60,7 +57,7 @@ NAV_ECO = f"""      <nav class="nav-links">
       </nav>"""
 
 FOOTER_ROOT = f"""          <ul>
-            <li><a href="about.html">About</a></li>
+            <li><a href="about.html">About us</a></li>
             <li><a href="ecosystem/index.html">Ecosystem</a></li>
             <li><a href="qa/oug-help.html">Ask OUG</a></li>
             <li><a href="events.html">Events</a></li>
@@ -68,7 +65,7 @@ FOOTER_ROOT = f"""          <ul>
           </ul>"""
 
 FOOTER_QA = f"""          <ul>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../about.html">About us</a></li>
             <li><a href="../ecosystem/index.html">Ecosystem</a></li>
             <li><a href="oug-help.html">Ask OUG</a></li>
             <li><a href="../events.html">Events</a></li>
@@ -76,7 +73,7 @@ FOOTER_QA = f"""          <ul>
           </ul>"""
 
 FOOTER_ECO = f"""          <ul>
-            <li><a href="../about.html">About</a></li>
+            <li><a href="../about.html">About us</a></li>
             <li><a href="index.html">Ecosystem</a></li>
             <li><a href="../qa/oug-help.html">Ask OUG</a></li>
             <li><a href="../events.html">Events</a></li>
