@@ -234,6 +234,13 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
     p = root / "qa" / name
     text = p.read_text(encoding="utf-8")
     text = patch_qa_paths(text)
+    if 'ob-community.css' not in text:
+        text = text.replace(
+            '<link rel="stylesheet" href="../../css/qa.css',
+            '<link rel="stylesheet" href="../../css/ob-community.css?v=20260717-footer" />\n'
+            '  <link rel="stylesheet" href="../../css/qa.css',
+            1,
+        )
     text = nav_pattern.sub(NAV_QA, text, count=1)
     text = patch_logo(text, "../index.html")
     text = re.sub(

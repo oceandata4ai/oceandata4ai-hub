@@ -1,5 +1,26 @@
 /* oceanbase.ai community — brand tweaks on top of community.css */
 
+/* Layout: prevent phantom whitespace below footer */
+body.page-shell {
+  min-height: 100dvh;
+  overflow-x: clip;
+}
+
+body.page-shell > main {
+  flex: 1 0 auto;
+}
+
+body.page-shell > .footer {
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+/* tech.css reserves 480px/section via content-visibility placeholders */
+body.page-shell section {
+  content-visibility: visible;
+  contain-intrinsic-size: unset;
+}
+
 .logo-mark {
   display: inline-flex;
   align-items: center;
