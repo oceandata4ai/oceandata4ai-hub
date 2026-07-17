@@ -37,6 +37,43 @@ body.page-shell section:not(.hero) {
   flex-shrink: 0;
 }
 
+/* Official OceanBase horizontal wordmark */
+.logo-wordmark {
+  display: block;
+  height: 28px;
+  width: auto;
+  max-width: min(200px, 42vw);
+  flex-shrink: 0;
+}
+
+.footer-brand .logo-wordmark {
+  height: 26px;
+}
+
+html[data-theme="dark"] .logo-wordmark-light,
+html[data-theme="light"] .logo-wordmark-dark {
+  display: none;
+}
+
+/* Before theme-init runs, respect system preference */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .logo-wordmark-light {
+    display: none;
+  }
+  html:not([data-theme]) .logo-wordmark-dark {
+    display: block;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  html:not([data-theme]) .logo-wordmark-dark {
+    display: none;
+  }
+  html:not([data-theme]) .logo-wordmark-light {
+    display: block;
+  }
+}
+
 .ch-ecosystem {
   padding: 72px 0;
   background: var(--bg-elevated);

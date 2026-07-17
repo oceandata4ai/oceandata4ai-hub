@@ -82,23 +82,36 @@ FOOTER_ECO = f"""          <ul>
 
 FOOTER_RESOURCES = f"""<ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="{DISCORD_URL}" target="_blank" rel="noopener">Discord ↗</a></li><li><a href="https://en.oceanbase.com" target="_blank" rel="noopener">en.oceanbase.com ↗</a></li></ul>"""
 
-LOGO_OB = """      <a href="{href}" class="logo">
-        <span class="logo-mark">OB</span> OceanBase
+LOGO_VER = "20260717-ob-logo"
+
+def logo_nav(href: str, prefix: str) -> str:
+    return f"""      <a href="{href}" class="logo">
+        <img src="{prefix}assets/oceanbase-logo.svg?v={LOGO_VER}" alt="OceanBase" class="logo-wordmark logo-wordmark-light" width="141" height="23" />
+        <img src="{prefix}assets/oceanbase-logo-dark.svg?v={LOGO_VER}" alt="" aria-hidden="true" class="logo-wordmark logo-wordmark-dark" width="141" height="23" />
       </a>"""
 
+def logo_footer(href: str, prefix: str) -> str:
+    return f"""          <a href="{href}" class="logo">
+            <img src="{prefix}assets/oceanbase-logo-dark.svg?v={LOGO_VER}" alt="OceanBase" class="logo-wordmark" width="141" height="23" />
+          </a>"""
+
 nav_pattern = re.compile(r'<nav class="nav-links">.*?</nav>', re.DOTALL)
-logo_img_pattern = re.compile(
-    r'<a href="[^"]*" class="logo">\s*<img[^>]*>.*?</a>',
+logo_any_pattern = re.compile(
+    r'<a href="[^"]*" class="logo">.*?</a>',
     re.DOTALL,
 )
-logo_ob_pattern = re.compile(
-    r'<a href="[^"]*" class="logo">\s*<span class="logo-mark">OB</span>\s*OceanBase\s*</a>',
-)
 
-def patch_logo(html: str, href: str) -> str:
-    if logo_ob_pattern.search(html):
-        return logo_ob_pattern.sub(LOGO_OB.format(href=href), html, count=1)
-    return logo_img_pattern.sub(LOGO_OB.format(href=href), html, count=1)
+def patch_nav_logo(html: str, href: str, prefix: str) -> str:
+    return logo_any_pattern.sub(logo_nav(href, prefix), html, count=1)
+
+def patch_footer_logo(html: str, href: str, prefix: str) -> str:
+    return re.sub(
+        r'(<div class="footer-brand">\s*)<a href="[^"]*" class="logo">.*?</a>',
+        r'\1' + logo_footer(href, prefix),
+        html,
+        count=1,
+        flags=re.DOTALL,
+    )
 
 def patch_footer_community(html: str, footer_ul: str) -> str:
     return re.sub(
@@ -200,7 +213,8 @@ for name in ["index.html", "about.html", "contact.html", "events.html"]:
     text = p.read_text(encoding="utf-8")
     text = text.replace("../qa/", "qa/")
     text = nav_pattern.sub(NAV_ROOT, text, count=1)
-    text = patch_logo(text, "index.html")
+    text = patch_nav_logo(text, "index.html", "../")
+    text = patch_footer_logo(text, "index.html", "../")
     text = patch_footer_community(text, FOOTER_ROOT)
     text = patch_footer_resources(text)
     text = inject_signin(text, "qa/ask.html?mode=signin")
@@ -218,7 +232,8 @@ for name in ["index.html", "oceanbase.html", "seekdb.html", "powermem.html"]:
     text = p.read_text(encoding="utf-8")
     text = text.replace("../../qa/", "../qa/")
     text = nav_pattern.sub(NAV_ECO, text, count=1)
-    text = patch_logo(text, "../index.html")
+    text = patch_nav_logo(text, "../index.html", "../../")
+    text = patch_footer_logo(text, "../index.html", "../../")
     text = patch_footer_community(text, FOOTER_ECO)
     text = patch_footer_resources(text)
     text = inject_signin(text, "../qa/ask.html?mode=signin")
@@ -237,12 +252,12 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
     if 'ob-community.css' not in text:
         text = text.replace(
             '<link rel="stylesheet" href="../../css/qa.css',
-            '<link rel="stylesheet" href="../../css/ob-community.css?v=20260717-footer2" />\n'
+            '<link rel="stylesheet" href="../../css/ob-community.css?v=20260717-ob-logo" />\n'
             '  <link rel="stylesheet" href="../../css/qa.css',
             1,
         )
     text = nav_pattern.sub(NAV_QA, text, count=1)
-    text = patch_logo(text, "../index.html")
+    text = patch_nav_logo(text, "../index.html", "../../")
     text = re.sub(
         r'<a href="\.\./join\.html"[^>]*>Join Community</a>\s*',
         '',
@@ -259,14 +274,9 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
         text,
     )
     if 'footer-grid' in text:
+        text = patch_footer_logo(text, "../index.html", "../../")
         text = patch_footer_community(text, FOOTER_QA)
         text = patch_footer_resources(text)
-        text = re.sub(
-            r'<a href="\.\./index\.html" class="logo"><img[^>]*>OceanBase Community</a>',
-            '<a href="../index.html" class="logo"><span class="logo-mark">OB</span> OceanBase</a>',
-            text,
-            count=1,
-        )
     else:
         text = text.replace('© 2026 OceanData4AI', '© 2026 OceanBase Community')
     text = inject_signin(text, 'ask.html?mode=signin')
