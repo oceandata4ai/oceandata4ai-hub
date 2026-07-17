@@ -7,7 +7,7 @@
 - **Home** — OceanBase 社区叙事 + Discord / Ask OUG 双 CTA + 生态卡片 + GitHub stats + Events
 - **Ecosystem** — OceanBase · seekdb · PowerMem 落地页
 - **Ask OUG** — 技术问答（种子帖来自 `data/topics-oceanbase.json`）
-- **About · Events · Contact us** — 落地页
+- **Events · Contact us** — 落地页
 
 与 Data4AI 独立站分工见需求文档 `OceanBase 社区站需求文档（oceanbase.ai）.md`。
 

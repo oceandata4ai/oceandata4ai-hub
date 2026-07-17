@@ -11,7 +11,6 @@ cp "$ROOT/assets/oceanbase-logo.svg" "$DST/assets/"
 cp "$ROOT/assets/oceanbase-logo-dark.svg" "$DST/assets/"
 
 cp "$SRC/index.html" "$DST/index.html"
-cp "$SRC/about.html" "$DST/about.html"
 cp "$SRC/contact.html" "$DST/contact.html"
 cp "$SRC/events.html" "$DST/events.html"
 cp "$SRC/ecosystem/"*.html "$DST/ecosystem/"
@@ -61,7 +60,6 @@ NAV_ECO = f"""      <nav class="nav-links">
       </nav>"""
 
 FOOTER_ROOT = f"""          <ul>
-            <li><a href="about.html">About us</a></li>
             <li><a href="ecosystem/index.html">Ecosystem</a></li>
             <li><a href="qa/oug-help.html">Ask OUG</a></li>
             <li><a href="events.html">Events</a></li>
@@ -69,7 +67,6 @@ FOOTER_ROOT = f"""          <ul>
           </ul>"""
 
 FOOTER_QA = f"""          <ul>
-            <li><a href="../about.html">About us</a></li>
             <li><a href="../ecosystem/index.html">Ecosystem</a></li>
             <li><a href="oug-help.html">Ask OUG</a></li>
             <li><a href="../events.html">Events</a></li>
@@ -77,7 +74,6 @@ FOOTER_QA = f"""          <ul>
           </ul>"""
 
 FOOTER_ECO = f"""          <ul>
-            <li><a href="../about.html">About us</a></li>
             <li><a href="index.html">Ecosystem</a></li>
             <li><a href="../qa/oug-help.html">Ask OUG</a></li>
             <li><a href="../events.html">Events</a></li>
@@ -212,7 +208,7 @@ def strip_contact_form(html: str) -> str:
     return html.replace('>Send message</button>', '>Submit</button>')
 
 # Root pages
-for name in ["index.html", "about.html", "contact.html", "events.html"]:
+for name in ["index.html", "contact.html", "events.html"]:
     p = root / name
     text = p.read_text(encoding="utf-8")
     text = text.replace("../qa/", "qa/")
@@ -317,7 +313,7 @@ cat > "$DST/README.md" <<'EOF'
 - **Home** — OceanBase 社区叙事 + Discord / Ask OUG 双 CTA + 生态卡片 + GitHub stats + Events
 - **Ecosystem** — OceanBase · seekdb · PowerMem 落地页
 - **Ask OUG** — 技术问答（种子帖来自 `data/topics-oceanbase.json`）
-- **About · Events · Contact us** — 落地页
+- **Events · Contact us** — 落地页
 
 与 Data4AI 独立站分工见需求文档 `OceanBase 社区站需求文档（oceanbase.ai）.md`。
 
