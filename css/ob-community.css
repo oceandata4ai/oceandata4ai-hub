@@ -11,14 +11,14 @@ body.page-shell > main {
 }
 
 body.page-shell > .footer {
-  margin-top: 0;
   flex-shrink: 0;
+  margin-top: auto;
 }
 
-/* tech.css reserves 480px/section via content-visibility placeholders */
-body.page-shell section {
-  content-visibility: visible;
-  contain-intrinsic-size: unset;
+/* Must load after tech.css — overrides section content-visibility placeholders */
+body.page-shell section:not(.hero) {
+  content-visibility: visible !important;
+  contain-intrinsic-size: none !important;
 }
 
 .logo-mark {

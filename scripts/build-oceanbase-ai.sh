@@ -237,7 +237,7 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
     if 'ob-community.css' not in text:
         text = text.replace(
             '<link rel="stylesheet" href="../../css/qa.css',
-            '<link rel="stylesheet" href="../../css/ob-community.css?v=20260717-footer" />\n'
+            '<link rel="stylesheet" href="../../css/ob-community.css?v=20260717-footer2" />\n'
             '  <link rel="stylesheet" href="../../css/qa.css',
             1,
         )
