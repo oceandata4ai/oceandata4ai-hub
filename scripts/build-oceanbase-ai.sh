@@ -32,26 +32,29 @@ PRIVACY_URL = "https://github.com/oceanbase/oceanbase?tab=security-ov-file"
 COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
 DISCORD_URL = "https://discord.com/channels/1331061822945624085/1331061823465590809"
 
-NAV_ROOT = """      <nav class="nav-links">
+NAV_ROOT = f"""      <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
         <a href="ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
         <a href="qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="contact.html" data-page="contact">Contact us</a>
       </nav>"""
 
-NAV_QA = """      <nav class="nav-links">
+NAV_QA = f"""      <nav class="nav-links">
         <a href="../about.html" data-page="about">About</a>
         <a href="../ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
         <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""
 
-NAV_ECO = """      <nav class="nav-links">
+NAV_ECO = f"""      <nav class="nav-links">
         <a href="../about.html" data-page="about">About</a>
         <a href="index.html" data-page="ecosystem">Ecosystem</a>
         <a href="../qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
+        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""
@@ -62,7 +65,6 @@ FOOTER_ROOT = f"""          <ul>
             <li><a href="qa/oug-help.html">Ask OUG</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact us</a></li>
-            <li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li>
           </ul>"""
 
 FOOTER_QA = f"""          <ul>
@@ -71,7 +73,6 @@ FOOTER_QA = f"""          <ul>
             <li><a href="oug-help.html">Ask OUG</a></li>
             <li><a href="../events.html">Events</a></li>
             <li><a href="../contact.html">Contact us</a></li>
-            <li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li>
           </ul>"""
 
 FOOTER_ECO = f"""          <ul>
@@ -80,7 +81,6 @@ FOOTER_ECO = f"""          <ul>
             <li><a href="../qa/oug-help.html">Ask OUG</a></li>
             <li><a href="../events.html">Events</a></li>
             <li><a href="../contact.html">Contact us</a></li>
-            <li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li>
           </ul>"""
 
 FOOTER_RESOURCES = f"""<ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="{DISCORD_URL}" target="_blank" rel="noopener">Discord ↗</a></li><li><a href="https://en.oceanbase.com" target="_blank" rel="noopener">en.oceanbase.com ↗</a></li></ul>"""
