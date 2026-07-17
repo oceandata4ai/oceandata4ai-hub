@@ -5,7 +5,10 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SRC="$ROOT/oceanbase-community"
 DST="$ROOT/oceanbase-ai"
 rm -rf "$DST"
-mkdir -p "$DST/ecosystem" "$DST/qa" "$DST/data"
+mkdir -p "$DST/ecosystem" "$DST/qa" "$DST/data" "$DST/assets"
+
+cp "$ROOT/assets/oceanbase-logo.svg" "$DST/assets/"
+cp "$ROOT/assets/oceanbase-logo-dark.svg" "$DST/assets/"
 
 cp "$SRC/index.html" "$DST/index.html"
 cp "$SRC/about.html" "$DST/about.html"
@@ -213,8 +216,8 @@ for name in ["index.html", "about.html", "contact.html", "events.html"]:
     text = p.read_text(encoding="utf-8")
     text = text.replace("../qa/", "qa/")
     text = nav_pattern.sub(NAV_ROOT, text, count=1)
-    text = patch_nav_logo(text, "index.html", "../")
-    text = patch_footer_logo(text, "index.html", "../")
+    text = patch_nav_logo(text, "index.html", "")
+    text = patch_footer_logo(text, "index.html", "")
     text = patch_footer_community(text, FOOTER_ROOT)
     text = patch_footer_resources(text)
     text = inject_signin(text, "qa/ask.html?mode=signin")
@@ -232,8 +235,8 @@ for name in ["index.html", "oceanbase.html", "seekdb.html", "powermem.html"]:
     text = p.read_text(encoding="utf-8")
     text = text.replace("../../qa/", "../qa/")
     text = nav_pattern.sub(NAV_ECO, text, count=1)
-    text = patch_nav_logo(text, "../index.html", "../../")
-    text = patch_footer_logo(text, "../index.html", "../../")
+    text = patch_nav_logo(text, "../index.html", "../")
+    text = patch_footer_logo(text, "../index.html", "../")
     text = patch_footer_community(text, FOOTER_ECO)
     text = patch_footer_resources(text)
     text = inject_signin(text, "../qa/ask.html?mode=signin")
@@ -257,7 +260,7 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
             1,
         )
     text = nav_pattern.sub(NAV_QA, text, count=1)
-    text = patch_nav_logo(text, "../index.html", "../../")
+    text = patch_nav_logo(text, "../index.html", "../")
     text = re.sub(
         r'<a href="\.\./join\.html"[^>]*>Join Community</a>\s*',
         '',
@@ -274,7 +277,7 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
         text,
     )
     if 'footer-grid' in text:
-        text = patch_footer_logo(text, "../index.html", "../../")
+        text = patch_footer_logo(text, "../index.html", "../")
         text = patch_footer_community(text, FOOTER_QA)
         text = patch_footer_resources(text)
     else:
