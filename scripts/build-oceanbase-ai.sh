@@ -84,7 +84,7 @@ FOOTER_ECO = f"""          <ul>
             <li><a href="../contact.html">Contact us</a></li>
           </ul>"""
 
-FOOTER_RESOURCES = f"""<ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="{DISCORD_URL}" target="_blank" rel="noopener">Discord ↗</a></li><li><a href="https://en.oceanbase.com" target="_blank" rel="noopener">en.oceanbase.com ↗</a></li></ul>"""
+FOOTER_RESOURCES = f"""<ul><li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation ↗</a></li><li><a href="https://github.com/oceanbase/oceanbase" target="_blank" rel="noopener">GitHub ↗</a></li><li><a href="{DISCORD_URL}" target="_blank" rel="noopener">Discord ↗</a></li></ul>"""
 
 LOGO_VER = "20260717-ob-logo"
 
