@@ -4,15 +4,12 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 DST="$ROOT/phase1"
 rm -rf "$DST"
-mkdir -p "$DST/qa" "$DST/data"
+mkdir -p "$DST/qa"
 
 cp "$ROOT/index.html" "$DST/index.html"
 cp "$ROOT/about.html" "$DST/about.html"
 cp "$ROOT/contact.html" "$DST/contact.html"
 cp "$ROOT/events.html" "$DST/events.html"
-cp "$ROOT/data/topics.json" "$DST/data/topics.json"
-cp "$ROOT/qa/oug-help.html" "$DST/qa/oug-help.html"
-cp "$ROOT/qa/topic.html" "$DST/qa/topic.html"
 cp "$ROOT/qa/ask.html" "$DST/qa/ask.html"
 cp "$ROOT/qa/verify.html" "$DST/qa/verify.html"
 
@@ -29,31 +26,26 @@ COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
 
 NAV_ROOT = f"""      <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
-        <a href="qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
         <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="contact.html" data-page="contact">Contact us</a>
       </nav>"""
 
-NAV_QA = f"""      <nav class="nav-links">
-        <a href="../about.html" data-page="about">About</a>
-        <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
-        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
-        <a href="../events.html" data-page="events">Events</a>
-        <a href="../contact.html" data-page="contact">Contact us</a>
-      </nav>"""
-
 FOOTER_COMMUNITY_ROOT = f"""          <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="qa/oug-help.html">Ask OUG</a></li>
             <li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact us</a></li>
           </ul>"""
 
-FOOTER_COMMUNITY_QA = f"""          <ul><li><a href="../about.html">About</a></li><li><a href="oug-help.html">Ask OUG</a></li><li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li><li><a href="../events.html">Events</a></li><li><a href="../contact.html">Contact us</a></li></ul>"""
+FOOTER_COMMUNITY_ABOUT = f"""<ul><li><a href="about.html">About</a></li><li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact us</a></li></ul>"""
 
-FOOTER_COMMUNITY_ABOUT = f"""<ul><li><a href="about.html">About</a></li><li><a href="qa/oug-help.html">Ask OUG</a></li><li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact us</a></li></ul>"""
+NAV_QA = f"""      <nav class="nav-links">
+        <a href="../about.html" data-page="about">About</a>
+        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="../events.html" data-page="events">Events</a>
+        <a href="../contact.html" data-page="contact">Contact us</a>
+      </nav>"""
 
 DISCORD_URL = "https://discord.com/channels/1331061822945624085/1331061823465590809"
 YOUTUBE_URL = "https://www.youtube.com/@Data4AI-m7n"
@@ -194,12 +186,8 @@ def strip_fellows_contact(html: str) -> str:
     return html
 
 def inject_signin_nav(html: str, href: str) -> str:
-    html = re.sub(
-        r'\s*<a href="[^"]*" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\s*',
-        '\n        ',
-        html,
-        count=1,
-    )
+    if 'data-qa-nav-user' in html:
+        return html
     signin = (
         f'        <div class="qa-nav-user" data-qa-nav-user>\n'
         f'          <a href="{href}" class="btn btn-ghost btn-sm" data-qa-nav-signin>Sign in</a>\n'
@@ -212,6 +200,8 @@ def inject_signin_nav(html: str, href: str) -> str:
     )
 
 def inject_auth_scripts(html: str, js_prefix: str) -> str:
+    if f'{js_prefix}qa-auth.js' in html:
+        return html
     snippet = (
         f'<script src="{js_prefix}qa-auth.js"></script>\n'
         f'  <script src="{js_prefix}qa-nav-auth.js?v=20260715-nav-user"></script>\n'
@@ -238,26 +228,6 @@ def patch_root(html: str) -> str:
     html = html.replace('src="js/', 'src="../js/')
     html = html.replace('href="contact.html">Contact</a>', 'href="contact.html">Contact us</a>')
     html = inject_auth_scripts(html, '../js/')
-    return html
-
-def patch_qa(html: str) -> str:
-    html = nav_pattern.sub(NAV_QA, html, count=1)
-    for p in join_btn_patterns:
-        html = p.sub('\n', html)
-    html = inject_signin_nav(html, 'ask.html?mode=signin')
-    html = re.sub(
-        r'(<h4>Community</h4>)<ul>.*?</ul>',
-        r'\1' + FOOTER_COMMUNITY_QA,
-        html,
-        count=1,
-        flags=re.DOTALL,
-    )
-    html = html.replace('href="../assets/', 'href="../../assets/')
-    html = html.replace('src="../assets/', 'src="../../assets/')
-    html = html.replace('href="../css/', 'href="../../css/')
-    html = html.replace('src="../js/', 'src="../../js/')
-    html = html.replace('href="../js/', 'href="../../js/')
-    html = html.replace('href="../contact.html">Contact</a>', 'href="../contact.html">Contact us</a>')
     return html
 
 for name in ["index.html", "about.html", "contact.html", "events.html"]:
@@ -291,16 +261,31 @@ for name in ["index.html", "about.html", "contact.html", "events.html"]:
     text = strip_nav_github_discuss(text)
     p.write_text(text, encoding="utf-8")
 
-for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
+def patch_qa(html: str) -> str:
+    html = nav_pattern.sub(NAV_QA, html, count=1)
+    for p in join_btn_patterns:
+        html = p.sub('\n', html)
+    html = html.replace('href="../assets/', 'href="../../assets/')
+    html = html.replace('src="../assets/', 'src="../../assets/')
+    html = html.replace('href="../css/', 'href="../../css/')
+    html = html.replace('src="../js/', 'src="../../js/')
+    html = html.replace('href="../js/', 'href="../../js/')
+    html = html.replace('href="../contact.html">Contact</a>', 'href="../contact.html">Contact us</a>')
+    html = html.replace('href="../blog.html"', f'href="{MEDIUM_OUG}" target="_blank" rel="noopener"')
+    return html
+
+for name in ["ask.html", "verify.html"]:
     p = root / "qa" / name
     text = p.read_text(encoding="utf-8")
     text = patch_qa(text)
     text = patch_legal_links(text)
-    text = strip_legal_contact(text)
-    text = patch_footer_resources(text)
-    if name == "oug-help.html":
-        text = inject_auth_scripts(text, '../../js/')
     if name == "ask.html":
+        text = text.replace('<title>Ask OUG — OceanData4AI Community</title>',
+                            '<title>Sign in — OceanData4AI Community</title>')
+        text = text.replace(
+            "window.location.replace('oug-help.html');",
+            "window.location.replace('../index.html');",
+        )
         text = text.replace(
             '<script src="../../js/qa-nav-auth.js"></script>\n  <script src="../../js/main.js" defer></script>',
             '<script src="../../js/main.js" defer></script>',
@@ -310,6 +295,14 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
             '<script src="../../js/main.js" defer></script>',
             '<script src="../../js/qa-nav-auth.js?v=20260715-nav-user"></script>\n  <script src="../../js/main.js" defer></script>',
             1,
+        )
+    if name == "verify.html":
+        text = re.sub(
+            r'<nav class="nav-links">.*?</nav>',
+            NAV_QA,
+            text,
+            count=1,
+            flags=re.DOTALL,
         )
     text = strip_nav_github_discuss(text)
     p.write_text(text, encoding="utf-8")
@@ -322,15 +315,15 @@ cat > "$DST/README.md" <<'EOF'
 
 **URL:** `https://oceandata4ai.github.io/oceandata4ai-hub/phase1/index.html`
 
-一期裁剪版，仅保留：**Home · Ask OUG · Blog（外链 Medium）· Events · About · Contact us · Legal（外链）**。
+一期裁剪版，仅保留：**Home · Blog（外链 Medium）· Events · About · Contact us · Legal（外链）**。
 
 - **Blog（一期）**：顶栏 / 首页 CTA 外链 [Medium](https://medium.com/@pub_opensource_global)
 - **Blog（二期）**：站内 `blog.html`（见完整版 Hub）
 - **Legal（一期外链）**：[Privacy Policy](https://github.com/oceanbase/oceanbase?tab=security-ov-file) · [Code of Conduct](https://github.com/oceanbase/oceanbase?tab=coc-ov-file)
 - **Fellows / Join（一期不做）**：完整版保留；一期 Demo 已移除 Fellows Program 区块及相关文案
 - **More resources（一期不做）**：完整版保留；一期 Demo 已移除首页 More resources 三卡片区块
-
-- **Ask OUG（一期）**：站内 Q&A · 浏览/发帖/回复均在 `qa/` · 种子话题来自 `data/topics.json`，用户发帖保存在浏览器本地并即时展示
+- **Ask OUG（一期不做）**：完整版 Hub / `oceanbase-ai` 保留；一期 Demo 已移除 Q&A 列表与顶栏入口
+- **Sign in（一期保留）**：顶栏 Sign in → `qa/ask.html`（注册 / 登录 / 邮件验证 Demo）
 - 样式与脚本复用上级目录 `../css`、`../js`、`../assets`
 - 完整版 Hub：[`../index.html`](../index.html)
 
