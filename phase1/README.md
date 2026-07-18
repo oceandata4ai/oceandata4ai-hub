@@ -9,7 +9,7 @@
 - **Legal（一期外链）**：[Privacy Policy](https://github.com/oceanbase/oceanbase?tab=security-ov-file) · [Code of Conduct](https://github.com/oceanbase/oceanbase?tab=coc-ov-file)
 - **Fellows / Join（一期不做）**：完整版保留；一期 Demo 已移除 Fellows Program 区块及相关文案
 - **More resources（一期不做）**：完整版保留；一期 Demo 已移除首页 More resources 三卡片区块
-- **Ask OUG（一期不做）**：完整版 Hub / `oceanbase-ai` 保留；一期 Demo 已移除 Q&A 列表与顶栏入口
+- **Ask OUG（一期不做）**：`oceanbase-ai` 保留；完整版 Hub / phase1 已移除 Q&A 列表与顶栏入口
 - **Sign in（一期保留）**：顶栏 Sign in → `qa/ask.html`（注册 / 登录 / 邮件验证 Demo）
 - 样式与脚本复用上级目录 `../css`、`../js`、`../assets`
 - 完整版 Hub：[`../index.html`](../index.html)
