@@ -4,7 +4,7 @@
 
 一期裁剪版，仅保留：**Home · Blog（外链 Medium）· Events · About · Contact us · Legal（外链）**。
 
-- **Blog（一期）**：顶栏 / 首页 CTA 外链 [Medium](https://medium.com/@pub_opensource_global)
+- **Blog（一期）**：顶栏 / 首页 CTA 外链 [Medium](https://medium.com/@pub_global_opensource)
 - **Blog（二期）**：站内 `blog.html`（见完整版 Hub）
 - **Legal（一期外链）**：[Privacy Policy](https://github.com/oceanbase/oceanbase?tab=security-ov-file) · [Code of Conduct](https://github.com/oceanbase/oceanbase?tab=coc-ov-file)
 - **Fellows / Join（一期不做）**：完整版保留；一期 Demo 已移除 Fellows Program 区块及相关文案
