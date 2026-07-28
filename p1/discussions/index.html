@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask OBC — OceanData4AI Community</title>
+  <meta name="description" content="OceanBase Community Q&amp;A — troubleshooting, deployment, migration, and HTAP help." />
+  <link rel="icon" href="../../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/p1.css?v=20260714-p1b" />
+  <script src="../../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="ask-obc">
+  <div class="p1-banner" id="p1-banner"></div>
+  <header class="nav" id="p1-nav"></header>
+
+  <main class="disc-page">
+    <div class="container">
+      <div class="disc-header">
+        <h1>Ask OBC</h1>
+        <p>OceanBase Community Q&amp;A — troubleshooting, how-to guides, deployment, and migration help. Share minimal repros and learn from peers.</p>
+      </div>
+
+      <h2 style="font-size:1.1rem;margin:0 0 12px">Browse the community</h2>
+      <div class="disc-browse" id="disc-browse"></div>
+
+      <div class="disc-toolbar">
+        <div class="disc-filters" id="disc-filters"></div>
+        <a href="new.html" class="btn btn-primary btn-sm">Ask a question</a>
+      </div>
+
+      <div style="overflow-x:auto">
+        <table class="disc-table">
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th class="num">Replies</th>
+              <th class="num hide-sm">Views</th>
+              <th class="num hide-sm">Activity</th>
+            </tr>
+          </thead>
+          <tbody id="disc-tbody"></tbody>
+        </table>
+      </div>
+
+      <p style="margin-top:1.5rem;font-size:0.85rem;color:var(--text-muted)">
+        Prefer async chat? Join <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord</a>
+        or <a href="https://www.reddit.com/r/OceanBase_User_Group/" target="_blank" rel="noopener">Reddit</a>.
+      </p>
+    </div>
+  </main>
+
+  <footer class="footer" id="p1-footer"></footer>
+
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-card">
+      <h3>Sign in</h3>
+      <p>Phase 1 demo — production uses Google SSO.</p>
+      <button type="button" class="btn btn-primary" id="auth-google-demo" style="width:100%">Continue with Google (demo)</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="auth-modal-close" style="margin-top:12px">Cancel</button>
+    </div>
+  </div>
+
+  <script src="../js/p1-layout.js"></script>
+  <script src="../js/discussions.js"></script>
+  <script src="../js/discussions-list.js"></script>
+</body>
+</html>

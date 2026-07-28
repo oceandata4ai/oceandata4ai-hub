@@ -2,8 +2,8 @@
   "topics": [
     {
       "slug": "ob-k8s-install",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "How to install OceanBase on Kubernetes (minimal prod checklist)?",
       "excerpt": "Looking for a hardened single-replica dev setup vs. 3-node obcluster for staging.",
       "author": "platform_eng",
@@ -22,9 +22,9 @@
       ]
     },
     {
-      "slug": "mysql-migration-oug",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "slug": "mysql-migration-obc",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "MySQL to OceanBase migration: OMS vs manual dump — what worked for you?",
       "excerpt": "500GB OLTP schema, need near-zero downtime. Comparing OceanBase Migration Service vs logical export.",
       "author": "migrator_cn",
@@ -36,7 +36,7 @@
       "body": "<p>We are moving a 500GB MySQL 8 OLTP workload to OceanBase. Ops team prefers OMS; devs want mysqldump + load for control. Experiences?</p>",
       "replies": [
         {
-          "author": "oug_mod",
+          "author": "obc_mod",
           "date": "Jul 11, 2026",
           "body": "<p>OMS for production cutover with incremental sync; manual dump fine for dev/staging. Check charset and <code>sql_mode</code> mapping first.</p>"
         }
@@ -44,8 +44,8 @@
     },
     {
       "slug": "htap-analytics-latency",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "HTAP: analytical queries slowing OLTP on same tenant — tuning tips?",
       "excerpt": "Column store kicks in but p99 OLTP latency spikes during heavy AP jobs.",
       "author": "dba_apac",
@@ -59,8 +59,8 @@
     },
     {
       "slug": "seekdb-hybrid-empty",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "seekdb hybrid search returns empty — knn + BM25 in one SQL",
       "excerpt": "Vector leg works alone but combined knn + BM25 query returns 0 rows.",
       "author": "alex_dev",
@@ -72,7 +72,7 @@
       "body": "<p>Running hybrid search on a 50k doc table. Vector leg alone returns results; combined query returns 0 rows. seekdb 1.2 · FTS index status BUILDING?</p>",
       "replies": [
         {
-          "author": "oug_mod",
+          "author": "obc_mod",
           "date": "Jul 5, 2026",
           "body": "<p>Check FTS index finished building (<code>SHOW INDEX</code>) and lower <code>k</code> for a smoke test.</p>"
         }
@@ -80,8 +80,8 @@
     },
     {
       "slug": "powermem-agent-tiers",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "PowerMem tier configuration for long-running agents",
       "excerpt": "How to set decay and retrieval weights when sessions span days?",
       "author": "agent_builder",
@@ -95,8 +95,8 @@
     },
     {
       "slug": "vector-index-43",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "Vector index build fails after upgrade to 4.3",
       "excerpt": "IVF index rebuild stalls at 78%; logs show memory limit on observer node.",
       "author": "dba_sea",
@@ -110,8 +110,8 @@
     },
     {
       "slug": "mysql-group-by",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "MySQL compatibility: GROUP BY behavior difference after migration",
       "excerpt": "ONLY_FULL_GROUP_BY queries failing on OceanBase with different error text.",
       "author": "migrator",
@@ -123,7 +123,7 @@
       "body": "<p>Porting from MySQL 8 — queries with <code>ONLY_FULL_GROUP_BY</code> fail on OceanBase. Anyone mapped the gaps?</p>",
       "replies": [
         {
-          "author": "oug_mod",
+          "author": "obc_mod",
           "date": "Jun 23, 2026",
           "body": "<p>See docs on <code>sql_mode</code> parity; edge cases tracked in 4.3.1 release notes.</p>"
         }
@@ -131,8 +131,8 @@
     },
     {
       "slug": "obproxy-connection-pool",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "OBProxy connection pool sizing for Java microservices",
       "excerpt": "Too many idle connections after scale-out; looking for pool + timeout guidance.",
       "author": "java_ops",
@@ -146,8 +146,8 @@
     },
     {
       "slug": "backup-restore-sla",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "Backup and restore SLA: logical vs physical backup for 2TB tenant",
       "excerpt": "RPO 15 min target; evaluating incremental backup schedule.",
       "author": "sre_team",
@@ -159,7 +159,7 @@
       "body": "<p>2TB tenant, need RPO ~15 minutes. Physical backup nightly + log archive — does this match your production setup?</p>",
       "replies": [
         {
-          "author": "oug_mod",
+          "author": "obc_mod",
           "date": "Jun 14, 2026",
           "body": "<p>Most teams combine periodic full backup with continuous clog archive; test restore quarterly.</p>"
         }
@@ -167,8 +167,8 @@
     },
     {
       "slug": "seekdb-embedded-python",
-      "board": "oug-help",
-      "boardLabel": "Ask OUG",
+      "board": "obc-help",
+      "boardLabel": "Ask OBC",
       "title": "seekdb embedded mode in Python — first hybrid query example?",
       "excerpt": "pip install works; looking for minimal RAG retrieval SQL sample.",
       "author": "ml_eng",

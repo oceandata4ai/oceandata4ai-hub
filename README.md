@@ -49,7 +49,7 @@ Settings → Pages → source: `main` branch, `/ (root)`.
 
 See `js/form-config.js` — enable after Privacy/CoC legal sign-off.
 
-## Ask OUG — verification email (any registering user)
+## Ask OBC — verification email (any registering user)
 
 When a user signs up on `qa/ask.html`, the site sends a **ClickHouse-style confirmation email** to **the email they entered** (not a fixed test address). They must click **Verify email** before posting.
 

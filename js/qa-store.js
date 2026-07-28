@@ -49,13 +49,13 @@
     return readJson(REPLIES_KEY, {});
   }
 
-  function createTopic({ title, bodyHtml, author, board = 'oug-help', tags = [] }) {
+  function createTopic({ title, bodyHtml, author, board = 'obc-help', tags = [] }) {
     const now = new Date();
     const slug = slugify(title);
     const topic = {
       slug,
       board,
-      boardLabel: 'Ask OUG',
+      boardLabel: 'Ask OBC',
       title,
       excerpt: excerptFromHtml(bodyHtml),
       author: displayAuthor(author),

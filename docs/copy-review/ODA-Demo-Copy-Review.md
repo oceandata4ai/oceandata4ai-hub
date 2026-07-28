@@ -27,7 +27,7 @@
 | ID | 位置 | 英文原文 | 类型 | 截图 |
 |---|---|---|---|---|
 | G-NAV-01 | Logo | OceanData4AI | 品牌名 | `screenshots/01-nav.png` |
-| G-NAV-02 | 主导航 | About · Ask OUG · Blog · Events · Fellows · Join | 导航 | ↑ |
+| G-NAV-02 | 主导航 | About · Ask OBC · Blog · Events · Fellows · Join | 导航 | ↑ |
 | G-NAV-03 | 右侧按钮 | Docs ↗ · GitHub ↗ · Discuss ↗ | CTA 外链 | ↑ |
 | G-NAV-04 | 主 CTA | Join Community | 按钮 | ↑ |
 
@@ -37,7 +37,7 @@
 |---|---|---|---|---|
 | G-FT-01 | 品牌区 | A vendor-neutral community for AI data infrastructure builders. | 正文 | `screenshots/02-footer.png` |
 | G-FT-02 | 品牌区 | Initiated with support from OceanBase | 免责声明 | ↑ |
-| G-FT-03 | Community 列 | About · Ask OUG · Join · Blog · Events | 链接 | ↑ |
+| G-FT-03 | Community 列 | About · Ask OBC · Join · Blog · Events | 链接 | ↑ |
 | G-FT-04 | Resources 列 | Documentation ↗ · GitHub ↗ · Medium ↗ · Discord ↗ | 链接 | ↑ |
 | G-FT-05 | Legal 列 | Privacy Policy · Code of Conduct · Contact | 链接 | ↑ |
 | G-FT-06 | 底栏 | © 2026 OceanData4AI Community | 版权 | ↑ |
@@ -110,7 +110,7 @@
 | H-29 | GitHub | GitHub | Issues, PRs, and open-source projects from the ecosystem. | Follow on GitHub → |
 | H-30 | LinkedIn | LinkedIn | Learn the latest about releases, events, and community news. | Follow on LinkedIn → |
 | H-31 | Medium | Medium | Tutorials, deep dives, and builder stories from the community. | Follow on Medium → |
-| H-32 | Ask OUG | Ask OUG | Searchable Q&A for product questions and deployment help. | Ask OUG → |
+| H-32 | Ask OBC | Ask OBC | Searchable Q&A for product questions and deployment help. | Ask OBC → |
 | H-33 | Events | Events | Find out when the next meetup, AMA, or workshop will take place. | View calendar → |
 
 ### B7. More resources
@@ -222,10 +222,10 @@
 
 ---
 
-## H. Ask OUG 问答 (`qa/oug-help.html` + `qa/ask.html` + `qa/topic.html` + `qa/verify.html`)
+## H. Ask OBC 问答 (`qa/obc-help.html` + `qa/ask.html` + `qa/topic.html` + `qa/verify.html`)
 
-**预览：** https://oceandata4ai.github.io/oceandata4ai-hub/qa/oug-help.html  
-**截图：** `screenshots/qa-oug-full.png` · `qa-ask-signup.png` · `qa-topic-full.png`
+**预览：** https://oceandata4ai.github.io/oceandata4ai-hub/qa/obc-help.html  
+**截图：** `screenshots/qa-obc-full.png` · `qa-ask-signup.png` · `qa-topic-full.png`
 
 ### H1. 列表页 — 顶栏与主内容
 
@@ -233,17 +233,17 @@
 |---|---|---|---|
 | Q-META-01 | `<meta description>` | Product troubleshooting, how-to guides, and deployment help for OceanBase and seekdb. | SEO |
 | Q-01 | 顶栏 Banner | M1 · On-site Q&A demo · Browse topics below; posting opens after legal review | 顶栏 |
-| Q-02 | Kicker | Ask OUG | 标签 |
-| Q-03 | H1 | OceanBase User Group Q&A | 标题 |
+| Q-02 | Kicker | Ask OBC | 标签 |
+| Q-03 | H1 | OceanBase Community Q&A | 标题 |
 | Q-04 | 描述 | Your go-to space for troubleshooting and how-to help on OceanBase, seekdb, and production deployments. Report bugs, ask integration questions, share minimal repros. | 正文 |
-| Q-05 | CTA | Ask OUG | 按钮 |
+| Q-05 | CTA | Ask OBC | 按钮 |
 
 ### H2. 列表页 — 左侧栏（Discussion / Tags）
 
 | ID | 模块 | 英文原文 | 类型 | 备注 |
 |---|---|---|---|---|
 | Q-SB-01 | 侧栏标题 | Discussion | 导航区标题 | |
-| Q-SB-02 | 侧栏链接 | Ask OUG | 导航项（当前页高亮） | |
+| Q-SB-02 | 侧栏链接 | Ask OBC | 导航项（当前页高亮） | |
 | Q-SB-03 | 侧栏标题 | Tags | 标签区标题 | 见截图 |
 | Q-SB-04 | 侧栏 Tag | seekdb | 筛选标签 | |
 | Q-SB-05 | 侧栏 Tag | deployment | 筛选标签 | |
@@ -259,7 +259,7 @@
 | Q-TB-02 | 表头 | Replies | 列名 |
 | Q-TB-03 | 表头 | Views | 列名 |
 | Q-TB-04 | 表头 | Activity | 列名 |
-| Q-TP-01 | 置顶帖标题 | About Ask OUG | 话题 |
+| Q-TP-01 | 置顶帖标题 | About Ask OBC | 话题 |
 | Q-TP-01a | 置顶帖摘要 | Search before posting. Include version, OS, and minimal repro. English preferred; BGO team responds within 2 business days. | 摘要 |
 | Q-TP-02 | 话题标题 | seekdb hybrid search returns empty — knn + BM25 in one SQL | 话题 |
 | Q-TP-02a | 话题摘要 | Running DBMS_HYBRID_SEARCH on a 50k doc table; vector leg works alone but combined query returns 0 rows. | 摘要 |
@@ -278,9 +278,9 @@
 
 | ID | 模块 | 英文原文 | 类型 |
 |---|---|---|---|
-| Q-07 | Banner | M1 · Ask OUG demo · Sign in required to post · Images supported in body | 顶栏 |
-| Q-08 | 注册模式标题 | Sign up for Ask OUG | 标题 |
-| Q-08b | 登录模式标题 | Sign in to Ask OUG | 标题 |
+| Q-07 | Banner | M1 · Ask OBC demo · Sign in required to post · Images supported in body | 顶栏 |
+| Q-08 | 注册模式标题 | Sign up for Ask OBC | 标题 |
+| Q-08b | 登录模式标题 | Sign in to Ask OBC | 标题 |
 | Q-09 | 字段标签 | Email* · Password* · Company name | 表单 |
 | Q-09a | Email 占位 | your.email@company.com | 占位 |
 | Q-09b | 编辑按钮 | Edit | 按钮 |
@@ -299,7 +299,7 @@
 | Q-14c | 未收到提示 | Did not receive it? Check spam, or click Resend verification email above. | 提示 |
 | Q-14d | Dev 回退 | Email service not configured — dev fallback link: · Open verification link | 仅发信失败时 |
 | Q-15 | 发帖标题 | Start a discussion | H1 |
-| Q-15a | 发帖引导 | Ask the OceanBase User Group community. You can paste or upload images in the body. | 正文 |
+| Q-15a | 发帖引导 | Ask the OceanBase Community community. You can paste or upload images in the body. | 正文 |
 | Q-15b | 登录态 | Signed in as {email} · Sign out | 状态条 |
 | Q-16 | 表单 | Title · Body · Insert image | 字段 |
 | Q-16a | Title 占位 | Summarize your question | 占位 |
@@ -320,7 +320,7 @@
 | Q-TV-03 | 无回复 | No replies yet — be the first to respond after posting opens. | 空状态 |
 | Q-TV-04 | 回复区标题 | Reply · {N} Reply / Replies | 标题 |
 | Q-TV-05 | 回复表单说明 | Posting and replies open when hosted Q&A goes live (post legal review). Browse topics on-site for now. | 说明 |
-| Q-TV-06 | 404 | Topic not found. Back to Ask OUG | 错误 |
+| Q-TV-06 | 404 | Topic not found. Back to Ask OBC | 错误 |
 | Q-TV-07 | 页脚 | ← Back to Q&A | 链接 |
 
 ### H6. 邮箱验证页 (`qa/verify.html`)
@@ -329,8 +329,8 @@
 |---|---|---|---|
 | Q-VF-01 | 加载中 | Verifying your email… | 状态 |
 | Q-VF-02 | 成功标题 | Email verified | 标题 |
-| Q-VF-03 | 成功正文 | Your email {email} is confirmed. You can now ask questions on Ask OUG. | 正文 |
-| Q-VF-04 | 成功 CTA | Continue to Ask OUG | 按钮 |
+| Q-VF-03 | 成功正文 | Your email {email} is confirmed. You can now ask questions on Ask OBC. | 正文 |
+| Q-VF-04 | 成功 CTA | Continue to Ask OBC | 按钮 |
 | Q-VF-05 | 失败标题 | Verification failed | 标题 |
 | Q-VF-06 | 失败-无效 | This verification link is invalid. | 错误 |
 | Q-VF-07 | 失败-跨浏览器 | This link was opened in a different browser/device from where you signed up. Please open it in the same browser session, or sign up again and verify there. | 错误 |
@@ -338,11 +338,11 @@
 
 ---
 
-## 附录 3：Ask OUG Demo 话题正文（`js/qa-data.js`）
+## 附录 3：Ask OBC Demo 话题正文（`js/qa-data.js`）
 
 | Slug | 标题 | 作者 | 标签 | 正文摘要 |
 |---|---|---|---|---|
-| about-oug-discussion | About Ask OUG | OceanData4AI Team | — | Community space for OceanBase, seekdb, AI data infra; search first; English preferred; 2 business day response |
+| about-obc-discussion | About Ask OBC | OceanData4AI Team | — | Community space for OceanBase, seekdb, AI data infra; search first; English preferred; 2 business day response |
 | seekdb-hybrid-empty | seekdb hybrid search returns empty… | alex_dev | seekdb, hybrid-search | DBMS_HYBRID_SEARCH 50k docs; vector works, combined returns 0 |
 | ob-k8s-install | How to install OceanBase on Kubernetes… | platform_eng | deployment, kubernetes | Single-replica dev vs 3-node obcluster; Helm/operator tips |
 | vector-index-43 | Vector index build fails after upgrade to 4.3 | dba_sea | vector | IVF rebuild stalls 78%; memory limit on observer |
@@ -350,9 +350,9 @@
 
 **示例回复文案（节选）：**
 
-- `oug_mod`: Check that the FTS index finished building… Try lowering k to 3 for a smoke test.
+- `obc_mod`: Check that the FTS index finished building… Try lowering k to 3 for a smoke test.
 - `harry_z`: Start with the official ob-operator quickstart; for staging use 3 observers + 1 OBProxy.
-- `oug_mod`: See docs on sql_mode parity; we're tracking edge cases in 4.3.1 release notes.
+- `obc_mod`: See docs on sql_mode parity; we're tracking edge cases in 4.3.1 release notes.
 
 ---
 
@@ -366,7 +366,7 @@
 |---|---|---|
 | M1-01 | 顶栏 Banner | M1 Milestone Demo · View original hub ↗ |
 | M1-02 | Home Hero | Where builders talk about *AI data infrastructure* — RAG, vectors, agents, and everything in between. |
-| M1-03 | Gather 区 | Channels & external matrix — Ask OUG / Discord / Medium / GitHub / LinkedIn / Docs |
+| M1-03 | Gather 区 | Channels & external matrix — Ask OBC / Discord / Medium / GitHub / LinkedIn / Docs |
 | M1-04 | About | Mission / Neutrality / One platform / vs. en.oceanbase.com 四卡 + Content split 70/20/10 |
 | M1-05 | Blog | M1 · 4 content series 表格（News 15% / Tutorials 25% / Deep Dives 35% / Builder Stories 25%） |
 
@@ -376,13 +376,13 @@
 
 | 标题 | 标签 | 摘要 | 作者 |
 |---|---|---|---|
-| Get Started with seekdb… | Tutorials | From zero to your first vector + full-text query in under 15 minutes. | OceanBase User Group |
+| Get Started with seekdb… | Tutorials | From zero to your first vector + full-text query in under 15 minutes. | OceanBase Community |
 | Why Your Vector Database Benchmark Is Wrong for AI Agents | Deep Dives | Why agent workloads break traditional benchmark assumptions. | Harry Zhang |
 | MEMORY.md Every Turn — That's Noise, Not Memory | Deep Dives | Design agent memory that scales without polluting every context window. | Harry Zhang |
-| CLI Over MCP… | Tutorials | When structured tool calls beat raw SQL for agent-friendly APIs. | OceanBase User Group |
+| CLI Over MCP… | Tutorials | When structured tool calls beat raw SQL for agent-friendly APIs. | OceanBase Community |
 | Beyond RAG: Why Knowledge Engineering… | Deep Dives | Curation, freshness, and trust in knowledge graphs beat naive retrieval. | Harry Zhang |
-| Stop Stitching Your RAG Stack… | Tutorials | One database for vectors, full-text, and AI functions — less glue code. | OceanBase User Group |
-| Building RAG & Knowledge Bases with seekdb… | Tutorials | Three architecture patterns for production RAG on a single data layer. | OceanBase User Group |
+| Stop Stitching Your RAG Stack… | Tutorials | One database for vectors, full-text, and AI functions — less glue code. | OceanBase Community |
+| Building RAG & Knowledge Bases with seekdb… | Tutorials | Three architecture patterns for production RAG on a single data layer. | OceanBase Community |
 | Welcome to OceanData4AI… | News & Updates | Launching a vendor-neutral community for RAG, vectors, and agent memory. | OceanData4AI Team |
 | Harness Engineering in Practice… | Builder Stories | Patterns for orchestrating multiple agents with shared memory and tools. | Harry Zhang |
 

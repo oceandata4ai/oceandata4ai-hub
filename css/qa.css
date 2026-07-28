@@ -376,7 +376,7 @@
 }
 .qa-error { color: var(--text-muted); padding: 40px 0; }
 
-/* Ask OUG — login gate & rich body */
+/* Ask OBC — login gate & rich body */
 .qa-ask-section { padding: 48px 0 80px; }
 .qa-ask-wrap { max-width: 720px; }
 .qa-ask-wrap:has(#qa-login-gate:not([hidden])) {

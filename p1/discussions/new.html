@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ask OBC — New question</title>
+  <link rel="icon" href="../../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/p1.css?v=20260714-p1" />
+  <script src="../../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="ask-obc" data-after-auth="submit">
+  <div class="p1-banner" id="p1-banner"></div>
+  <header class="nav" id="p1-nav"></header>
+
+  <main class="disc-page">
+    <div class="container">
+      <div class="disc-header">
+        <h1>Ask OBC</h1>
+        <p>Post an OceanBase or seekdb question. Include your setup, minimal repro, and what you expected vs. what you saw.</p>
+      </div>
+
+      <form id="new-topic-form" class="disc-form-card">
+        <div class="disc-form-group">
+          <label for="category">Category</label>
+          <select id="category" required></select>
+        </div>
+        <div class="disc-form-group">
+          <label for="title">Title</label>
+          <input id="title" type="text" placeholder="Summarize your question" required maxlength="200" />
+        </div>
+        <div class="disc-form-group">
+          <label for="body">Details (Markdown)</label>
+          <textarea id="body" placeholder="## My setup&#10;…&#10;&#10;## Minimal repro&#10;```sql&#10;SELECT …&#10;```" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Post question</button>
+        <p style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-muted)">Sign-in required · demo uses mock Google SSO</p>
+      </form>
+
+      <p style="margin-top:1.5rem"><a href="index.html">← Back to Ask OBC</a></p>
+    </div>
+  </main>
+
+  <footer class="footer" id="p1-footer"></footer>
+
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-card">
+      <h3>Sign in to post</h3>
+      <p>Phase 1 demo — production uses Google SSO.</p>
+      <button type="button" class="btn btn-primary" id="auth-google-demo" style="width:100%">Continue with Google (demo)</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="auth-modal-close" style="margin-top:12px">Cancel</button>
+    </div>
+  </div>
+
+  <script src="../js/p1-layout.js"></script>
+  <script src="../js/discussions.js"></script>
+  <script src="../js/discussions-new.js"></script>
+</body>
+</html>

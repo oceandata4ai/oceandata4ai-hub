@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — OceanData4AI Phase 1</title>
+  <link rel="icon" href="../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/p1.css?v=20260714-p1" />
+  <script src="../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="about">
+  <div class="p1-banner" id="p1-banner"></div>
+  <header class="nav" id="p1-nav"></header>
+  <main>
+    <div class="page-hero" style="padding:48px 0 24px;border-bottom:1px solid var(--border)">
+      <div class="container">
+        <h1 style="margin:0 0 8px;font-size:2rem">About OceanData4AI</h1>
+        <p style="margin:0;color:var(--text-muted);max-width:42rem">A vendor-neutral community for AI data infrastructure — initiated by OceanBase, open to all builders.</p>
+      </div>
+    </div>
+    <section style="padding:48px 0">
+      <div class="container">
+        <div class="ch-promo-grid" style="margin-bottom:2rem">
+          <div class="ch-promo-card"><h3>Vision</h3><p>Where builders talk about RAG, vectors, agents, and the data layer beneath them — with honest comparisons and practical answers.</p></div>
+          <div class="ch-promo-card"><h3>Neutrality</h3><p>~70% industry-wide Data+AI topics, ~30% OceanBase ecosystem. Trust through transparency, not hiding who we are.</p></div>
+          <div class="ch-promo-card"><h3>One platform</h3><p>OBC and OceanData4AI share the same site — tags distinguish content, not siloed modules.</p></div>
+          <div class="ch-promo-card"><h3>vs. en.oceanbase.com</h3><p>Community builds trust and engagement; the official site drives product discovery and sales. Friendly links, different jobs.</p></div>
+        </div>
+        <div class="prose" style="max-width:42rem">
+          <h2>Phase 1 scope (this demo)</h2>
+          <ul>
+            <li><strong>Home</strong> — community hub (ClickHouse-inspired layout)</li>
+            <li><strong>Ask OBC</strong> — OceanBase Q&amp;A (Databricks-inspired list)</li>
+            <li><strong>About / Contact / Legal</strong> — trust and compliance baseline</li>
+          </ul>
+          <p>Blog, Fellows, Events calendar, and search ship in Phase 2+.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="p1-footer"></footer>
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-card">
+      <h3>Sign in</h3>
+      <p>Phase 1 demo — production uses Google SSO.</p>
+      <button type="button" class="btn btn-primary" id="auth-google-demo" style="width:100%">Continue with Google (demo)</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="auth-modal-close" style="margin-top:12px">Cancel</button>
+    </div>
+  </div>
+  <script src="js/p1-layout.js"></script>
+</body>
+</html>

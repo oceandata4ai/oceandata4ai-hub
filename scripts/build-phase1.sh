@@ -20,29 +20,29 @@ from pathlib import Path
 root = Path("/Users/gongbo/Downloads/wechat-to-yuque/data4ai-hub/phase1")
 
 # Phase 1: Blog links out to Medium. Phase 2: on-site blog.html (see ../blog.html).
-MEDIUM_OUG = "https://medium.com/@pub_global_opensource"
+MEDIUM_OBC = "https://medium.com/@pub_global_opensource"
 PRIVACY_URL = "https://github.com/oceanbase/oceanbase?tab=security-ov-file"
 COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
 
 NAV_ROOT = f"""      <nav class="nav-links">
         <a href="about.html" data-page="about">About</a>
-        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="contact.html" data-page="contact">Contact us</a>
       </nav>"""
 
 FOOTER_COMMUNITY_ROOT = f"""          <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li>
+            <li><a href="{MEDIUM_OBC}" target="_blank" rel="noopener">Blog ↗</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact us</a></li>
           </ul>"""
 
-FOOTER_COMMUNITY_ABOUT = f"""<ul><li><a href="about.html">About</a></li><li><a href="{MEDIUM_OUG}" target="_blank" rel="noopener">Blog ↗</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact us</a></li></ul>"""
+FOOTER_COMMUNITY_ABOUT = f"""<ul><li><a href="about.html">About</a></li><li><a href="{MEDIUM_OBC}" target="_blank" rel="noopener">Blog ↗</a></li><li><a href="events.html">Events</a></li><li><a href="contact.html">Contact us</a></li></ul>"""
 
 NAV_QA = f"""      <nav class="nav-links">
         <a href="../about.html" data-page="about">About</a>
-        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""
@@ -227,7 +227,7 @@ def patch_root(html: str) -> str:
     html = html.replace('href="js/', 'href="../js/')
     html = html.replace('src="js/', 'src="../js/')
     html = html.replace('href="contact.html">Contact</a>', 'href="contact.html">Contact us</a>')
-    html = html.replace('https://medium.com/@pub_opensource_global', MEDIUM_OUG)
+    html = html.replace('https://medium.com/@pub_opensource_global', MEDIUM_OBC)
     html = inject_auth_scripts(html, '../js/')
     return html
 
@@ -249,7 +249,7 @@ for name in ["index.html", "about.html", "contact.html", "events.html"]:
     if name == "index.html":
         text = text.replace(
             'href="blog.html" class="btn btn-primary">Read Blog</a>',
-            f'href="{MEDIUM_OUG}" class="btn btn-primary" target="_blank" rel="noopener">Read Blog</a>',
+            f'href="{MEDIUM_OBC}" class="btn btn-primary" target="_blank" rel="noopener">Read Blog</a>',
         )
         text = strip_phase1_index(text)
     elif name == "about.html":
@@ -272,7 +272,7 @@ def patch_qa(html: str) -> str:
     html = html.replace('src="../js/', 'src="../../js/')
     html = html.replace('href="../js/', 'href="../../js/')
     html = html.replace('href="../contact.html">Contact</a>', 'href="../contact.html">Contact us</a>')
-    html = html.replace('href="../blog.html"', f'href="{MEDIUM_OUG}" target="_blank" rel="noopener"')
+    html = html.replace('href="../blog.html"', f'href="{MEDIUM_OBC}" target="_blank" rel="noopener"')
     return html
 
 for name in ["ask.html", "verify.html"]:
@@ -281,10 +281,10 @@ for name in ["ask.html", "verify.html"]:
     text = patch_qa(text)
     text = patch_legal_links(text)
     if name == "ask.html":
-        text = text.replace('<title>Ask OUG — OceanData4AI Community</title>',
+        text = text.replace('<title>Ask OBC — OceanData4AI Community</title>',
                             '<title>Sign in — OceanData4AI Community</title>')
         text = text.replace(
-            "window.location.replace('oug-help.html');",
+            "window.location.replace('obc-help.html');",
             "window.location.replace('../index.html');",
         )
         text = text.replace(
@@ -323,7 +323,7 @@ cat > "$DST/README.md" <<'EOF'
 - **Legal（一期外链）**：[Privacy Policy](https://github.com/oceanbase/oceanbase?tab=security-ov-file) · [Code of Conduct](https://github.com/oceanbase/oceanbase?tab=coc-ov-file)
 - **Fellows / Join（一期不做）**：完整版保留；一期 Demo 已移除 Fellows Program 区块及相关文案
 - **More resources（一期不做）**：完整版保留；一期 Demo 已移除首页 More resources 三卡片区块
-- **Ask OUG（一期不做）**：`oceanbase-ai` 保留；完整版 Hub / phase1 已移除 Q&A 列表与顶栏入口
+- **Ask OBC（一期不做）**：`oceanbase-ai` 保留；完整版 Hub / phase1 已移除 Q&A 列表与顶栏入口
 - **Sign in（一期保留）**：顶栏 Sign in → `qa/ask.html`（注册 / 登录 / 邮件验证 Demo）
 - 样式与脚本复用上级目录 `../css`、`../js`、`../assets`
 - 完整版 Hub：[`../index.html`](../index.html)

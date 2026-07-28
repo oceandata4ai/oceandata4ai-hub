@@ -10,14 +10,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderTopics(listRoot, list, qa);
   } catch (err) {
     listRoot.innerHTML =
-      '<p class="qa-error">Could not load topics. <a href="oug-help.html">Retry</a></p>';
+      '<p class="qa-error">Could not load topics. <a href="obc-help.html">Retry</a></p>';
     console.error(err);
   }
 });
 
 function renderTopics(listRoot, topics, qa) {
   if (!topics.length) {
-    listRoot.innerHTML = '<p class="qa-empty">No topics yet. <a href="ask.html?board=oug-help">Ask a question</a> to start the board.</p>';
+    listRoot.innerHTML = '<p class="qa-empty">No topics yet. <a href="ask.html?board=obc-help">Ask a question</a> to start the board.</p>';
     return;
   }
 

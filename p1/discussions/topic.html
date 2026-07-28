@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Topic — Ask OBC</title>
+  <link rel="icon" href="../../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/p1.css?v=20260714-p1" />
+  <script src="../../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="ask-obc">
+  <div class="p1-banner" id="p1-banner"></div>
+  <header class="nav" id="p1-nav"></header>
+
+  <main class="disc-page">
+    <div class="container disc-thread" id="disc-thread">
+      <p id="disc-breadcrumb" style="font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem"></p>
+      <h1 id="disc-topic-title" style="margin:0 0 8px;font-size:1.5rem"></h1>
+      <p id="disc-topic-meta" style="margin:0 0 1.5rem;font-size:0.85rem;color:var(--text-muted)"></p>
+
+      <div id="disc-posts"></div>
+
+      <section style="margin-top:2rem">
+        <h2 style="font-size:1.1rem;margin:0 0 12px">Reply</h2>
+        <form id="reply-form" class="disc-form-card">
+          <div class="disc-form-group">
+            <label for="reply-body">Your answer (Markdown)</label>
+            <textarea id="reply-body" placeholder="Share a repro, link, or workaround…" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Post reply</button>
+        </form>
+      </section>
+
+      <p style="margin-top:1.5rem"><a href="index.html">← Back to Ask OBC</a></p>
+    </div>
+  </main>
+
+  <footer class="footer" id="p1-footer"></footer>
+
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-card">
+      <h3>Sign in to reply</h3>
+      <p>Phase 1 demo — production uses Google SSO.</p>
+      <button type="button" class="btn btn-primary" id="auth-google-demo" style="width:100%">Continue with Google (demo)</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="auth-modal-close" style="margin-top:12px">Cancel</button>
+    </div>
+  </div>
+
+  <script src="../js/p1-layout.js"></script>
+  <script src="../js/discussions.js"></script>
+  <script src="../js/discussions-topic.js"></script>
+</body>
+</html>

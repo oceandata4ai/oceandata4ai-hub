@@ -595,22 +595,22 @@ section { padding: 64px 0; }
   background: var(--accent-soft);
 }
 
-.ask-oug-layout {
+.ask-obc-layout {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 32px;
   align-items: start;
 }
-.ask-oug-card {
+.ask-obc-card {
   padding: 32px;
   border-radius: 16px;
   border: 1px solid var(--border);
   background: var(--bg-card);
 }
-.ask-oug-card h2 { margin-bottom: 12px; }
-.ask-oug-card p { color: var(--text-muted); margin-bottom: 24px; }
-.ask-oug-aside h3 { font-size: 1rem; margin-bottom: 12px; }
-.ask-oug-list {
+.ask-obc-card h2 { margin-bottom: 12px; }
+.ask-obc-card p { color: var(--text-muted); margin-bottom: 24px; }
+.ask-obc-aside h3 { font-size: 1rem; margin-bottom: 12px; }
+.ask-obc-list {
   margin: 0 0 20px;
   padding-left: 1.2rem;
   color: var(--text-muted);
@@ -618,7 +618,7 @@ section { padding: 64px 0; }
   line-height: 1.6;
 }
 @media (max-width: 768px) {
-  .ask-oug-layout { grid-template-columns: 1fr; }
+  .ask-obc-layout { grid-template-columns: 1fr; }
 }
 
 /* Gather */

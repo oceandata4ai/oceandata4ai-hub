@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — OceanData4AI Phase 1</title>
+  <link rel="icon" href="../assets/oceandata4ai-logo.svg" type="image/svg+xml" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/p1.css?v=20260714-p1" />
+  <script src="../js/theme-init.js"></script>
+</head>
+<body class="page-shell" data-page="contact">
+  <div class="p1-banner" id="p1-banner"></div>
+  <header class="nav" id="p1-nav"></header>
+  <main>
+    <div class="page-hero" style="padding:48px 0 24px;border-bottom:1px solid var(--border)">
+      <div class="container">
+        <h1 style="margin:0 0 8px;font-size:2rem">Contact</h1>
+        <p style="margin:0;color:var(--text-muted)">Partnerships, press, or community questions.</p>
+      </div>
+    </div>
+    <section style="padding:48px 0">
+      <div class="container" style="display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
+        <div class="disc-form-card">
+          <form id="contact-form">
+            <div class="disc-form-group"><label for="name">Name</label><input id="name" name="name" required /></div>
+            <div class="disc-form-group"><label for="email">Email</label><input id="email" name="email" type="email" required /></div>
+            <div class="disc-form-group"><label for="topic">Topic</label>
+              <select id="topic" name="topic">
+                <option>General inquiry</option>
+                <option>Partnership</option>
+                <option>Press</option>
+                <option>Report an issue</option>
+              </select>
+            </div>
+            <div class="disc-form-group"><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+            <label style="display:flex;gap:8px;align-items:flex-start;font-size:0.85rem;color:var(--text-muted);margin-bottom:1rem">
+              <input type="checkbox" required style="margin-top:4px" />
+              I agree to the <a href="legal/privacy.html">Privacy Policy</a>.
+            </label>
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p id="contact-msg" style="margin-top:0.75rem;font-size:0.85rem"></p>
+          </form>
+        </div>
+        <div>
+          <h3 style="margin:0 0 12px">Community team</h3>
+          <p style="color:var(--text-muted);font-size:0.95rem">For product support, please use <a href="discussions/index.html">Ask OBC</a> or <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord</a>.</p>
+          <p style="margin-top:1.5rem;font-size:0.9rem"><strong>Email</strong><br><a href="mailto:community@oceanbase.com">community@oceanbase.com</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="p1-footer"></footer>
+  <div class="auth-modal" id="auth-modal">
+    <div class="auth-modal-card">
+      <h3>Sign in</h3>
+      <p>Phase 1 demo — production uses Google SSO.</p>
+      <button type="button" class="btn btn-primary" id="auth-google-demo" style="width:100%">Continue with Google (demo)</button>
+      <button type="button" class="btn btn-ghost btn-sm" id="auth-modal-close" style="margin-top:12px">Cancel</button>
+    </div>
+  </div>
+  <script src="js/p1-layout.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('contact-msg').textContent = 'Demo only — configure SMTP / Formspree in production.';
+      document.getElementById('contact-msg').style.color = 'var(--accent)';
+    });
+  </script>
+</body>
+</html>

@@ -1,9 +1,9 @@
-# Ask OUG 问答模块需求文档（参考 Databricks Community）
+# Ask OBC 问答模块需求文档（参考 Databricks Community）
 
 > **版本：** v0.2 · 2026-07-09  
 > **参考：** [Databricks Community](https://community.databricks.com/)（Khoros 论坛）  
 > **现状：** `qa/` M1 站内 Demo（静态种子数据 + localStorage 演示鉴权）  
-> **目标产品名：** Ask OUG（OceanBase User Group Q&A）  
+> **目标产品名：** Ask OBC（OceanBase Community Q&A）  
 > **分期：** 共 **3 期** — 一期为 **MVP（最基本可用）**
 
 ---
@@ -18,7 +18,7 @@ OceanData4AI Hub 需要**可搜索、可沉淀**的产品问答能力，与 Disc
 |------|------|
 | Discord | 实时讨论、Office Hours |
 | Blog / dev.to | 教程、深度文章 |
-| **Ask OUG** | 可检索的 troubleshooting、部署、版本相关问题 |
+| **Ask OBC** | 可检索的 troubleshooting、部署、版本相关问题 |
 
 ClickHouse 社区**没有**站内 Q&A，问答外置在 GitHub Discussions + Slack。Databricks 将 **Discussions** 作为社区核心模块——本方案参考后者，但分 **3 期**落地，一期只做 MVP。
 
@@ -72,8 +72,8 @@ ClickHouse 社区**没有**站内 Q&A，问答外置在 GitHub Discussions + Sla
 ### 4.1 一期 MVP（只读）
 
 ```
-Ask OUG
-└── Board: oug-help          ← oug-help.html
+Ask OBC
+└── Board: obc-help          ← obc-help.html
     ├── 置顶帖
     ├── 帖子表（Topic / Replies / Views / Activity）
     └── 侧栏：Board 导航 + 标签展示（不可点）
@@ -143,7 +143,7 @@ Ask OUG
 | # | 需求 | 优先级 |
 |---|------|--------|
 | 1.1 | **单一数据源** `topics.json`（或等价静态构建产物） | P0 |
-| 1.2 | **动态渲染列表** `oug-help.html`，字段：Topic / Replies / Views / Activity | P0 |
+| 1.2 | **动态渲染列表** `obc-help.html`，字段：Topic / Replies / Views / Activity | P0 |
 | 1.3 | **动态渲染详情** `topic.html?slug=`，含回复流、代码块、图片 | P0 |
 | 1.4 | **列表与详情数据一致**（replyCount、activity 同源计算） | P0 |
 | 1.5 | **置顶帖** `pinned` 排最前 | P1 |
@@ -151,7 +151,7 @@ Ask OUG
 | 1.7 | **SEO**：每帖 `<title>`、`meta description`、独立 URL | P0 |
 | 1.8 | **Hub 集成**：`phase1/qa/*` 顶栏入口、资源路径正确 | P0 |
 | 1.9 | **种子内容**：迁移现有 5 帖 + 运营可 PR 增帖 | P0 |
-| 1.10 | **移除误导**：去掉 M1 Demo 横幅；隐藏或禁用「Ask OUG」发帖 CTA，改为「Posting opens in Phase 2」或链到 Discord | P0 |
+| 1.10 | **移除误导**：去掉 M1 Demo 横幅；隐藏或禁用「Ask OBC」发帖 CTA，改为「Posting opens in Phase 2」或链到 Discord | P0 |
 | 1.11 | **404**：无效 slug 友好页 | P1 |
 | 1.12 | **移动端**：列表表格降级（沿用 `qa.css`） | P1 |
 
@@ -174,7 +174,7 @@ Ask OUG
 - [ ] 列表 100% 来自 `topics.json`，无手写表格行  
 - [ ] 任一点击进入详情，replies/views 与 JSON 一致  
 - [ ] 无「已发布」假象（无 localStorage 草稿成功提示）  
-- [ ] `phase1/qa/oug-help.html` 线上可访问  
+- [ ] `phase1/qa/obc-help.html` 线上可访问  
 - [ ] 至少 5 条有质量的种子帖可供演示  
 
 #### 建议工期：1–2 周
@@ -247,7 +247,7 @@ Ask OUG
 | 3.6 | **邮件通知**（被回复、被 kudos） | P2 |
 | 3.7 | **员工/合作伙伴标识** | P2 |
 | 3.8 | **举报 + 审核工单** | P1 |
-| 3.9 | **Hub 顶栏全局搜索**（含 Ask OUG） | P2 |
+| 3.9 | **Hub 顶栏全局搜索**（含 Ask OBC） | P2 |
 | 3.10 | **多 Board**（如 seekdb-help） | P2 |
 | 3.11 | **分析看板**（发帖量、解决率、无结果搜索词） | P2 |
 | 3.12 | **可选：Discourse 全量迁移** + SSO | 视二期方案 |
@@ -264,7 +264,7 @@ Ask OUG
 
 ## 7. 页面规格摘要
 
-### 7.1 一期 MVP — `oug-help.html`
+### 7.1 一期 MVP — `obc-help.html`
 
 | 元素 | 规格 |
 |------|------|
@@ -277,7 +277,7 @@ Ask OUG
 
 | 元素 | 规格 |
 |------|------|
-| 面包屑 | Ask OUG › Title |
+| 面包屑 | Ask OBC › Title |
 | 正文 | 代码高亮、图片 |
 | 回复 | 只读列表；**无回复框** |
 | 底部 | 「Want to ask? Join Discord」或「Posting opens soon」 |
@@ -310,7 +310,7 @@ Board 顶栏搜索；Resolved 标题前缀；最佳答案区块。
 | Bug / Feature request | GitHub Issues |
 | 即时求助 | Discord |
 | 教程 | Medium / dev.to |
-| 部署/报错（一期起） | **Ask OUG 阅读**；二期起可发帖 |
+| 部署/报错（一期起） | **Ask OBC 阅读**；二期起可发帖 |
 | 法务 | CoC / Contact |
 
 ---
@@ -333,7 +333,7 @@ M1 Demo（现状）  →  一期 MVP（只读）  →  二期（读写）  →  
 ## 11. 一期 MVP 验收清单
 
 - [ ] `data/topics.json` 为唯一真相源  
-- [ ] `oug-help.html` 无硬编码 `<tr>` 帖子行  
+- [ ] `obc-help.html` 无硬编码 `<tr>` 帖子行  
 - [ ] `topic.html?slug=` 与 JSON 中 `replies` 一致  
 - [ ] 无效 slug 显示 404  
 - [ ] 无 M1 Demo 横幅 / 无假发帖成功  
@@ -348,7 +348,7 @@ M1 Demo（现状）  →  一期 MVP（只读）  →  二期（读写）  →  
 ### A. 参考链接
 
 - Databricks Community：https://community.databricks.com/  
-- 现有代码：`qa/oug-help.html`、`js/qa-data.js`、`css/qa.css`  
+- 现有代码：`qa/obc-help.html`、`js/qa-data.js`、`css/qa.css`  
 
 ### B. 开放问题
 

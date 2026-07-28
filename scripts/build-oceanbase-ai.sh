@@ -14,7 +14,7 @@ cp "$SRC/index.html" "$DST/index.html"
 cp "$SRC/contact.html" "$DST/contact.html"
 cp "$SRC/events.html" "$DST/events.html"
 cp "$SRC/ecosystem/"*.html "$DST/ecosystem/"
-cp "$ROOT/qa/oug-help.html" "$DST/qa/oug-help.html"
+cp "$ROOT/qa/obc-help.html" "$DST/qa/obc-help.html"
 cp "$ROOT/qa/topic.html" "$DST/qa/topic.html"
 cp "$ROOT/qa/ask.html" "$DST/qa/ask.html"
 cp "$ROOT/qa/verify.html" "$DST/qa/verify.html"
@@ -26,7 +26,7 @@ from pathlib import Path
 
 root = Path("/Users/gongbo/Downloads/wechat-to-yuque/data4ai-hub/oceanbase-ai")
 
-MEDIUM_OUG = "https://medium.com/@pub_opensource_global"
+MEDIUM_OBC = "https://medium.com/@pub_opensource_global"
 PRIVACY_URL = "https://github.com/oceanbase/oceanbase?tab=security-ov-file"
 COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
 DISCORD_URL = "https://discord.com/channels/1331061822945624085/1331061823465590809"
@@ -35,8 +35,8 @@ QUICKSTART_URL = "https://en.oceanbase.com/quickstart"
 NAV_ROOT = f"""      <nav class="nav-links">
         <a href="{QUICKSTART_URL}" target="_blank" rel="noopener">Get Started ↗</a>
         <a href="ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
-        <a href="qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
-        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="qa/obc-help.html" data-page="qa-obc">Ask OBC</a>
+        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="contact.html" data-page="contact">Contact us</a>
       </nav>"""
@@ -44,8 +44,8 @@ NAV_ROOT = f"""      <nav class="nav-links">
 NAV_QA = f"""      <nav class="nav-links">
         <a href="{QUICKSTART_URL}" target="_blank" rel="noopener">Get Started ↗</a>
         <a href="../ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
-        <a href="oug-help.html" data-page="qa-oug">Ask OUG</a>
-        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="obc-help.html" data-page="qa-obc">Ask OBC</a>
+        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""
@@ -53,29 +53,29 @@ NAV_QA = f"""      <nav class="nav-links">
 NAV_ECO = f"""      <nav class="nav-links">
         <a href="{QUICKSTART_URL}" target="_blank" rel="noopener">Get Started ↗</a>
         <a href="index.html" data-page="ecosystem">Ecosystem</a>
-        <a href="../qa/oug-help.html" data-page="qa-oug">Ask OUG</a>
-        <a href="{MEDIUM_OUG}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
+        <a href="../qa/obc-help.html" data-page="qa-obc">Ask OBC</a>
+        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""
 
 FOOTER_ROOT = f"""          <ul>
             <li><a href="ecosystem/index.html">Ecosystem</a></li>
-            <li><a href="qa/oug-help.html">Ask OUG</a></li>
+            <li><a href="qa/obc-help.html">Ask OBC</a></li>
             <li><a href="events.html">Events</a></li>
             <li><a href="contact.html">Contact us</a></li>
           </ul>"""
 
 FOOTER_QA = f"""          <ul>
             <li><a href="../ecosystem/index.html">Ecosystem</a></li>
-            <li><a href="oug-help.html">Ask OUG</a></li>
+            <li><a href="obc-help.html">Ask OBC</a></li>
             <li><a href="../events.html">Events</a></li>
             <li><a href="../contact.html">Contact us</a></li>
           </ul>"""
 
 FOOTER_ECO = f"""          <ul>
             <li><a href="index.html">Ecosystem</a></li>
-            <li><a href="../qa/oug-help.html">Ask OUG</a></li>
+            <li><a href="../qa/obc-help.html">Ask OBC</a></li>
             <li><a href="../events.html">Events</a></li>
             <li><a href="../contact.html">Contact us</a></li>
           </ul>"""
@@ -242,10 +242,10 @@ for name in ["index.html", "oceanbase.html", "seekdb.html", "powermem.html"]:
     p.write_text(text, encoding="utf-8")
 
 # QA pages
-OUG_HELP_INTRO = """            <h1>Ask OUG</h1>
+OBC_HELP_INTRO = """            <h1>Ask OBC</h1>
             <p class="qa-board-lead">Technical Q&amp;A for OceanBase and the open source ecosystem. Search before you post — someone may have already solved it.</p>"""
 
-for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
+for name in ["obc-help.html", "topic.html", "ask.html", "verify.html"]:
     p = root / "qa" / name
     text = p.read_text(encoding="utf-8")
     text = patch_qa_paths(text)
@@ -280,13 +280,13 @@ for name in ["oug-help.html", "topic.html", "ask.html", "verify.html"]:
     else:
         text = text.replace('© 2026 OceanData4AI', '© 2026 OceanBase Community')
     text = inject_signin(text, 'ask.html?mode=signin')
-    if name == "oug-help.html":
+    if name == "obc-help.html":
         text = text.replace(
-            '<div class="section-kicker">Ask OUG</div>\n            <h1>OceanBase User Group Q&amp;A</h1>',
-            '<div class="section-kicker">Ask OUG</div>\n' + OUG_HELP_INTRO,
+            '<div class="section-kicker">Ask OBC</div>\n            <h1>OceanBase Community Q&amp;A</h1>',
+            '<div class="section-kicker">Ask OBC</div>\n' + OBC_HELP_INTRO,
         )
-        text = text.replace('<title>Ask OUG — OceanData4AI Community</title>',
-                            '<title>Ask OUG — OceanBase Community</title>')
+        text = text.replace('<title>Ask OBC — OceanData4AI Community</title>',
+                            '<title>Ask OBC — OceanBase Community</title>')
         text = inject_auth_scripts(text, '../../js/')
     if name == "ask.html":
         text = text.replace('href="../conduct.html"', f'href="{COC_URL}" target="_blank" rel="noopener"')
@@ -306,16 +306,17 @@ PY
 cat > "$DST/README.md" <<'EOF'
 # OceanBase Community Demo (oceanbase.ai)
 
-**Preview:** `https://oceandata4ai.github.io/oceandata4ai-hub/oceanbase-ai/index.html` (after deploy)
+**Preview:** https://oceandata4ai.github.io/oceandata4ai-hub/oceanbase-ai/index.html
 
-一期 **oceanbase.ai** 社区站 Demo：
+Static community site demo. Source: `oceanbase-community/` · Build: `scripts/build-oceanbase-ai.sh`.
 
-- **Home** — OceanBase 社区叙事 + Discord / Ask OUG 双 CTA + 生态卡片 + GitHub stats + Events
-- **Ecosystem** — OceanBase · seekdb · PowerMem 落地页
-- **Ask OUG** — 技术问答（种子帖来自 `data/topics-oceanbase.json`）
-- **Events · Contact us** — 落地页
+## Pages
 
-与 Data4AI 独立站分工见需求文档 `OceanBase 社区站需求文档（oceanbase.ai）.md`。
+Home · Ecosystem (oceanbase / seekdb / powermem) · Ask OBC · Events (Luma) · Contact us
+
+## Requirements
+
+`docs/requirements/OceanBase-community-site.md`
 
 ## Build
 
@@ -326,12 +327,9 @@ bash scripts/build-oceanbase-ai.sh
 ## Local preview
 
 ```bash
-cd /path/to/data4ai-hub
 python3 -m http.server 8765
 # http://localhost:8765/oceanbase-ai/index.html
 ```
-
-样式与脚本：`../css`、`../js`（仓库根目录）。
 EOF
 
 echo "Built $DST"

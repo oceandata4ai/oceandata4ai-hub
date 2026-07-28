@@ -13,14 +13,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     topic = slug ? map[slug] : null;
   } catch (err) {
     root.innerHTML =
-      '<p class="qa-error">Could not load topic. <a href="oug-help.html">Back to Ask OUG</a></p>';
+      '<p class="qa-error">Could not load topic. <a href="obc-help.html">Back to Ask OBC</a></p>';
     console.error(err);
     return;
   }
 
   if (!topic) {
     root.innerHTML =
-      '<p class="qa-error">Topic not found. <a href="oug-help.html">Back to Ask OUG</a></p>';
+      '<p class="qa-error">Topic not found. <a href="obc-help.html">Back to Ask OBC</a></p>';
     return;
   }
 
@@ -33,7 +33,7 @@ function renderTopic(root, topic, qa, auth) {
 
   const breadcrumb = document.getElementById('qa-breadcrumb');
   if (breadcrumb) {
-    breadcrumb.innerHTML = `<a href="oug-help.html">${topic.boardLabel}</a> / <span>${escapeHtml(topic.title)}</span>`;
+    breadcrumb.innerHTML = `<a href="obc-help.html">${topic.boardLabel}</a> / <span>${escapeHtml(topic.title)}</span>`;
   }
 
   const replies = topic.replies || [];
@@ -92,8 +92,7 @@ function renderTopic(root, topic, qa, auth) {
         body: `<p>${escapeHtml(body).replace(/\n/g, '<br>')}</p>`,
       });
       qa.clearCache();
-      const { map } = await qa.loadTopics();
-      renderTopic(root, map[topic.slug], qa, auth);
+      setTimeout(() => window.location.replace('obc-help.html'), 0);
     });
   }
 }

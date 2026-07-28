@@ -39,7 +39,7 @@ shot "join.html" "join-full.png" 3600
 shot "blog.html" "blog-full.png" 4800
 shot "events.html" "events-full.png" 2800
 shot "fellows.html" "fellows-full.png" 3600
-shot "qa/oug-help.html" "qa-oug-full.png" 2400
+shot "qa/obc-help.html" "qa-obc-full.png" 2400
 shot "qa/ask.html" "qa-ask-signup.png" 2400
 shot "m1/index.html" "m1-home-full.png" 4200
 

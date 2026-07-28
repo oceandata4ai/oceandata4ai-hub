@@ -32,7 +32,7 @@ def add_table(doc, headers, rows):
 SECTIONS = [
     ("A. 全站通用 — 顶部导航", "所有主站页面顶栏", [
         ("G-NAV-01", "Logo", "OceanData4AI", "品牌名"),
-        ("G-NAV-02", "主导航", "About · Ask OUG · Blog · Events · Fellows · Join", "导航"),
+        ("G-NAV-02", "主导航", "About · Ask OBC · Blog · Events · Fellows · Join", "导航"),
         ("G-NAV-03", "右侧", "Docs ↗ · GitHub ↗ · Discuss ↗", "CTA"),
         ("G-NAV-04", "主 CTA", "Join Community", "按钮"),
     ]),
@@ -64,7 +64,7 @@ SECTIONS = [
         ("H-29", "GitHub", "Issues, PRs, and open-source projects from the ecosystem.", "描述"),
         ("H-30", "LinkedIn", "Learn the latest about releases, events, and community news.", "描述"),
         ("H-31", "Medium", "Tutorials, deep dives, and builder stories from the community.", "描述"),
-        ("H-32", "Ask OUG", "Searchable Q&A for product questions and deployment help.", "描述"),
+        ("H-32", "Ask OBC", "Searchable Q&A for product questions and deployment help.", "描述"),
         ("H-33", "Events", "Find out when the next meetup, AMA, or workshop will take place.", "描述"),
     ]),
     ("C. About", f"{DEMO_URL}about.html", [
@@ -101,25 +101,25 @@ SECTIONS = [
         ("F-03", "Hero", "Builders who publish tutorials, deep dives, and builder stories — selected on merit, not pay-to-play.", "正文"),
         ("F-04", "Featured", "Featured Fellows — Phase 1 showcase", "区标题"),
     ]),
-    ("H. Ask OUG — Sidebar & Topics", f"{DEMO_URL}qa/oug-help.html", [
+    ("H. Ask OBC — Sidebar & Topics", f"{DEMO_URL}qa/obc-help.html", [
         ("Q-SB-01", "Sidebar", "Discussion", "导航标题"),
-        ("Q-SB-02", "Sidebar", "Ask OUG", "导航项"),
+        ("Q-SB-02", "Sidebar", "Ask OBC", "导航项"),
         ("Q-SB-03", "Sidebar", "Tags", "标签区标题"),
         ("Q-SB-04", "Sidebar Tag", "seekdb", "标签"),
         ("Q-SB-05", "Sidebar Tag", "deployment", "标签"),
         ("Q-SB-06", "Sidebar Tag", "vector", "标签"),
         ("Q-SB-07", "Sidebar Tag", "hybrid-search", "标签"),
         ("Q-TB-01", "Table header", "Topic · Replies · Views · Activity", "表头"),
-        ("Q-03", "H1", "OceanBase User Group Q&A", "标题"),
+        ("Q-03", "H1", "OceanBase Community Q&A", "标题"),
         ("Q-TP-02", "Topic", "seekdb hybrid search returns empty — knn + BM25 in one SQL", "Demo话题"),
         ("Q-TP-03", "Topic", "How to install OceanBase on Kubernetes (minimal prod checklist)?", "Demo话题"),
     ]),
-    ("H. Ask OUG — Signup & Topic detail", f"{DEMO_URL}qa/ask.html", [
-        ("Q-08", "Signup", "Sign up for Ask OUG / Sign in to Ask OUG", "标题"),
+    ("H. Ask OBC — Signup & Topic detail", f"{DEMO_URL}qa/ask.html", [
+        ("Q-08", "Signup", "Sign up for Ask OBC / Sign in to Ask OBC", "标题"),
         ("Q-14", "Verify", "Check your email — Verify email from The OceanData4AI Community", "邮件流"),
         ("Q-16a", "Placeholder", "Summarize your question", "占位"),
         ("Q-TV-05", "Topic page", "Posting and replies open when hosted Q&A goes live…", "说明"),
-        ("Q-VF-02", "Verify page", "Email verified — Continue to Ask OUG", "验证成功"),
+        ("Q-VF-02", "Verify page", "Email verified — Continue to Ask OBC", "验证成功"),
         ("Q-VF-05", "Verify page", "Verification failed — Back to sign up", "验证失败"),
     ]),
     ("I. M1 Demo 差异", f"{DEMO_URL}m1/", [

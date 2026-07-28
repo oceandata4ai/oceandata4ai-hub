@@ -397,7 +397,7 @@ document.addEventListener('DOMContentLoaded', () => {
       author: user.email,
     });
     window.OCEANDATA4AI_QA?.clearCache();
-    setTimeout(() => window.location.replace('oug-help.html'), 0);
+    setTimeout(() => window.location.replace('obc-help.html'), 0);
   });
 
   setAuthMode(initialAuthMode);
