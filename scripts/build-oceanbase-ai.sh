@@ -26,7 +26,6 @@ from pathlib import Path
 
 root = Path("/Users/gongbo/Downloads/wechat-to-yuque/data4ai-hub/oceanbase-ai")
 
-MEDIUM_OBC = "https://medium.com/@pub_opensource_global"
 PRIVACY_URL = "https://github.com/oceanbase/oceanbase?tab=security-ov-file"
 COC_URL = "https://github.com/oceanbase/oceanbase?tab=coc-ov-file"
 DISCORD_URL = "https://discord.com/channels/1331061822945624085/1331061823465590809"
@@ -36,7 +35,6 @@ NAV_ROOT = f"""      <nav class="nav-links">
         <a href="{QUICKSTART_URL}" target="_blank" rel="noopener">Get Started ↗</a>
         <a href="ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
         <a href="qa/obc-help.html" data-page="qa-obc">Ask OBC</a>
-        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="events.html" data-page="events">Events</a>
         <a href="contact.html" data-page="contact">Contact us</a>
       </nav>"""
@@ -45,7 +43,6 @@ NAV_QA = f"""      <nav class="nav-links">
         <a href="{QUICKSTART_URL}" target="_blank" rel="noopener">Get Started ↗</a>
         <a href="../ecosystem/index.html" data-page="ecosystem">Ecosystem</a>
         <a href="obc-help.html" data-page="qa-obc">Ask OBC</a>
-        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""
@@ -54,7 +51,6 @@ NAV_ECO = f"""      <nav class="nav-links">
         <a href="{QUICKSTART_URL}" target="_blank" rel="noopener">Get Started ↗</a>
         <a href="index.html" data-page="ecosystem">Ecosystem</a>
         <a href="../qa/obc-help.html" data-page="qa-obc">Ask OBC</a>
-        <a href="{MEDIUM_OBC}" data-page="blog" target="_blank" rel="noopener">Blog ↗</a>
         <a href="../events.html" data-page="events">Events</a>
         <a href="../contact.html" data-page="contact">Contact us</a>
       </nav>"""

@@ -50,14 +50,14 @@
 | **双 Promo** | **Join Discord #obc** + **Ask OBC** |
 | **第三屏** | **Ecosystem** 项目卡片（OceanBase · seekdb · PowerMem · GitHub） |
 | **GitHub 统计** | Contributors / PRs / Releases / Stars |
-| **顶栏** | **Get Started ↗** · Ecosystem · Ask OBC · **Blog ↗** · Events · Contact us · Docs ↗ · Sign in |
+| **顶栏** | **Get Started ↗** · Ecosystem · Ask OBC · Events · Contact us · Docs ↗ · Sign in |
 | **去掉（一期）** | 顶栏 GitHub ↗ |
 
 ### 1.3 线框（oceanbase.ai 首页 · 当前 Demo）
 
 ```plain
 ┌──────────────────────────────────────────────────────────────┐
-│ [OB Logo]    Get Started↗ Ecosystem Ask OBC Blog↗ Events Contact│
+│ [OB Logo]    Get Started↗ Ecosystem Ask OBC Events Contact│
 │              🌙  Docs↗  [Sign in ▾]                            │
 ├──────────────────────────────────────────────────────────────┤
 │ Hero: Welcome to the OceanBase Community                     │
@@ -75,7 +75,7 @@
 ├──────────────────────────────────────────────────────────────┤
 │ Upcoming events → events.html · Office Hours → Luma          │
 ├──────────────────────────────────────────────────────────────┤
-│ Find us: Discord · GitHub · Medium · X · Reddit · dev.to     │
+│ Find us: Discord · GitHub · X · Reddit · dev.to     │
 ├──────────────────────────────────────────────────────────────┤
 │ Footer: Community / Resources / Legal                        │
 └──────────────────────────────────────────────────────────────┘
@@ -226,7 +226,7 @@ Tokyo Onchain Night · Corporate Crypto Strategy Summit（静态展示，无录�
 ### 2.7 顶栏与 Footer（全局）
 
 **顶栏**  
-`Get Started ↗`（en.oceanbase.com/quickstart）· `Ecosystem` · `Ask OBC` · `Blog ↗`（Medium）· `Events` · `Contact us` · `Docs ↗` · `Sign in`
+`Get Started ↗`（en.oceanbase.com/quickstart）· `Ecosystem` · `Ask OBC`· `Events` · `Contact us` · `Docs ↗` · `Sign in`
 
 **Footer Community**  
 Ecosystem · Ask OBC · Events · Contact us
@@ -269,9 +269,8 @@ Privacy ↗ · Code of Conduct ↗（链 OceanBase GitHub 法务页）
 | Events | `/events` | 落地页 | Luma 注册 |
 | Contact | `/contact` | 落地页 | Formspree |
 | Legal | 外链 | — | Privacy / CoC |
-| Blog | Medium 外链 | — | `@pub_opensource_global` |
 
-**一期不含**：站内 Blog CMS、Data4AI 品牌区块。
+**一期不含**：Data4AI 品牌区块。
 
 ### 4.2 构建与部署
 
@@ -300,7 +299,7 @@ GIT_HTTP_VERSION=HTTP/1.1 git push github main
 
 ## 五、二期规划（TBD）
 
-站内 Blog、Ask OBC 服务端、Tags、多 Board、运营后台、搜索。
+Ask OBC 服务端、Tags、多 Board、运营后台、搜索。
 
 ---
 
@@ -315,7 +314,6 @@ GIT_HTTP_VERSION=HTTP/1.1 git push github main
 | 5 | 注册/登录/发帖流程可用 | ✅ Demo 级 |
 | 6 | Footer 链 Docs · GitHub · Discord | ✅ |
 | 7 | Events 注册链 Luma | ✅ |
-| 8 | 顶栏 Get Started + Blog ↗ Medium | ✅ |
 | 9 | 市场部审批文案已归档 | 待定 |
 
 ---
