@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OceanBase Q&amp;A — OceanBase Community</title>
+  <meta name="description" content="Technical Q&amp;A for OceanBase and the open-source ecosystem." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./demo.css" />
+</head>
+<body>
+
+  <p class="demo-notice">
+    Design preview v0.2 · Banner:
+    <a href="?banner=stitch" id="link-stitch">4-photo stitch</a> ·
+    <a href="?banner=carousel" id="link-carousel">Carousel</a>
+  </p>
+
+  <!-- Custom header -->
+  <header class="ob-header">
+    <div class="ob-header-inner">
+      <a href="./index.html" class="ob-logo" aria-label="OceanBase Community">
+        <img src="./assets/logo-light.svg" alt="OceanBase" width="160" height="26" />
+      </a>
+      <nav class="ob-nav" id="ob-nav" aria-label="Primary">
+        <a href="https://en.oceanbase.com/quickstart" target="_blank" rel="noopener">Get Started ↗</a>
+        <a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Docs ↗</a>
+        <a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord ↗</a>
+        <a href="https://en.oceanbase.com/product/overview" target="_blank" rel="noopener">Products ↗</a>
+      </nav>
+      <div class="ob-header-right">
+        <a href="#" class="ob-btn-signin">Sign in</a>
+        <button class="ob-menu-btn" id="ob-menu-btn" type="button" aria-label="Menu" aria-expanded="false">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Category hero banner -->
+  <section class="category-hero" id="category-hero" aria-labelledby="hero-title" data-banner-mode="stitch">
+    <div class="hero-slides" id="hero-slides" aria-hidden="true">
+      <div class="hero-slide is-active" style="background-image:url('assets/banner-slides/01-ignite-group.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/banner-slides/02-roundtable-collage.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/banner-slides/03-booth-team.png')"></div>
+      <div class="hero-slide" style="background-image:url('assets/banner-slides/04-conference-stage.png')"></div>
+    </div>
+    <div class="category-hero-inner">
+      <div>
+        <div class="cat-label">OceanBase Q&amp;A</div>
+        <h1 id="hero-title">Ask OceanBase Community</h1>
+        <p>Stuck on deployment, migration, SQL, or production issues? Ask OBC is our Q&amp;A board for OceanBase and ecosystem projects. Search existing threads or post a new question.</p>
+      </div>
+      <div class="hero-ctas">
+        <a href="#" class="btn-hero-primary">Ask a question</a>
+        <a href="/search" class="btn-hero-secondary">Search</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="page-wrap">
+    <!-- Left sidebar: Discourse default, not customized -->
+    <aside class="dc-sidebar" aria-label="Sidebar (Discourse default)">
+      <h3>Navigation</h3>
+      <ul class="dc-side-nav">
+        <li class="active"><a href="#">Topics</a></li>
+        <li><a href="#">Categories</a></li>
+        <li><a href="#">Tags</a></li>
+      </ul>
+      <h3>Categories</h3>
+      <ul>
+        <li class="active"><a href="#">OceanBase Q&amp;A</a></li>
+        <li><a href="#">All categories</a></li>
+      </ul>
+      <h3>Tags</h3>
+      <div class="tags">
+        <span class="dc-tag">deployment</span>
+        <span class="dc-tag">migration</span>
+        <span class="dc-tag">sql</span>
+        <span class="dc-tag">troubleshooting</span>
+      </div>
+    </aside>
+
+  <main class="dc-main">
+      <div class="dc-list-card">
+        <div class="dc-list-head">
+          <span>Topic</span>
+          <span>Replies</span>
+          <span>Views</span>
+          <span>Activity</span>
+        </div>
+        <article class="dc-topic">
+          <div class="dc-avatar" style="background:#2563eb">DA</div>
+          <div class="dc-topic-body">
+            <a href="#" class="dc-topic-title">How to migrate from MySQL to OceanBase with minimal downtime?</a>
+            <div class="dc-topic-meta">
+              <span class="cat-pill migration">migration</span>
+              <span class="cat-pill qa">OceanBase Q&amp;A</span>
+            </div>
+          </div>
+          <div class="dc-stat">12<small>replies</small></div>
+          <div class="dc-stat">284<small>views</small></div>
+          <div class="dc-activity">Jul 28</div>
+        </article>
+        <article class="dc-topic">
+          <div class="dc-avatar" style="background:#7c3aed">CO</div>
+          <div class="dc-topic-body">
+            <a href="#" class="dc-topic-title">OBProxy connection timeout in Kubernetes — best practices?</a>
+            <div class="dc-topic-meta">
+              <span class="cat-pill deploy">deployment</span>
+              <span class="cat-pill qa">OceanBase Q&amp;A</span>
+            </div>
+          </div>
+          <div class="dc-stat">8<small>replies</small></div>
+          <div class="dc-stat">156<small>views</small></div>
+          <div class="dc-activity">Jul 27</div>
+        </article>
+        <article class="dc-topic">
+          <div class="dc-avatar" style="background:#d97706">QT</div>
+          <div class="dc-topic-body">
+            <a href="#" class="dc-topic-title">Partitioned table query plan differs between CE and enterprise</a>
+            <div class="dc-topic-meta">
+              <span class="cat-pill sql">sql</span>
+              <span class="cat-pill qa">OceanBase Q&amp;A</span>
+            </div>
+          </div>
+          <div class="dc-stat">5<small>replies</small></div>
+          <div class="dc-stat">98<small>views</small></div>
+          <div class="dc-activity">Jul 26</div>
+        </article>
+        <article class="dc-topic">
+          <div class="dc-avatar" style="background:#dc2626">PS</div>
+          <div class="dc-topic-body">
+            <a href="#" class="dc-topic-title">ERROR 4016 after upgrade to OceanBase 4.x</a>
+            <div class="dc-topic-meta">
+              <span class="cat-pill trouble">troubleshooting</span>
+              <span class="cat-pill qa">OceanBase Q&amp;A</span>
+            </div>
+          </div>
+          <div class="dc-stat">17<small>replies</small></div>
+          <div class="dc-stat">412<small>views</small></div>
+          <div class="dc-activity">Jul 25</div>
+        </article>
+        <article class="dc-topic">
+          <div class="dc-avatar" style="background:#059669">DE</div>
+          <div class="dc-topic-body">
+            <a href="#" class="dc-topic-title">CDC sync lag spikes during peak traffic — tuning tips?</a>
+            <div class="dc-topic-meta">
+              <span class="cat-pill migration">migration</span>
+              <span class="cat-pill qa">OceanBase Q&amp;A</span>
+            </div>
+          </div>
+          <div class="dc-stat">6<small>replies</small></div>
+          <div class="dc-stat">73<small>views</small></div>
+          <div class="dc-activity">Jul 24</div>
+        </article>
+      </div>
+    </main>
+  </div>
+
+  <footer class="ob-footer">
+    <div class="ob-footer-inner">
+      <div class="ob-footer-main">
+        <div class="ob-footer-brand">
+          <a href="./index.html" class="ob-footer-logo" aria-label="OceanBase Community">
+            <img src="./assets/logo-dark.svg" alt="OceanBase" width="141" height="23" />
+          </a>
+          <p class="ob-footer-tagline">The Unified Distributed Database for the AI Era.</p>
+        </div>
+        <div class="ob-footer-links">
+          <div class="ob-footer-col">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="https://discord.com/channels/1331061822945624085/1331061823465590809" target="_blank" rel="noopener">Discord</a></li>
+              <li><a href="https://x.com/oceanbasedb" target="_blank" rel="noopener">X</a></li>
+              <li><a href="https://www.reddit.com/r/OceanBase_User_Group/" target="_blank" rel="noopener">Reddit</a></li>
+              <li><a href="https://dev.to/oug" target="_blank" rel="noopener">Dev.to</a></li>
+            </ul>
+          </div>
+          <div class="ob-footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="https://en.oceanbase.com/docs" target="_blank" rel="noopener">Documentation</a></li>
+              <li><a href="https://github.com/oceanbase" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://medium.com/@pub_opensource_global" target="_blank" rel="noopener">Medium</a></li>
+            </ul>
+          </div>
+          <div class="ob-footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="https://github.com/oceanbase/oceanbase?tab=security-ov-file" target="_blank" rel="noopener">Privacy Policy</a></li>
+              <li><a href="https://github.com/oceanbase/oceanbase?tab=coc-ov-file" target="_blank" rel="noopener">Code of Conduct</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="ob-footer-bar">
+        <p class="ob-footer-copy">© 2026 OceanBase Community. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('ob-menu-btn').addEventListener('click', function () {
+      var nav = document.getElementById('ob-nav');
+      var open = nav.classList.toggle('open');
+      this.setAttribute('aria-expanded', open);
+    });
+
+    (function () {
+      var hero = document.getElementById('category-hero');
+      var params = new URLSearchParams(window.location.search);
+      var mode = params.get('banner') === 'carousel' ? 'carousel' : 'stitch';
+      hero.setAttribute('data-banner-mode', mode);
+
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+      var index = 0;
+      var timer;
+
+      function showSlide(i) {
+        slides.forEach(function (slide, n) {
+          slide.classList.toggle('is-active', n === i);
+        });
+      }
+
+      function startCarousel() {
+        if (mode !== 'carousel' || slides.length < 2) return;
+        clearInterval(timer);
+        timer = setInterval(function () {
+          index = (index + 1) % slides.length;
+          showSlide(index);
+        }, 5000);
+      }
+
+      startCarousel();
+    })();
+  </script>
+</body>
+</html>

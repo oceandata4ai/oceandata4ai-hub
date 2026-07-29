@@ -1,0 +1,18 @@
+region,group,order,label,url,new_window,mobile_show,status,notes
+header,,1,Logo,/,no,yes,confirmed,Height 22-28px; use assets/logo-light.svg (light theme) or assets/logo-dark.svg (dark theme)
+header,,2,Get Started,https://en.oceanbase.com/quickstart,yes,yes,confirmed,Primary CTA for new users
+header,,3,Docs,https://en.oceanbase.com/docs,yes,yes,confirmed,Documentation hub
+header,,4,Discord,https://discord.com/channels/1331061822945624085/1331061823465590809,yes,yes,confirmed,Channel #obc
+header,,5,Products,https://en.oceanbase.com/product/overview,yes,yes,confirmed,Product overview page
+header,,6,Sign in,/login,no,yes,confirmed,Discourse default login; show avatar menu when signed in
+footer,brand,,The Unified Distributed Database for the AI Era.,,no,yes,confirmed,Footer left brand tagline below logo
+footer,Resources,1,Documentation,https://en.oceanbase.com/docs,yes,yes,confirmed,Official docs
+footer,Resources,2,GitHub,https://github.com/oceanbase,yes,yes,confirmed,Source code and org
+footer,Resources,3,Medium,https://medium.com/@pub_opensource_global,yes,yes,confirmed,Long-form articles
+footer,Community,1,Discord,https://discord.com/channels/1331061822945624085/1331061823465590809,yes,yes,confirmed,Real-time chat
+footer,Community,2,X,https://x.com/oceanbasedb,yes,yes,confirmed,Social updates
+footer,Community,3,Reddit,https://www.reddit.com/r/OceanBase_User_Group/,yes,yes,confirmed,Reddit community
+footer,Community,4,Dev.to,https://dev.to/oug,yes,yes,confirmed,Developer blog hub
+footer,Legal,1,Privacy Policy,https://github.com/oceanbase/oceanbase?tab=security-ov-file,yes,yes,pending-legal,Placeholder until legal confirms final URL
+footer,Legal,2,Code of Conduct,https://github.com/oceanbase/oceanbase?tab=coc-ov-file,yes,yes,pending-legal,Placeholder until legal confirms final URL
+footer,copyright,,© 2026 OceanBase Community. All rights reserved.,,no,yes,confirmed,Below brand tagline on left; bottom-aligned with link columns
