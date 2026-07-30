@@ -26,8 +26,8 @@
 | Field | Discourse field | Copy |
 |-------|-----------------|------|
 | Category name | Category → Name | `OceanBase Q&A` |
-| Banner title (H1) | Theme / custom HTML | `Ask OceanBase Community` |
-| Category description | Category → About / description | `Ask OceanBase Community (OBC) is the place to ask questions, share knowledge, search previous discussions, and connect with other OceanBase users.` |
+| Banner title (H1) | Theme / custom HTML | `Ask OceanBase Community (OBC)` |
+| Category description | Category → About / description | `The place where you can ask questions, share knowledge, search previous discussions, and connect with other OceanBase users.` |
 
 ### 2.2 Short copy (if character limit)
 
