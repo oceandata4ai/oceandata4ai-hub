@@ -86,35 +86,34 @@ Search, ask, and share solutions with DBAs and developers worldwide.
 
 | Element | Spec |
 |---------|------|
-| Safe area | Keep text within **120px** left padding; **600px** max copy panel width |
+| Safe area | Left-align copy panel within **120px** left padding; **360px** max panel width (≈ one photo column) |
 | Min height | **280px** (mobile), **320–400px** (desktop) |
 | Text align | Left |
 | Emoji | None in v0.1 (optional `🌊` in v0.2) |
 | Image style | Community photo stitch + left scrim + frosted copy panel |
-| Text contrast | Narrow left scrim + light copy panel `rgba(0,25,55,0.32)` + `blur(6px)` + text-shadow |
+| Text contrast | Scrim limited to left **26%**; copy panel `rgba(0,25,55,0.2)` + `blur(4px)` + text-shadow |
 
 ### 3.4 Text readability (required)
 
 Apply both layers so white copy stays readable on busy photos:
 
-1. **Left scrim** — `::after` gradient across full banner width
-2. **Copy panel** — `.hero-copy` frosted card wrapping label, H1, description, and CTAs
+1. **Left scrim** — `::after` gradient limited to the first photo column (~26%)
+2. **Copy panel** — `.hero-copy` narrow frosted card (≈360px) on the left, clear of photo column 2
 
 ```css
 .category-hero::after {
   background: linear-gradient(90deg,
-    rgba(0, 20, 50, 0.35) 0%,
-    rgba(0, 20, 50, 0.18) 28%,
-    rgba(0, 20, 50, 0.06) 40%,
-    transparent 48%);
+    rgba(0, 20, 50, 0.22) 0%,
+    rgba(0, 20, 50, 0.08) 20%,
+    transparent 26%);
 }
 
 .hero-copy {
-  background: rgba(0, 25, 55, 0.32);
-  backdrop-filter: blur(6px);
+  background: rgba(0, 25, 55, 0.2);
+  backdrop-filter: blur(4px);
   border-radius: 8px;
-  padding: 24px 28px;
-  max-width: 520px;
+  padding: 22px 24px;
+  max-width: 360px;
 }
 ```
 
