@@ -3,7 +3,7 @@ window.OBC_SEED_TOPICS = {
     {
       "id": "35609860",
       "title": "Questions About the \"Concurrency Control Overview\" Documentation",
-      "category": "kernel",
+      "category": "sql",
       "tags": [
         "transactions"
       ],
@@ -63,7 +63,7 @@ window.OBC_SEED_TOPICS = {
     {
       "id": "35611224",
       "title": "Adaptive Techniques in the OceanBase Execution Engine",
-      "category": "kernel",
+      "category": "sql",
       "tags": [
         "optimizer"
       ],
@@ -168,7 +168,7 @@ window.OBC_SEED_TOPICS = {
     {
       "id": "35611223",
       "title": "Distributed Pushdown in OceanBase",
-      "category": "kernel",
+      "category": "sql",
       "tags": [
         "optimizer"
       ],
@@ -537,7 +537,7 @@ window.OBC_SEED_TOPICS = {
     {
       "id": "so-79966644",
       "title": "How does OceanBase's VSAG index handle ANN search across multiple partitions without recall loss?",
-      "category": "kernel",
+      "category": "sql",
       "tags": [
         "vector"
       ],
@@ -582,11 +582,6 @@ window.OBC_SEED_TOPICS = {
   ],
   "categories": [
     {
-      "id": "kernel",
-      "label": "Kernel",
-      "count": 4
-    },
-    {
       "id": "operations",
       "label": "Operations",
       "count": 5
@@ -599,7 +594,7 @@ window.OBC_SEED_TOPICS = {
     {
       "id": "sql",
       "label": "SQL",
-      "count": 15
+      "count": 19
     },
     {
       "id": "troubleshooting",
@@ -619,84 +614,114 @@ window.OBC_SEED_TOPICS = {
   ],
   "sidebar_tags": [
     {
-      "id": "sql",
-      "count": 6
+      "id": "stored-procedure",
+      "label": "Stored Procedure",
+      "count": 5
     },
     {
       "id": "ddl",
-      "count": 5
-    },
-    {
-      "id": "partition",
-      "count": 5
-    },
-    {
-      "id": "performance",
-      "count": 5
-    },
-    {
-      "id": "stored-procedure",
-      "count": 5
-    },
-    {
-      "id": "errors",
+      "label": "DDL",
       "count": 4
     },
     {
       "id": "application",
+      "label": "Application",
       "count": 3
     },
     {
-      "id": "mysql-mode",
+      "id": "sql",
+      "label": "SQL",
       "count": 3
     },
     {
-      "id": "optimizer",
+      "id": "partition",
+      "label": "Partition",
       "count": 3
     },
     {
       "id": "mysql",
+      "label": "MySQL",
       "count": 3
     },
     {
-      "id": "transactions",
+      "id": "optimizer",
+      "label": "Optimizer",
       "count": 2
     },
     {
       "id": "index",
+      "label": "Index",
       "count": 2
     },
     {
-      "id": "vector",
+      "id": "performance",
+      "label": "Performance",
       "count": 2
     },
     {
-      "id": "kernel",
+      "id": "transactions",
+      "label": "Transactions",
+      "count": 1
+    },
+    {
+      "id": "mysql-mode",
+      "label": "MySQL Mode",
       "count": 1
     },
     {
       "id": "upgrade",
+      "label": "Upgrade",
       "count": 1
     },
     {
       "id": "configuration",
+      "label": "Configuration",
       "count": 1
     },
     {
       "id": "replication",
+      "label": "Replication",
       "count": 1
     },
     {
       "id": "ocp",
-      "count": 1
-    },
-    {
-      "id": "deployment",
+      "label": "OCP",
       "count": 1
     },
     {
       "id": "community",
+      "label": "Community",
+      "count": 1
+    },
+    {
+      "id": "vector",
+      "label": "Vector",
+      "count": 1
+    },
+    {
+      "id": "errors",
+      "label": "Errors",
       "count": 1
     }
-  ]
+  ],
+  "tag_labels": {
+    "stored-procedure": "Stored Procedure",
+    "ddl": "DDL",
+    "application": "Application",
+    "sql": "SQL",
+    "partition": "Partition",
+    "mysql": "MySQL",
+    "optimizer": "Optimizer",
+    "index": "Index",
+    "performance": "Performance",
+    "transactions": "Transactions",
+    "mysql-mode": "MySQL Mode",
+    "upgrade": "Upgrade",
+    "configuration": "Configuration",
+    "replication": "Replication",
+    "ocp": "OCP",
+    "community": "Community",
+    "vector": "Vector",
+    "errors": "Errors"
+  }
 };

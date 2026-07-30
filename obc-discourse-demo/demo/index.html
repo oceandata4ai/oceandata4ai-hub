@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./demo.css?v=20260730-seed3" />
+  <link rel="stylesheet" href="./demo.css?v=20260730-seed4" />
 </head>
 <body>
 
@@ -173,7 +173,6 @@
       var state = { category: 'all', tag: null };
 
       var CATEGORY_LABELS = {
-        kernel: 'Kernel',
         operations: 'Operations',
         compatibility: 'Compatibility',
         sql: 'SQL',
@@ -181,6 +180,16 @@
         deployment: 'Deployment',
         community: 'Community'
       };
+
+      function tagLabel(id) {
+        if (data.tag_labels && data.tag_labels[id]) return data.tag_labels[id];
+        var match = (data.sidebar_tags || []).find(function (item) { return item.id === id; });
+        return match && match.label ? match.label : id;
+      }
+
+      function isLinkableTopicUrl(url) {
+        return Boolean(url) && !/ask\.oceanbase\.com/i.test(url);
+      }
 
       function escapeHtml(str) {
         return String(str)
@@ -212,7 +221,7 @@
         var html = '';
 
         data.categories.forEach(function (cat) {
-          if (!counts[cat.id]) return;
+          if (cat.id === 'kernel' || !counts[cat.id]) return;
           html += '<li class="' + (state.category === cat.id ? 'active' : '') + '">' +
             '<a href="#" class="filter-link' + (state.category === cat.id ? ' is-active' : '') + '" data-category="' + cat.id + '">' +
             '<span>' + escapeHtml(cat.label) + '</span><span class="cat-count">' + counts[cat.id] + '</span></a></li>';
@@ -240,7 +249,8 @@
         document.getElementById('tag-filters').innerHTML = tagItems.map(function (item) {
           var tag = item.id;
           var active = state.tag === tag ? ' is-active' : '';
-          return '<span class="dc-tag' + active + '" data-tag="' + escapeHtml(tag) + '" title="' + item.count + ' topics">' + escapeHtml(tag) + '</span>';
+          var label = item.label || tagLabel(tag);
+          return '<span class="dc-tag' + active + '" data-tag="' + escapeHtml(tag) + '" title="' + item.count + ' topics">' + escapeHtml(label) + '</span>';
         }).join('');
       }
 
@@ -255,13 +265,17 @@
 
         container.innerHTML = list.map(function (t) {
           var tagsHtml = t.tags.map(function (tag) {
-            return '<span class="topic-tag">' + escapeHtml(tag) + '</span>';
+            return '<span class="topic-tag">' + escapeHtml(tagLabel(tag)) + '</span>';
           }).join('');
+
+          var titleHtml = isLinkableTopicUrl(t.url)
+            ? '<a href="' + escapeHtml(t.url) + '" class="dc-topic-title" target="_blank" rel="noopener">' + escapeHtml(t.title) + '</a>'
+            : '<span class="dc-topic-title dc-topic-title--static">' + escapeHtml(t.title) + '</span>';
 
           return '<article class="dc-topic">' +
             '<div class="dc-avatar" style="background:' + t.avatar + '">' + escapeHtml(t.initials) + '</div>' +
             '<div class="dc-topic-body">' +
-            '<a href="' + escapeHtml(t.url) + '" class="dc-topic-title" target="_blank" rel="noopener">' + escapeHtml(t.title) + '</a>' +
+            titleHtml +
             '<div class="dc-topic-meta">' +
             '<span class="cat-pill ' + escapeHtml(t.category) + '">' + escapeHtml(categoryLabel(t.category)) + '</span>' +
             '<span class="cat-pill qa">OceanBase Q&amp;A</span>' +
