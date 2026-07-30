@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./demo.css?v=20260730-seed1" />
+  <link rel="stylesheet" href="./demo.css?v=20260730-seed2" />
 </head>
 <body>
 
@@ -224,20 +224,25 @@
       }
 
       function renderTags() {
-        var tagCounts = {};
-        topics.forEach(function (t) {
-          t.tags.forEach(function (tag) {
-            tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+        var tagItems = data.sidebar_tags || [];
+        if (!tagItems.length) {
+          var tagCounts = {};
+          topics.forEach(function (t) {
+            t.tags.forEach(function (tag) {
+              tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+            });
           });
-        });
+          tagItems = Object.keys(tagCounts).sort(function (a, b) {
+            return tagCounts[b] - tagCounts[a] || a.localeCompare(b);
+          }).slice(0, 20).map(function (tag) {
+            return { id: tag, count: tagCounts[tag] };
+          });
+        }
 
-        var sorted = Object.keys(tagCounts).sort(function (a, b) {
-          return tagCounts[b] - tagCounts[a] || a.localeCompare(b);
-        });
-
-        document.getElementById('tag-filters').innerHTML = sorted.map(function (tag) {
+        document.getElementById('tag-filters').innerHTML = tagItems.map(function (item) {
+          var tag = item.id;
           var active = state.tag === tag ? ' is-active' : '';
-          return '<span class="dc-tag' + active + '" data-tag="' + escapeHtml(tag) + '" title="' + tagCounts[tag] + ' topics">' + escapeHtml(tag) + '</span>';
+          return '<span class="dc-tag' + active + '" data-tag="' + escapeHtml(tag) + '" title="' + item.count + ' topics">' + escapeHtml(tag) + '</span>';
         }).join('');
       }
 
