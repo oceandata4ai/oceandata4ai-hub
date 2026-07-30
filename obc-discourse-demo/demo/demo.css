@@ -191,6 +191,9 @@ img {
 
 /* ── Category hero banner ── */
 .category-hero {
+  --phi: 0.618;
+  --phi-minor: 0.382;
+  --hero-panel-max: min(900px, 56vw);
   position: relative;
   overflow: hidden;
   color: #fff;
@@ -236,8 +239,9 @@ img {
   background: linear-gradient(
     90deg,
     rgba(0, 20, 50, 0.22) 0%,
-    rgba(0, 20, 50, 0.08) 20%,
-    transparent 26%
+    rgba(0, 20, 50, 0.08) calc(var(--phi-minor) * 100% - 6%),
+    rgba(0, 20, 50, 0.03) calc(var(--phi-minor) * 100% - 2%),
+    transparent calc(var(--phi-minor) * 100%)
   );
   pointer-events: none;
 }
@@ -251,8 +255,18 @@ img {
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 48px 48px;
-  mask-image: linear-gradient(90deg, #000 0%, #000 24%, transparent 30%);
-  -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 24%, transparent 30%);
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 calc(var(--phi-minor) * 100% - 4%),
+    transparent calc(var(--phi-minor) * 100%)
+  );
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 calc(var(--phi-minor) * 100% - 4%),
+    transparent calc(var(--phi-minor) * 100%)
+  );
   pointer-events: none;
 }
 
@@ -262,11 +276,12 @@ img {
   width: 100%;
   max-width: none;
   margin: 0;
-  padding: 36px clamp(16px, 6vw, 120px) 40px;
+  padding: 36px 16px 40px;
+  padding-left: max(16px, calc((100vw - var(--hero-panel-max)) * var(--phi-minor)));
 }
 
 .hero-copy {
-  max-width: min(900px, 56vw);
+  max-width: var(--hero-panel-max);
   padding: 22px 24px;
   border-radius: 8px;
   background: rgba(0, 25, 55, 0.2);
@@ -704,6 +719,12 @@ img {
     margin-left: 0;
     justify-content: flex-start;
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .category-hero-inner {
+    padding-left: 16px;
   }
 }
 

@@ -26,8 +26,8 @@
 | Field | Discourse field | Copy |
 |-------|-----------------|------|
 | Category name | Category → Name | `OceanBase Q&A` |
-| Banner title (H1) | Theme / custom HTML | `Ask OceanBase Community (OBC)` |
-| Category description | Category → About / description | `The place where you can ask questions, share knowledge, search previous discussions, and connect with other OceanBase users.` |
+| Banner title (H1) | Theme / custom HTML | `Welcome to the OceanBase community!` |
+| Category description | Category → About / description | `Ask OceanBase Community (OBC) is the place to ask questions, share knowledge, search previous discussions, and connect with other OceanBase users.` |
 
 ### 2.2 Short copy (if character limit)
 
@@ -86,34 +86,35 @@ Search, ask, and share solutions with DBAs and developers worldwide.
 
 | Element | Spec |
 |---------|------|
-| Safe area | Left-align copy panel within **120px** left padding; **900px** max panel width (may overlap into photo column 3) |
+| Safe area | Golden-ratio inset: panel offset `(100vw - panelMax) × 0.382`; scrim fades at **38.2%** |
 | Min height | **280px** (mobile), **320–400px** (desktop) |
 | Text align | Left |
 | Emoji | None in v0.1 (optional `🌊` in v0.2) |
-| Image style | Community photo stitch + left scrim + frosted copy panel |
-| Text contrast | Scrim limited to left **26%**; copy panel `rgba(0,25,55,0.2)` + `blur(4px)` + text-shadow |
+| Image style | Community photo stitch + φ-weighted scrim + frosted copy panel |
+| Text contrast | Scrim to **38.2%**; copy panel `rgba(0,25,55,0.2)` + `blur(4px)` + text-shadow |
 
 ### 3.4 Text readability (required)
 
 Apply both layers so white copy stays readable on busy photos:
 
-1. **Left scrim** — `::after` gradient limited to the first photo column (~26%)
-2. **Copy panel** — `.hero-copy` narrow frosted card (≈360px) on the left, clear of photo column 2
+1. **Left scrim** — `::after` gradient fades at **38.2%** (golden-ratio minor segment)
+2. **Copy panel** — `.hero-copy` offset with `(100vw - panelMax) × 0.382` left inset
 
 ```css
+.category-hero {
+  --phi-minor: 0.382;
+  --hero-panel-max: min(900px, 56vw);
+}
+
+.category-hero-inner {
+  padding-left: max(16px, calc((100vw - var(--hero-panel-max)) * var(--phi-minor)));
+}
+
 .category-hero::after {
   background: linear-gradient(90deg,
     rgba(0, 20, 50, 0.22) 0%,
-    rgba(0, 20, 50, 0.08) 20%,
-    transparent 26%);
-}
-
-.hero-copy {
-  background: rgba(0, 25, 55, 0.2);
-  backdrop-filter: blur(4px);
-  border-radius: 8px;
-  padding: 22px 24px;
-  max-width: 900px;
+    rgba(0, 20, 50, 0.08) 32.2%,
+    transparent 38.2%);
 }
 ```
 
