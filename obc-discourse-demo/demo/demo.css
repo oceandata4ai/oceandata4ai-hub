@@ -266,7 +266,7 @@ img {
 }
 
 .hero-copy {
-  max-width: min(360px, 88vw);
+  max-width: min(900px, 56vw);
   padding: 22px 24px;
   border-radius: 8px;
   background: rgba(0, 25, 55, 0.2);
@@ -278,11 +278,12 @@ img {
 
 .category-hero h1 {
   margin: 0 0 10px;
-  font-size: clamp(1.6rem, 3.5vw, 2.25rem);
+  font-size: clamp(1.2rem, 1.9vw, 1.65rem);
   font-weight: 700;
   line-height: 1.2;
   color: #fff;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.55);
+  white-space: nowrap;
 }
 
 .category-hero .cat-label {
@@ -703,6 +704,13 @@ img {
     margin-left: 0;
     justify-content: flex-start;
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .category-hero h1 {
+    white-space: normal;
+    font-size: 1.35rem;
   }
 }
 

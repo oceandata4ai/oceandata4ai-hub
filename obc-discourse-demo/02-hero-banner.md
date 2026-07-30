@@ -86,7 +86,7 @@ Search, ask, and share solutions with DBAs and developers worldwide.
 
 | Element | Spec |
 |---------|------|
-| Safe area | Left-align copy panel within **120px** left padding; **360px** max panel width (≈ one photo column) |
+| Safe area | Left-align copy panel within **120px** left padding; **900px** max panel width (may overlap into photo column 3) |
 | Min height | **280px** (mobile), **320–400px** (desktop) |
 | Text align | Left |
 | Emoji | None in v0.1 (optional `🌊` in v0.2) |
@@ -113,7 +113,7 @@ Apply both layers so white copy stays readable on busy photos:
   backdrop-filter: blur(4px);
   border-radius: 8px;
   padding: 22px 24px;
-  max-width: 360px;
+  max-width: 900px;
 }
 ```
 
