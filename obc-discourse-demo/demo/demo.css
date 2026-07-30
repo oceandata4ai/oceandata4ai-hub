@@ -235,10 +235,10 @@ img {
   z-index: 1;
   background: linear-gradient(
     90deg,
-    rgba(0, 20, 50, 0.88) 0%,
-    rgba(0, 20, 50, 0.65) 42%,
-    rgba(0, 20, 50, 0.15) 68%,
-    transparent 100%
+    rgba(0, 20, 50, 0.35) 0%,
+    rgba(0, 20, 50, 0.18) 28%,
+    rgba(0, 20, 50, 0.06) 40%,
+    transparent 48%
   );
   pointer-events: none;
 }
@@ -264,13 +264,13 @@ img {
 }
 
 .hero-copy {
-  max-width: 600px;
+  max-width: 520px;
   padding: 24px 28px;
   border-radius: 8px;
-  background: rgba(0, 25, 55, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(0, 25, 55, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
 }
 
 .category-hero h1 {
@@ -279,7 +279,7 @@ img {
   font-weight: 700;
   line-height: 1.2;
   color: #fff;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .category-hero .cat-label {
@@ -290,6 +290,7 @@ img {
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
   margin-bottom: 6px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
 }
 
 .category-hero p {
@@ -298,6 +299,7 @@ img {
   font-size: 15px;
   line-height: 1.65;
   color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45);
 }
 
 .hero-ctas {

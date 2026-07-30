@@ -91,7 +91,7 @@ Search, ask, and share solutions with DBAs and developers worldwide.
 | Text align | Left |
 | Emoji | None in v0.1 (optional `🌊` in v0.2) |
 | Image style | Community photo stitch + left scrim + frosted copy panel |
-| Text contrast | Left scrim `rgba(0,20,50,0.88→0)` + copy panel `rgba(0,25,55,0.55)` + `backdrop-filter: blur(10px)` |
+| Text contrast | Narrow left scrim + light copy panel `rgba(0,25,55,0.32)` + `blur(6px)` + text-shadow |
 
 ### 3.4 Text readability (required)
 
@@ -103,18 +103,18 @@ Apply both layers so white copy stays readable on busy photos:
 ```css
 .category-hero::after {
   background: linear-gradient(90deg,
-    rgba(0, 20, 50, 0.88) 0%,
-    rgba(0, 20, 50, 0.65) 42%,
-    rgba(0, 20, 50, 0.15) 68%,
-    transparent 100%);
+    rgba(0, 20, 50, 0.35) 0%,
+    rgba(0, 20, 50, 0.18) 28%,
+    rgba(0, 20, 50, 0.06) 40%,
+    transparent 48%);
 }
 
 .hero-copy {
-  background: rgba(0, 25, 55, 0.55);
-  backdrop-filter: blur(10px);
+  background: rgba(0, 25, 55, 0.32);
+  backdrop-filter: blur(6px);
   border-radius: 8px;
   padding: 24px 28px;
-  max-width: 600px;
+  max-width: 520px;
 }
 ```
 
