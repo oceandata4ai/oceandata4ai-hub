@@ -432,6 +432,7 @@ img {
   background: #f3f4f6;
   color: var(--text-muted);
   font-size: 12px;
+  text-transform: none;
 }
 
 /* ── Topic list (Discourse table style) ── */
@@ -559,6 +560,7 @@ img {
   color: var(--text-muted);
   background: var(--surface-2, #f1f5f9);
   border: 1px solid var(--border, #e2e8f0);
+  text-transform: none;
 }
 
 .dc-sidebar .cat-count {

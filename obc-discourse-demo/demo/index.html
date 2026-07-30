@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./demo.css?v=20260730-seed4" />
+  <link rel="stylesheet" href="./demo.css?v=20260730-seed5" />
 </head>
 <body>
 
@@ -129,7 +129,7 @@
     </div>
   </footer>
 
-  <script src="./data/seed-topics.js"></script>
+  <script src="./data/seed-topics.js?v=20260730-seed5"></script>
   <script>
     document.getElementById('ob-menu-btn').addEventListener('click', function () {
       var nav = document.getElementById('ob-nav');
@@ -184,7 +184,12 @@
       function tagLabel(id) {
         if (data.tag_labels && data.tag_labels[id]) return data.tag_labels[id];
         var match = (data.sidebar_tags || []).find(function (item) { return item.id === id; });
-        return match && match.label ? match.label : id;
+        if (match && match.label) return match.label;
+        var special = { sql: 'SQL', ddl: 'DDL', ocp: 'OCP', cdc: 'CDC', jpa: 'JPA', mysql: 'MySQL' };
+        if (special[id]) return special[id];
+        return id.split('-').map(function (part) {
+          return part.charAt(0).toUpperCase() + part.slice(1);
+        }).join(' ');
       }
 
       function isLinkableTopicUrl(url) {
