@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./demo.css?v=20260730-seed2" />
+  <link rel="stylesheet" href="./demo.css?v=20260730-seed3" />
 </head>
 <body>
 
@@ -209,9 +209,7 @@
           counts[t.category] = (counts[t.category] || 0) + 1;
         });
 
-        var html = '<li class="' + (state.category === 'all' ? 'active' : '') + '">' +
-          '<a href="#" class="filter-link' + (state.category === 'all' ? ' is-active' : '') + '" data-category="all">' +
-          '<span>OceanBase Q&amp;A</span><span class="cat-count">' + counts.all + '</span></a></li>';
+        var html = '';
 
         data.categories.forEach(function (cat) {
           if (!counts[cat.id]) return;
@@ -286,7 +284,8 @@
         var link = e.target.closest('[data-category]');
         if (!link) return;
         e.preventDefault();
-        state.category = link.getAttribute('data-category');
+        var next = link.getAttribute('data-category');
+        state.category = state.category === next ? 'all' : next;
         render();
       });
 
