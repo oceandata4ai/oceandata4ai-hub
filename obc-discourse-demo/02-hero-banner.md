@@ -27,7 +27,7 @@
 |-------|-----------------|------|
 | Category name | Category → Name | `OceanBase Q&A` |
 | Banner title (H1) | Theme / custom HTML | `Ask OceanBase Community` |
-| Category description | Category → About / description | `Connect with DBAs and developers building on OceanBase. Ask OceanBase Community (OBC) is our community Q&A board — search existing threads or post a new question.` |
+| Category description | Category → About / description | `Join the OceanBase community. Ask OceanBase Community (OBC) is the place to ask questions, share knowledge, search previous discussions, and connect with other OceanBase users.` |
 
 ### 2.2 Short copy (if character limit)
 
