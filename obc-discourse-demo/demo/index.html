@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./demo.css?v=20260730-hero8" />
+  <link rel="stylesheet" href="./demo.css?v=20260730-seed1" />
 </head>
 <body>
 
@@ -69,17 +69,9 @@
         <li><a href="#">Tags</a></li>
       </ul>
       <h3>Categories</h3>
-      <ul>
-        <li class="active"><a href="#">OceanBase Q&amp;A</a></li>
-        <li><a href="#">All categories</a></li>
-      </ul>
+      <ul id="category-filters"></ul>
       <h3>Tags</h3>
-      <div class="tags">
-        <span class="dc-tag">deployment</span>
-        <span class="dc-tag">migration</span>
-        <span class="dc-tag">sql</span>
-        <span class="dc-tag">troubleshooting</span>
-      </div>
+      <div class="tags" id="tag-filters"></div>
     </aside>
 
   <main class="dc-main">
@@ -90,71 +82,7 @@
           <span>Views</span>
           <span>Activity</span>
         </div>
-        <article class="dc-topic">
-          <div class="dc-avatar" style="background:#2563eb">DA</div>
-          <div class="dc-topic-body">
-            <a href="#" class="dc-topic-title">How to migrate from MySQL to OceanBase with minimal downtime?</a>
-            <div class="dc-topic-meta">
-              <span class="cat-pill migration">migration</span>
-              <span class="cat-pill qa">OceanBase Q&amp;A</span>
-            </div>
-          </div>
-          <div class="dc-stat">12<small>replies</small></div>
-          <div class="dc-stat">284<small>views</small></div>
-          <div class="dc-activity">Jul 28</div>
-        </article>
-        <article class="dc-topic">
-          <div class="dc-avatar" style="background:#7c3aed">CO</div>
-          <div class="dc-topic-body">
-            <a href="#" class="dc-topic-title">OBProxy connection timeout in Kubernetes — best practices?</a>
-            <div class="dc-topic-meta">
-              <span class="cat-pill deploy">deployment</span>
-              <span class="cat-pill qa">OceanBase Q&amp;A</span>
-            </div>
-          </div>
-          <div class="dc-stat">8<small>replies</small></div>
-          <div class="dc-stat">156<small>views</small></div>
-          <div class="dc-activity">Jul 27</div>
-        </article>
-        <article class="dc-topic">
-          <div class="dc-avatar" style="background:#d97706">QT</div>
-          <div class="dc-topic-body">
-            <a href="#" class="dc-topic-title">Partitioned table query plan differs between CE and enterprise</a>
-            <div class="dc-topic-meta">
-              <span class="cat-pill sql">sql</span>
-              <span class="cat-pill qa">OceanBase Q&amp;A</span>
-            </div>
-          </div>
-          <div class="dc-stat">5<small>replies</small></div>
-          <div class="dc-stat">98<small>views</small></div>
-          <div class="dc-activity">Jul 26</div>
-        </article>
-        <article class="dc-topic">
-          <div class="dc-avatar" style="background:#dc2626">PS</div>
-          <div class="dc-topic-body">
-            <a href="#" class="dc-topic-title">ERROR 4016 after upgrade to OceanBase 4.x</a>
-            <div class="dc-topic-meta">
-              <span class="cat-pill trouble">troubleshooting</span>
-              <span class="cat-pill qa">OceanBase Q&amp;A</span>
-            </div>
-          </div>
-          <div class="dc-stat">17<small>replies</small></div>
-          <div class="dc-stat">412<small>views</small></div>
-          <div class="dc-activity">Jul 25</div>
-        </article>
-        <article class="dc-topic">
-          <div class="dc-avatar" style="background:#059669">DE</div>
-          <div class="dc-topic-body">
-            <a href="#" class="dc-topic-title">CDC sync lag spikes during peak traffic — tuning tips?</a>
-            <div class="dc-topic-meta">
-              <span class="cat-pill migration">migration</span>
-              <span class="cat-pill qa">OceanBase Q&amp;A</span>
-            </div>
-          </div>
-          <div class="dc-stat">6<small>replies</small></div>
-          <div class="dc-stat">73<small>views</small></div>
-          <div class="dc-activity">Jul 24</div>
-        </article>
+        <div id="topic-list"></div>
       </div>
     </main>
   </div>
@@ -201,6 +129,7 @@
     </div>
   </footer>
 
+  <script src="./data/seed-topics.js"></script>
   <script>
     document.getElementById('ob-menu-btn').addEventListener('click', function () {
       var nav = document.getElementById('ob-nav');
@@ -234,6 +163,137 @@
       }
 
       startCarousel();
+    })();
+
+    (function () {
+      var data = window.OBC_SEED_TOPICS;
+      if (!data || !data.topics) return;
+
+      var topics = data.topics;
+      var state = { category: 'all', tag: null };
+
+      var CATEGORY_LABELS = {
+        kernel: 'Kernel',
+        operations: 'Operations',
+        compatibility: 'Compatibility',
+        sql: 'SQL',
+        troubleshooting: 'Troubleshooting',
+        deployment: 'Deployment',
+        community: 'Community'
+      };
+
+      function escapeHtml(str) {
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function categoryLabel(id) {
+        return CATEGORY_LABELS[id] || id;
+      }
+
+      function filteredTopics() {
+        return topics.filter(function (t) {
+          if (state.category !== 'all' && t.category !== state.category) return false;
+          if (state.tag && t.tags.indexOf(state.tag) === -1) return false;
+          return true;
+        });
+      }
+
+      function renderCategories() {
+        var ul = document.getElementById('category-filters');
+        var counts = { all: topics.length };
+        topics.forEach(function (t) {
+          counts[t.category] = (counts[t.category] || 0) + 1;
+        });
+
+        var html = '<li class="' + (state.category === 'all' ? 'active' : '') + '">' +
+          '<a href="#" class="filter-link' + (state.category === 'all' ? ' is-active' : '') + '" data-category="all">' +
+          '<span>OceanBase Q&amp;A</span><span class="cat-count">' + counts.all + '</span></a></li>';
+
+        data.categories.forEach(function (cat) {
+          if (!counts[cat.id]) return;
+          html += '<li class="' + (state.category === cat.id ? 'active' : '') + '">' +
+            '<a href="#" class="filter-link' + (state.category === cat.id ? ' is-active' : '') + '" data-category="' + cat.id + '">' +
+            '<span>' + escapeHtml(cat.label) + '</span><span class="cat-count">' + counts[cat.id] + '</span></a></li>';
+        });
+
+        ul.innerHTML = html;
+      }
+
+      function renderTags() {
+        var tagCounts = {};
+        topics.forEach(function (t) {
+          t.tags.forEach(function (tag) {
+            tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+          });
+        });
+
+        var sorted = Object.keys(tagCounts).sort(function (a, b) {
+          return tagCounts[b] - tagCounts[a] || a.localeCompare(b);
+        });
+
+        document.getElementById('tag-filters').innerHTML = sorted.map(function (tag) {
+          var active = state.tag === tag ? ' is-active' : '';
+          return '<span class="dc-tag' + active + '" data-tag="' + escapeHtml(tag) + '" title="' + tagCounts[tag] + ' topics">' + escapeHtml(tag) + '</span>';
+        }).join('');
+      }
+
+      function renderTopics() {
+        var list = filteredTopics();
+        var container = document.getElementById('topic-list');
+
+        if (!list.length) {
+          container.innerHTML = '<p class="dc-list-empty">No topics match this filter.</p>';
+          return;
+        }
+
+        container.innerHTML = list.map(function (t) {
+          var tagsHtml = t.tags.map(function (tag) {
+            return '<span class="topic-tag">' + escapeHtml(tag) + '</span>';
+          }).join('');
+
+          return '<article class="dc-topic">' +
+            '<div class="dc-avatar" style="background:' + t.avatar + '">' + escapeHtml(t.initials) + '</div>' +
+            '<div class="dc-topic-body">' +
+            '<a href="' + escapeHtml(t.url) + '" class="dc-topic-title" target="_blank" rel="noopener">' + escapeHtml(t.title) + '</a>' +
+            '<div class="dc-topic-meta">' +
+            '<span class="cat-pill ' + escapeHtml(t.category) + '">' + escapeHtml(categoryLabel(t.category)) + '</span>' +
+            '<span class="cat-pill qa">OceanBase Q&amp;A</span>' +
+            tagsHtml +
+            '</div></div>' +
+            '<div class="dc-stat">' + t.replies + '<small>replies</small></div>' +
+            '<div class="dc-stat">' + t.views + '<small>views</small></div>' +
+            '<div class="dc-activity">' + escapeHtml(t.activity) + '</div>' +
+            '</article>';
+        }).join('');
+      }
+
+      function render() {
+        renderCategories();
+        renderTags();
+        renderTopics();
+      }
+
+      document.getElementById('category-filters').addEventListener('click', function (e) {
+        var link = e.target.closest('[data-category]');
+        if (!link) return;
+        e.preventDefault();
+        state.category = link.getAttribute('data-category');
+        render();
+      });
+
+      document.getElementById('tag-filters').addEventListener('click', function (e) {
+        var tagEl = e.target.closest('[data-tag]');
+        if (!tagEl) return;
+        var tag = tagEl.getAttribute('data-tag');
+        state.tag = state.tag === tag ? null : tag;
+        render();
+      });
+
+      render();
     })();
   </script>
 </body>

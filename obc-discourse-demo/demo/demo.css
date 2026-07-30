@@ -530,6 +530,59 @@ img {
 .cat-pill.deploy { background: #7c3aed; }
 .cat-pill.sql { background: #d97706; }
 .cat-pill.trouble { background: #dc2626; }
+.cat-pill.kernel { background: #4338ca; }
+.cat-pill.operations { background: #0d9488; }
+.cat-pill.compatibility { background: #c026d3; }
+.cat-pill.troubleshooting { background: #dc2626; }
+.cat-pill.deployment { background: #7c3aed; }
+.cat-pill.community { background: #ea580c; }
+
+.topic-tag {
+  display: inline-block;
+  padding: 1px 7px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface-2, #f1f5f9);
+  border: 1px solid var(--border, #e2e8f0);
+}
+
+.dc-sidebar .cat-count {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.dc-sidebar .filter-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+
+.dc-sidebar .filter-link.is-active {
+  font-weight: 600;
+  color: var(--ob-blue);
+}
+
+.dc-tag.is-active {
+  background: #dbeafe;
+  border-color: #93c5fd;
+  color: #1d4ed8;
+}
+
+.dc-tag {
+  cursor: pointer;
+}
+
+.dc-list-empty {
+  padding: 32px 20px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+}
 
 .dc-stat {
   text-align: center;
