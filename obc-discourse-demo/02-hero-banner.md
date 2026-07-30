@@ -86,13 +86,41 @@ Search, ask, and share solutions with DBAs and developers worldwide.
 
 | Element | Spec |
 |---------|------|
-| Safe area | Keep text within **120px** left padding; **960px** max text width |
+| Safe area | Keep text within **120px** left padding; **600px** max copy panel width |
 | Min height | **280px** (mobile), **320–400px** (desktop) |
 | Text align | Left |
 | Emoji | None in v0.1 (optional `🌊` in v0.2) |
-| Image style | Deep blue gradient + light grid; no busy illustration |
+| Image style | Community photo stitch + left scrim + frosted copy panel |
+| Text contrast | Left scrim `rgba(0,20,50,0.88→0)` + copy panel `rgba(0,25,55,0.55)` + `backdrop-filter: blur(10px)` |
 
-### 3.4 No-image fallback (CSS)
+### 3.4 Text readability (required)
+
+Apply both layers so white copy stays readable on busy photos:
+
+1. **Left scrim** — `::after` gradient across full banner width
+2. **Copy panel** — `.hero-copy` frosted card wrapping label, H1, description, and CTAs
+
+```css
+.category-hero::after {
+  background: linear-gradient(90deg,
+    rgba(0, 20, 50, 0.88) 0%,
+    rgba(0, 20, 50, 0.65) 42%,
+    rgba(0, 20, 50, 0.15) 68%,
+    transparent 100%);
+}
+
+.hero-copy {
+  background: rgba(0, 25, 55, 0.55);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  padding: 24px 28px;
+  max-width: 600px;
+}
+```
+
+Fallback when `backdrop-filter` is unsupported: use `background: rgba(0, 25, 55, 0.85)`.
+
+### 3.5 No-image fallback (CSS)
 
 If PNG is not loaded, use CSS gradient only:
 
@@ -102,7 +130,7 @@ color: #ffffff;
 padding: 48px 120px;
 ```
 
-### 3.5 Responsive
+### 3.6 Responsive
 
 | Breakpoint | Behavior |
 |------------|----------|
